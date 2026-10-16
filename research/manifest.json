@@ -1,0 +1,22 @@
+{
+  "investigation_date": "2026-10-15",
+  "target_url": "https://retrobowl.me/",
+  "embedded_game_url": "https://retrobowl.me/g/retro-bowl/index.html",
+  "observed_script_url": "https://retrobowl.me/g/retro-bowl/html5game/RetroBowl.js?ILABC=1551937871",
+  "decoded_reference_script_sha256": "b9fa66b6dc5ca60c5e3276cc653703802a37828ea8e1379d89e0bb54041e1118",
+  "raw_bundle_sha256": "9bf66e911f2d0cd015f7ba3f81831d03abc750090abd4b929a2bbe2050420686",
+  "raw_bundle_bytes": 7970485,
+  "raw_bundle_record_count": 2,
+  "evidence": {
+    "host_load_dom_network_screenshot": "ev_541d18027d690f44f079a115d62aeee8a4c2ad1dce50b76abe69c82b8f0d2893",
+    "actual_script_browser_dom": "ev_6e007ea127df56cbbe754015ef0fde8a9fa3219e3b7017e1ed853d721f2c2551",
+    "game_load_canvas_center_click": "ev_24d603790854397ce41c9dc8ca11ae4889f712832aac4e4b71b2ab0baa960e4c",
+    "game_load_enter_press": "ev_2ccceefa55aaf34365484f3976046f1be74b6736eac70ce6dc379786caa789ca",
+    "static_analysis_parent": "ev_5a7181a11d26300ab24a0818db8771b1bd234a928fa5d6846a4a8faf515a9796",
+    "static_summary": "ev_c902e3dae5bc1db794befaa9fe3a4c97b019d0f9bf83315c4aa5fd93569f8cc3"
+  },
+  "raw_bundle_coverage": "Host and script captures only; additional runtime and static evidence retained by REA session but not in this first exported bundle.",
+  "static_coverage": "One parsed source, 7166779 UTF-8 bytes, no parse failures. Semantic graph capped at 5000 nodes and partial; 143466 semantic unknowns.",
+  "runtime_coverage": "Actual welcome screen loaded. Center-canvas click and Enter did not advance. No original full match or physical controller test.",
+  "provenance_boundary": "Raw bundle and proprietary reference source retained locally for analysis only; exclude both from original-game distribution. All findings paraphrased in REA-FINDINGS.md. No source or assets copied into implementation."
+}

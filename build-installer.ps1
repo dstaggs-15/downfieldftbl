@@ -1,0 +1,18 @@
+$ErrorActionPreference = 'Stop'
+$root = Split-Path -Parent $MyInvocation.MyCommand.Path
+$compiler = Join-Path $env:WINDIR 'Microsoft.NET\Framework64\v4.0.30319\csc.exe'
+$game = Join-Path $root 'build\Downfield.exe'
+if (!(Test-Path -LiteralPath $game)) { throw 'Run build.ps1 first.' }
+$play = Join-Path $root 'play me'
+$portable = Join-Path $play 'Downfield'
+New-Item -ItemType Directory -Force -Path $portable | Out-Null
+Copy-Item -LiteralPath $game -Destination (Join-Path $portable 'Downfield.exe') -Force
+Copy-Item -LiteralPath (Join-Path $root 'play me\START HERE.txt') -Destination (Join-Path $portable 'START HERE.txt') -Force
+Copy-Item -LiteralPath (Join-Path $root 'LICENSE.txt') -Destination (Join-Path $portable 'LICENSE.txt') -Force
+Copy-Item -LiteralPath (Join-Path $root 'docs\FRANCHISE-GUIDE.md') -Destination (Join-Path $portable 'FRANCHISE-GUIDE.md') -Force
+$output = Join-Path $play 'Install Downfield.exe'
+& $compiler /nologo /optimize+ /target:winexe /platform:x64 /r:System.Drawing.dll /r:System.Windows.Forms.dll "/resource:$game,Downfield.Game" "/resource:$root\play me\START HERE.txt,Downfield.Readme" "/resource:$root\docs\FRANCHISE-GUIDE.md,Downfield.Guide" "/resource:$root\LICENSE.txt,Downfield.License" "/out:$output" (Join-Path $root 'installer\Installer.cs')
+if ($LASTEXITCODE -ne 0) { throw 'Installer build failed' }
+$test = Start-Process -FilePath $output -ArgumentList '--self-test' -WindowStyle Hidden -Wait -PassThru
+if ($test.ExitCode -ne 0) { throw 'Installer self-test failed' }
+Write-Host 'Installer verified: embedded game, desktop copy, guide/license, repeat install and save preservation.'

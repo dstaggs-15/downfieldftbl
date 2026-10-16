@@ -1,0 +1,44 @@
+DOWNFIELD 2
+
+Want the easy setup? Open Install Downfield.exe and click INSTALL GAME.
+You'll get Downfield 2.exe on your desktop. That's what you open to play.
+The installer already contains the game. You don't need to download anything else or have an admin account.
+
+If you'd rather skip setup, open the Downfield folder and run Downfield.exe.
+This is a Windows 10/11 game for a 64-bit PC. It uses Windows' .NET Framework.
+This isn't a Mac, Linux, phone or browser version.
+
+On GitHub, download the installer using the download/raw button, not Save Page As.
+Or click Code > Download ZIP, extract it, and open the play me folder.
+The installer is unsigned, so Windows may identify it as an unfamiliar app.
+The complete source is included in the repository if you want to inspect or build it.
+
+QUICK CONTROLS
+Xbox: left stick move, RT sprint, A snap. A/X/Y/B/RB pass to that receiver.
+Tap an icon for a lob; hold and release for a bullet.
+With the ball: right stick left/right juke, down spin, up truck.
+Y jumps after you cross the line. X dives. LB pitches backward.
+Y before the snap opens the playbook. Menu pauses.
+
+Keyboard: WASD move, Shift sprint, Space snap, 1-5 pass.
+Arrow keys juke/spin/truck, J jump, F dive, E spin, Q lateral.
+Y before the snap opens the playbook. Escape pauses.
+
+YOUR TEAM
+Start in the Clubhouse. Pick a club before the opener, including New Orleans.
+Use View Roster to manage starters and reserves. New signings start on the bench.
+The office also has trades, coaches, training, team colors, standings and playoffs.
+12 teams. 11 regular season games. The top 6 make the playoffs; top 2 get byes.
+
+SIM OPTIONS
+Schedule > Sim Next Game
+Pause > Sim Rest of Game
+Playbook > Simulate Drive (before the snap)
+
+Your team saves automatically. A live game can't be resumed after closing it.
+Leaving an unfinished league game records a 0-21 forfeit.
+Saves are separate from the installation, in %LOCALAPPDATA%\Downfield.
+Updating or reinstalling the game keeps those saves.
+
+Full instructions: FRANCHISE-GUIDE.md
+Game and source: https://github.com/dstaggs-15/downfieldftbl

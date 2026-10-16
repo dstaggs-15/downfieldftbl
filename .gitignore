@@ -1,0 +1,12 @@
+build/
+*.installing
+*.tmp
+*.bak
+*.previous
+club.txt*
+*.user
+*.suo
+.vs/
+# Local research captures and proprietary reference files stay out of distribution.
+research/*reference*.js
+research/*evidence*.json

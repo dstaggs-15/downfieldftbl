@@ -1,0 +1,114 @@
+# Downfield 2 — Franchise update
+
+Open **Downfield 2.exe** on the Desktop. **Downfield 2 Updated.exe** is also refreshed with the same build. The source and rebuild script remain in `Downloads/Downfield-v2`.
+
+## Start here
+
+1. Open **Clubhouse** from the main menu. Your team colors, pennant, play board, desk and GM appear in an original pixel-art office.
+2. **Choose Your Club** lets you take charge of one of 12 clubs before the season opener. New Orleans Crescent is included. This selects an existing franchise; **Move Team** instead relocates your current club while keeping its roster, records and schedule.
+3. Open **View Roster**. Select a player to set his starting slot, renew his contract, release him, or seek a trade. Newly signed players arrive as reserves; you choose where to start them.
+4. **Season Schedule** has Play Scheduled Game and Sim Next Game below your fixtures. Use LB/RB to jump a page, or Q/R on keyboard. Advance League handles byes and spectator playoff rounds.
+
+Office navigation: D-pad/left stick moves through departments; left/right changes columns. A enters and B returns. On keyboard use arrows, Enter and Escape. Long lists scroll through pages and show a row counter. Transaction reviews start on Cancel; choose Confirm to commit a purchase, trade, relocation or staff hire.
+
+## Team building
+
+The initial squad has 25 distinct players: 22 starting assignments plus reserve QB, RB and WR. The limit is 30. Your starting 11 offensive players are individually represented on the field, and your opponent fields its own defensive 11. Your defensive roster contributes to simulated opponent possessions. Signing a WR or lineman no longer upgrades everyone at that position.
+
+Players have OVR, speed, hands, power, age, salary, contract length, morale, development XP and injury recovery time. OVR influences acceleration/reaction/release, speed determines pace, hands influence receiving and power affects throwing/blocking/trucking. Skills can develop up to 99.
+
+- **Sign Players:** 30 initial free agents span every OVR from 70 through 99. Review the signing fee and salary before buying. Free agents join on three-year contracts and use an individual reserve slot.
+- **Salary cap:** 240 salary units. Salary occupies cap space; it is separate from the one-time credit fee. Releasing a reserve frees cap space without refunding signing credits. A starter must be replaced before he can be released.
+- **Depth chart:** choose an eligible starting slot for a player. The former starter moves into that player's previous slot or onto the bench. This allows different WR and OL assignments instead of replacing an entire position group.
+- **Contracts:** renewals add two seasons, capped at four. Contracts age at the start of each new season. Expiring players enter free agency. A healthy reserve fills a vacancy; otherwise the club gets a 70 OVR rookie so all 22 assignments remain playable.
+- **Trades:** select an outgoing player, another club, then a player at the same position. An upgrade of more than nine OVR is rejected; smaller upgrades may require credits. Both clubs must remain below the salary cap. The trade deadline begins in Week 9 and trading reopens next season.
+- **Coaches:** hire tiers 1–3 in offense, defense and conditioning. Offense improves the passing unit. Defense improves opponent-drive outcomes. Conditioning reduces stamina use and injury risk and adds training XP. Hiring replaces the tier in that staff role; it does not stack infinite coaches.
+- **Training:** one three-credit session per league week, targeting passing, running or defense. Under-26 players need eight XP to develop; veterans need 12. Games also award XP. Ratings are capped at 99, and veterans over 30 lose a little speed and OVR each offseason.
+- **Facilities:** upgrade passing, running and defense facilities to level five. Costs rise with each level. Facility and staff changes apply to the next match.
+- **Move Team:** costs 15 credits and requires an unoccupied city. Moving preserves your league identity and standings record.
+- **Edit Team:** cycle mascot, primary color and secondary color, then save. Branding changes are free and update the office, main menu, scoreboard, uniforms and end zones. Identical primary/secondary colors are adjusted to keep a contrasting accent.
+- **Standings:** inspect wins, losses, ties, points scored, points allowed, differential and team ratings. Select a club to scout its roster.
+- **Injury Report:** shows unavailable players and weeks until recovery. The roster also marks injured players.
+
+Credits: eight for winning a game, four for a loss or draw, 24 for a championship and 24 to open the next season. Simulated games award the same game credits. Historical W/L/D and the existing club upgrades are retained/imported; the new league starts a fresh season rather than inventing past opponents for old games.
+
+## League and playoffs
+
+There are 12 fictional clubs: Chicago, New Orleans, Atlanta, Dallas, Miami, Seattle, New York, Los Angeles, Denver, Buffalo, Portland and Nashville.
+
+Each club plays all 11 other clubs once. Your match finishes the week, and the other five fixtures are simulated. Standings rank by wins/ties (two points per win, one per tie), then point difference, then points scored, then stable team order. Regular-season games may end in a draw.
+
+The top six qualify. Seeds 1 and 2 receive first-round byes. Wild cards are 3 versus 6 and 4 versus 5. The semifinals reseed: seed 1 plays the lowest surviving seed and seed 2 plays the other winner. The two semifinal winners play for the championship. The projected bracket is explicitly provisional until Week 11 ends.
+
+If you are on a bye or eliminated, Advance Round resolves the remaining games. After the championship, begin the next season from Schedule. New seasons refresh the free-agent class, age players/contracts, retain club investments and career titles, and create a new schedule. A tied playoff game gets a **simulated sudden-death field-goal overtime**, weighted by team strength; playable overtime is not implemented.
+
+## Gameplay and controls
+
+Quarters are **60 seconds**. The offense-first arcade format remains: you play offense, while opponent possessions are simulated. There is no user-controlled defense or multiplayer.
+
+| Action | Xbox | Keyboard |
+|---|---|---|
+| Move / sprint | Left stick / RT | WASD / Shift |
+| Snap | A | Space / Enter |
+| Receiver icons | A, X, Y, B, RB | 1, 2, 3, 4, 5 |
+| Lob / bullet | Tap / hold-release receiver icon | Tap / hold-release number |
+| Lead a pass | Right stick | Arrows |
+| Juke left / right while carrying | Right stick left / right | Left / right arrows |
+| Truck while carrying | Right stick up | Up arrow |
+| Spin while carrying | Right stick down or B | Down arrow or E |
+| Jump past the line of scrimmage | **Y** | **J** |
+| Dive | X | F |
+| Handoff / backward lateral | LB | Q |
+| Playbook before snap | Y | Y |
+| Cycle pre-snap calls | D-pad left/right | Left/right arrows |
+| Pause | Menu | Escape / P |
+
+Y remains a passing icon while the QB can throw and opens the playbook before the snap. When carrying past the line, Y jumps; right-stick up now trucks instead of jumping. Skill moves cost stamina, have visible cooldowns and require the right stick to return toward center between flicks.
+
+The playbook has six passing packages and eight run calls: dive, inside zone, power right, counter left, sweep right, stretch left, draw and off tackle. Runs vary lane, blocking priority and draw mesh timing; steer after the handoff.
+
+## Grounded movement and arcade contact
+
+Movement accelerates toward the requested speed, plants on release, and slows into sharp reversals instead of instantly changing direction. Running backward is slower. Animation follows distance traveled, with visible body bob, cuts and planted feet. Nearby teammates separate instead of occupying the same location.
+
+Jukes create actual lateral space instead of granting blanket tackle immunity. Trucks use power versus defender power and nearby support, and can fail. Spin can beat an isolated reach but is not guaranteed. Jumps visibly lift the carrier and may clear a low lineman tackle; they do not make the runner untouchable. Big contacts produce a hit burst and reaction. Winning a truck launches the defender backward into a tumbling knockdown; losing a truck knocks the carrier back hard. Falls last about a second and continue after the whistle without changing the dead-ball spot. Contact fumbles remain possible, especially while sprinting.
+
+Injuries can occur on big hits. Injured players sit out future plays and are replaced by a healthy reserve at the same position, or an emergency 70 OVR player if no reserve is available. Recovery is one to three league weeks; a week advances even during a bye. Conditioning reduces injury risk. Simulated games can cause injuries too. There are no medical expenses, real-world injury diagnoses or permanent career-ending injuries.
+
+## Defense and receiver separation
+
+Eight defensive calls: man free, cover two, cover three, zone blitz, press man, quarters, Tampa two and robber. Many use a disguised two-high shell until after the snap. The game does **not** display the defensive call.
+
+The four rush plans are straight rush, tackle-end loop, end-tackle loop and cross fire. Straight rushes are the default (about 80% in a sampled sequence). Only one two-man pair stunts, stunt sides vary, and there are no back-to-back stunt calls. Loopers reach landmarks behind their partner before turning toward the quarterback. Blockers engage one rusher at a time; physical contacts and timed sheds replace scripted shoves. Edge rushers hold outside leverage against retreating quarterbacks. Linebackers/corners take interception angles and outside leverage on runners; safeties close lanes instead of forming a straight pursuit queue. Repeated offensive calls speed up defensive recognition a little.
+
+Man coverage reacts on an interval influenced by OVR. Zone players protect areas, pick up nearby routes and hand them off. Press releases depend on relative ratings/power. Individual speed differences, acceleration and route breaks create separation. The defense reacts to a thrown football after a delay instead of instantly knowing its destination.
+
+Receivers continue moving with scramble routes after their initial route develops, or when the QB moves far outside/behind the pocket. Comebacks, lateral outlets and differing depths replace the old static endpoints. Passing still uses spatial catches, drops and interceptions; a covered target is not guaranteed to catch.
+
+These are compact arcade models, not a complete NFL coverage or collision simulator.
+
+## Field goals and field dimensions
+
+Stop the kick meter, then watch a kicker windup/leg pose and a visible ball flight. Points are awarded only after the flight. Inaccurate kicks travel outside the uprights; out-of-range kicks fall short. PATs use the same visible kick sequence.
+
+The field is 100 yards between goal lines, 53 1/3 yards wide, with a 10-yard end zone at each end. Goal crossbars are at the back end line, with an offset support behind it; the crossbar is 10 feet high and uprights are 18 feet 6 inches apart. Extra painted turf beyond the end zone has been removed. Original pixel rendering remains stylized.
+
+Dimension reference: [NFL Football Operations — The Field](https://operations.nfl.com/rules-officiating/2026-nfl-rulebook).
+
+## Simulation
+
+- **Next game:** Clubhouse → Season Schedule → Sim Next Game. A review explains that your fixture and the other clubs' games count toward the season.
+- **Current drive:** use Simulate Drive in the pre-snap playbook or pause menu. This resolves the whole offensive possession using ratings and field position, including a simulated conversion after a touchdown. It is unavailable in practice, during a live play or during a conversion.
+- **Rest of game:** pause → Sim Rest of Game. The current score is retained and remaining possessions are simulated. The result is committed once to the league. This also handles a pending kick as part of the simulated remainder.
+
+Simulated drives are logged as simulated summaries; they are not reconstructed as individually played passes, rushes or kicking animations. Match statistics mix played action with the explicitly simulated drive/score summaries. The current match is not resumable after exiting. Leaving an unfinished league match records a 0–21 forfeit; the leave menu tells you this before confirmation. Window close also records that forfeit.
+
+## Saves, backup and validation
+
+New franchise state is saved beside the old club file at `%LOCALAPPDATA%/Downfield/club.txt.franchise.xml`, with an atomic previous-version `.bak`. Existing `club.txt` and `club.txt.roster` supply migration data and remain present. The original source/build before this update is backed up in `Downloads/Downfield-v2-backup-before-franchise`.
+
+**272 automated checks pass:** 42 simulation, 5 input, 11 profile, 19 earlier-update, 96 franchise, 22 mechanics, 12 line-play and 65 native UI checks. Tests use isolated save directories. Screenshots in this folder show the office, roster, market, trade/coaching pages, bracket, field/end zone, kick windup/flight and pause menu.
+
+Balance probes: 82 catches in 120 varied defended throw scenarios; 45 catches produced more than two yards after catch. A fixed sideline-sprint pattern was stopped in 60/60 trials, with about 2.9 yards average gain. These are scripted scenarios, not a human playtest or a guarantee against all exploits. Physical Xbox controller feel and prolonged human balance testing remain unverified.
+
+Rebuild: `powershell -ExecutionPolicy Bypass -File .\build.ps1`. Then run `build\Downfield.Tests.exe --ui-test` for native UI checks. No new runtime dependencies or proprietary Retro Bowl code/art are included.
