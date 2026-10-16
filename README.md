@@ -1,6 +1,6 @@
 # Downfield 2
 
-A little arcade football game I'm working on. I wanted quick games, Madden-style buttons, and a team you can actually build up over a season. It's still a work in progress, but you can play it now.
+A little arcade football game I'm working on. I wanted quick games, Madden-style buttons, and a team you can  build over a season. It's still a work in progress, but you can play it now.
 
 ## Just want to play?
 
@@ -16,11 +16,11 @@ You can also grab the whole repo with **Code > Download ZIP**, extract it, and o
 
 ## What the game is
 
-You play offense and try to put points on the board. Pick a run or pass, read what's open, and use your receivers' buttons to throw. The other team's drives are simulated. Quarters are one minute, so a game doesn't take all night.
+You play offense and try to put points on the board. Pick a run or pass, read what's open, and use your receivers' buttons to throw. The other team's drives are simulated. Quarters are one minute, so a game doesn't take long.
 
-There are jukes, spins, jumps, trucks, dives, fumbles, interceptions and field goals you actually watch fly through the air. The defense changes coverages, disguises some of them and mixes in occasional two-man stunts. Bigger hits can knock someone down or cause an injury.
+There are jukes, spins, jumps, trucks, dives, fumbles, interceptions and field goals. The defense changes coverages, disguises some of them and mixes in occasional two-man stunts. Bigger hits can knock someone down or cause an injury.
 
-It's meant to be fun and arcadey. It isn't trying to copy every NFL rule or be a full Madden replacement.
+It's meant to be fun and arcadey.
 
 ![On the field](docs/gameplay.png)
 
