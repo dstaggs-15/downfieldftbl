@@ -31,9 +31,9 @@ public partial class Simulation {
    if(near!=null){tx=near.X;tz=near.Z+(deep?2.5f:1.3f);if(!deep){tx=Clamp(tx,zx-8,zx+8);tz=Clamp(tz,Spot+2,Spot+15);}}
    if(deep){float deepest=Spot+14;for(int n=0;n<5;n++){Player r=Receiver(n);if(Math.Abs(r.X-zx)<14)deepest=Math.Max(deepest,r.Z+2);}tz=Math.Max(tz,deepest);}
   }
-  float familiarity=Math.Min(.12f,callsUsed[Math.Max(0,Math.Min(13,Playbook))]*.015f);
+  float familiarity=Math.Min(.12f,callsUsed[Math.Max(0,Math.Min(callsUsed.Length-1,Playbook))]*.015f);
   if(State==Phase.Flight&&passTime>.38f-familiarity+(p.OVR<80?.06f:0)&&Distance(p.X,p.Z,toX,toZ)<13){tx=toX;tz=toZ;}
-  p.ThinkTime-=dt;if(p.ThinkTime<=0){p.AimX=tx;p.AimZ=tz;p.ThinkTime=Math.Max(.12f,.25f-(p.OVR-70)*.003f)+(p.Number%3)*.015f;}
+  p.ThinkTime-=dt;if(p.ThinkTime<=0){p.AimX=tx;p.AimZ=tz;p.ThinkTime=Math.Max(.11f,.38f-(p.OVR-70)*.009f)+(p.Number%3)*.015f;}
   Move(p,p.AimX,p.AimZ,speed,dt);
  }
  void Rush(Player p,float speed,float dt){float tx=Controlled.X,tz=Controlled.Z;int index=Players.IndexOf(p)-11;float side=stuntSide==0?-1:1;

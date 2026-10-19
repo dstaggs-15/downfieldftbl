@@ -16,6 +16,7 @@ The complete source is included in the repository if you want to inspect or buil
 QUICK CONTROLS
 Xbox: left stick move, RT sprint, A snap. A/X/Y/B/RB pass to that receiver.
 Tap an icon for a lob; hold and release for a bullet.
+Move left stick slightly at release to place the pass.
 With the ball: right stick left/right juke, down spin, up truck.
 Y jumps after you cross the line. X dives. LB pitches backward.
 Y before the snap opens the playbook. Menu pauses.
@@ -25,10 +26,17 @@ Arrow keys juke/spin/truck, J jump, F dive, E spin, Q lateral.
 Y before the snap opens the playbook. Escape pauses.
 
 YOUR TEAM
-Start in the Clubhouse. Pick a club before the opener, including New Orleans.
-Use View Roster to manage starters and reserves. New signings start on the bench.
+Choose EXHIBITION for a quick game. Choose FRANCHISE for your saved team.
+Inside Franchise, open CLUBHOUSE. JOBS picks a club, including New Orleans.
+MY COACH changes your name and pixel look. TROPHIES tracks your awards.
+Use ROSTER to manage starters and reserves. New signings start on the bench.
 The office also has trades, coaches, training, team colors, standings and playoffs.
 12 teams. 11 regular season games. The top 6 make the playoffs; top 2 get byes.
+
+NEW PLAY TOOLS
+24 plays, including Read Option: LB/Q gives to the back, or keep and run.
+Playbook > Draw a Play lets you draw, save and load custom receiver routes.
+Original sound effects can be switched off in Options.
 
 SIM OPTIONS
 Schedule > Sim Next Game

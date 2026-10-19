@@ -16,3 +16,11 @@ if ($LASTEXITCODE -ne 0) { throw 'Installer build failed' }
 $test = Start-Process -FilePath $output -ArgumentList '--self-test' -WindowStyle Hidden -Wait -PassThru
 if ($test.ExitCode -ne 0) { throw 'Installer self-test failed' }
 Write-Host 'Installer verified: embedded game, desktop copy, guide/license, repeat install and save preservation.'
+$archive = Join-Path $play 'Downfield-Windows.zip'
+Compress-Archive -LiteralPath @($portable, $output, (Join-Path $play 'START HERE.txt')) -DestinationPath $archive -Force
+$hashes = foreach ($file in @($output, $archive, (Join-Path $portable 'Downfield.exe'))) {
+    $relative = $file.Substring($play.Length + 1).Replace('\', '/')
+    (Get-FileHash -LiteralPath $file -Algorithm SHA256).Hash.ToLowerInvariant() + '  ' + $relative
+}
+[IO.File]::WriteAllLines((Join-Path $play 'checksums.sha256'), $hashes)
+Write-Host 'Windows ZIP and SHA-256 checksums refreshed.'

@@ -1,13 +1,13 @@
-# Downfield 2 — Franchise update
+# Downfield 2 - Beta update
 
 Open **Downfield 2.exe** on the Desktop. **Downfield 2 Updated.exe** is also refreshed with the same build. The source and rebuild script remain in `Downloads/Downfield-v2`.
 
 ## Start here
 
-1. Open **Clubhouse** from the main menu. Your team colors, pennant, play board, desk and GM appear in an original pixel-art office.
-2. **Choose Your Club** lets you take charge of one of 12 clubs before the season opener. New Orleans Crescent is included. This selects an existing franchise; **Move Team** instead relocates your current club while keeping its roster, records and schedule.
-3. Open **View Roster**. Select a player to set his starting slot, renew his contract, release him, or seek a trade. Newly signed players arrive as reserves; you choose where to start them.
-4. **Season Schedule** has Play Scheduled Game and Sim Next Game below your fixtures. Use LB/RB to jump a page, or Q/R on keyboard. Advance League handles byes and spectator playoff rounds.
+1. Select **Franchise**, then **Clubhouse**. Your team colors, pennant, play board, desk and GM appear in an original pixel-art office.
+2. **Jobs** lets you take charge of one of 12 clubs before the season opener or between seasons. New Orleans Crescent is included. This selects an existing franchise; **Move** instead relocates your current club while keeping its roster, records and schedule.
+3. Open **Roster**. Select a player to set his starting slot, renew his contract, release him, or seek a trade. Newly signed players arrive as reserves; you choose where to start them.
+4. **Schedule** has Play Scheduled Game and Sim Next Game below your fixtures. Use LB/RB to jump a page, or Q/R on keyboard. Advance League handles byes and spectator playoff rounds.
 
 Office navigation: D-pad/left stick moves through departments; left/right changes columns. A enters and B returns. On keyboard use arrows, Enter and Escape. Long lists scroll through pages and show a row counter. Transaction reviews start on Cancel; choose Confirm to commit a purchase, trade, relocation or staff hire.
 
@@ -52,7 +52,8 @@ Quarters are **60 seconds**. The offense-first arcade format remains: you play o
 | Snap | A | Space / Enter |
 | Receiver icons | A, X, Y, B, RB | 1, 2, 3, 4, 5 |
 | Lob / bullet | Tap / hold-release receiver icon | Tap / hold-release number |
-| Lead a pass | Right stick | Arrows |
+| Small placement at release | Left stick | WASD |
+| Extra manual lead | Right stick | Arrows |
 | Juke left / right while carrying | Right stick left / right | Left / right arrows |
 | Truck while carrying | Right stick up | Up arrow |
 | Spin while carrying | Right stick down or B | Down arrow or E |
@@ -65,7 +66,41 @@ Quarters are **60 seconds**. The offense-first arcade format remains: you play o
 
 Y remains a passing icon while the QB can throw and opens the playbook before the snap. When carrying past the line, Y jumps; right-stick up now trucks instead of jumping. Skill moves cost stamina, have visible cooldowns and require the right stick to return toward center between flicks.
 
-The playbook has six passing packages and eight run calls: dive, inside zone, power right, counter left, sweep right, stretch left, draw and off tackle. Runs vary lane, blocking priority and draw mesh timing; steer after the handoff.
+The playbook has 12 passing packages and 12 runs. New passes include mesh cross, curl flats, HB wheel, corner shot, play action and Texas angle. Runs include dive, inside zone, power right, counter left, sweep right, stretch left, HB draw, off tackle, toss, jet sweep, read option and QB draw. Runs vary lane, blocking priority and draw mesh timing; steer after the handoff.
+
+## Exhibition and halftime
+
+The boot screen separates **Exhibition** from **Franchise**. Exhibition lets you pick both teams, start a quick game or practice. Its squads, injuries and results do not change your saved team, schedule or coach career. Franchise owns the clubhouse, league and team-building systems.
+
+You receive to start the game. At halftime there is a stop screen, a new 60-second third quarter, three timeouts, first-and-ten at the 20 and an opponent receiving possession. A touchdown as the second quarter expires still gets its conversion before halftime. First-to-second and third-to-fourth quarter changes keep the current drive.
+
+Regular games have team field art. Postseason scoreboards say PLAYOFF GAME or CHAMPIONSHIP GAME. Midfield reads DOWNFIELD PLAYOFF BOWL or DOWNFIELD CHAMPIONSHIP BOWL.
+
+## Coach, history and trophies
+
+**Franchise > My Coach** edits your name, skin tone, hair, hat and outfit. The letter picker works with Xbox buttons, mouse or typing. Names allow 16 characters. The same screen shows career wins, losses, ties, win percentage, playoff wins and titles.
+
+**Clubhouse > Jobs** changes clubs before the first game or after the championship. Your coach appearance, name and record follow you. Relocating with **Move** keeps your current team instead. Old saves recover results still present in their fixture list and retain known titles; missing past seasons are not invented.
+
+**History** archives all 12 clubs after each championship: season, record, points and champion. Select an entry for that club's history. **Champions** lists each season's winner. These records survive new seasons and relocation.
+
+**Trophies** has pixel championship, MVP and OPOTY trophies. Your coach keeps trophies earned with his club. Each category opens the league's winners list. Awards arrive after the championship, once per season. MVP uses production plus a small team-win bonus; OPOTY uses offensive production alone. Passing yards, rushing/receiving yards, touchdowns, catches and interceptions contribute. Defensive MVP statistics are not modeled. **Leaders** ranks the current season by this production score. Played games use player box stats; games with simulated action use deterministic score/ratings estimates for the award calculation. Exhibition never contributes.
+
+## New play tools
+
+The playbook shows six visual cards per page. Read Option starts with the QB: **LB / Q gives** to the back before crossing the line, or keep and run. QB Draw stays with the QB. Jet Sweep hands to the slot receiver. Receivers pursue blocks once your carrier crosses the line, including QB scrambles.
+
+For a small placement adjustment, move **left stick / WASD as you release** the receiver button. Maximum offset is 1.75 yards sideways and 2 yards up/downfield. Neutral means the normal predicted receiver location. QB power, accuracy, movement and pressure still affect the throw. The existing right-stick/arrow manual lead remains available.
+
+Open **Playbook > Draw a Play** before the snap. Pick one of five receivers, then click or drag points on the board. Routes are relative to the line of scrimmage. Unedited receivers keep the stock route. Each receiver allows 20 points. Undo removes a point; Clear Route resets the selected receiver; Run Play applies it. This draws routes, not new formations or run-block assignments.
+
+With a controller: left stick/D-pad moves the cursor, A adds a point, Y changes receiver, X undoes, RB saves, LB loads, Menu runs the play and B cancels. With keyboard use arrows/WASD, Enter, Y, X, R, Q and P respectively. You can store one custom play in your local save. Calling a stock play exits the custom play.
+
+## Sounds and ratings
+
+Options has a sound switch. Menu, snap, pass, catch, hit, truck, jump, kick, touchdown, whistle and halftime sounds are original generated waveforms. No third-party audio or extra audio downloads are needed. See SOUND-NOTES.md.
+
+Speed now has a wider range: a 99-speed WR is about 3.3 yards/second faster than a 70-speed corner before situational modifiers. OVR changes acceleration and defensive reaction, hands changes drops, and power changes accuracy/contact. A matched 200-throw open-receiver probe caught 147 with 70 hands and 185 with 99 hands. This is a scripted sample, not a promise that a covered receiver always wins.
 
 ## Grounded movement and arcade contact
 
@@ -107,8 +142,8 @@ Simulated drives are logged as simulated summaries; they are not reconstructed a
 
 New franchise state is saved beside the old club file at `%LOCALAPPDATA%/Downfield/club.txt.franchise.xml`, with an atomic previous-version `.bak`. Existing `club.txt` and `club.txt.roster` supply migration data and remain present. The original source/build before this update is backed up in `Downloads/Downfield-v2-backup-before-franchise`.
 
-**272 automated checks pass:** 42 simulation, 5 input, 11 profile, 19 earlier-update, 96 franchise, 22 mechanics, 12 line-play and 65 native UI checks. Tests use isolated save directories. Screenshots in this folder show the office, roster, market, trade/coaching pages, bracket, field/end zone, kick windup/flight and pause menu.
+**342 automated checks pass:** 42 simulation, 5 input, 11 profile, 19 earlier-update, 96 franchise, 22 mechanics, 12 line-play, 50 beta and 85 native UI checks. Tests use isolated save directories. Screenshots in this folder show the office, roster, market, trade/coaching pages, bracket, field/end zone, kick windup/flight and pause menu.
 
-Balance probes: 82 catches in 120 varied defended throw scenarios; 45 catches produced more than two yards after catch. A fixed sideline-sprint pattern was stopped in 60/60 trials, with about 2.9 yards average gain. These are scripted scenarios, not a human playtest or a guarantee against all exploits. Physical Xbox controller feel and prolonged human balance testing remain unverified.
+Balance probes: 65 catches in 120 varied defended throw scenarios; 47 catches produced more than two yards after catch. A fixed sideline-sprint pattern was stopped in 60/60 trials, with about 5.3 yards average gain. These are scripted scenarios, not a human playtest or a guarantee against all exploits. Physical Xbox controller feel and prolonged human balance testing remain unverified.
 
 Rebuild: `powershell -ExecutionPolicy Bypass -File .\build.ps1`. Then run `build\Downfield.Tests.exe --ui-test` for native UI checks. No new runtime dependencies or proprietary Retro Bowl code/art are included.

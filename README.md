@@ -1,10 +1,10 @@
 # Downfield 2
 
-A little arcade football game I'm working on. I wanted quick games, Madden-style buttons, and a team you can  build over a season. It's still a work in progress, but you can play it now.
+A little arcade football game I'm working on. I wanted quick games, Madden-style buttons, and a team you can build over a season. It's still a work in progress, but you can play it now.
 
 ## Just want to play?
 
-**[Download the installer](https://github.com/dstaggs-15/downfieldftbl/raw/refs/heads/main/play%20me/Install%20Downfield.exe)**
+**[Download here - Windows installer](https://github.com/dstaggs-15/downfieldftbl/raw/refs/heads/main/play%20me/Install%20Downfield.exe)**
 
 Open it and click **INSTALL GAME**. It puts **Downfield 2.exe** on your desktop. Open that to play. The installer already has the game inside it, so there are no extra downloads or accounts to set up.
 
@@ -13,6 +13,22 @@ You need a **64-bit Windows 10 or Windows 11 PC**. The game uses Windows' .NET F
 Or download the [Windows ZIP](https://github.com/dstaggs-15/downfieldftbl/raw/refs/heads/main/play%20me/Downfield-Windows.zip), extract it, and run the installer inside.
 
 You can also grab the whole repo with **Code > Download ZIP**, extract it, and open the **play me** folder. Run the installer there, or skip setup and run **Downfield/Downfield.exe**.
+
+## New in this update
+
+The first screen now has **Exhibition** for a quick game and **Franchise** for your team. The clubhouse uses shorter labels, icons and little pixel players.
+
+- Name your coach and change his pixel appearance.
+- Keep your coach record when you change teams.
+- Follow past seasons and champions, and collect championship, MVP and OPOTY trophies.
+- Call from 24 plays, including read option, jet sweep, toss, mesh and wheel routes.
+- Draw your own routes before the snap and save a custom play.
+- Nudge the left stick as you release a throw to lead your receiver a little.
+- Hear original arcade sound effects. Sound can be switched off in Options.
+
+Halftime now resets the field and possession. You receive to start the game; the opponent receives at its own 20 after halftime. Playoff games have their own scoreboard label and bowl art. Speed, hands and OVR make more of a difference, and receivers block once your QB crosses the line.
+
+![Pick a mode](docs/menu.png)
 
 ## What the game is
 
@@ -37,7 +53,7 @@ The Clubhouse is your little pixel-art office. From there you can:
 - Change your mascot and colors, or move the team to a different city.
 - Check injuries, scout other rosters, follow the standings and see the playoff picture.
 
-New signings start on the bench. Go to **View Roster**, select the player, and choose his starting spot.
+New signings start on the bench. Go to **Franchise > Clubhouse > Roster**, select the player, and choose his starting spot.
 
 The league has **12 teams**, including **New Orleans**. You play everyone once over 11 weeks. The top six make the playoffs, the top two get a bye, and the winners work their way to the championship. You can keep going into another season.
 
@@ -52,7 +68,8 @@ The league has **12 teams**, including **New Orleans**. You play everyone once o
 | Snap | A |
 | Throw | A, X, Y, B or RB over the receiver |
 | Lob / bullet | Tap the receiver button / hold it and release |
-| Lead a pass | Right stick |
+| Small pass placement at release | Left stick, up to about 2 yards |
+| Extra manual pass lead | Right stick |
 | Juke with the ball | Right stick left or right |
 | Truck | Right stick up |
 | Spin | Right stick down or B |
@@ -64,6 +81,8 @@ The league has **12 teams**, including **New Orleans**. You play everyone once o
 
 Y changes with what you're doing: playbook before the snap, receiver button while passing, jump when you're carrying past the line. Right-stick up trucks. It doesn't jump anymore.
 
+On **Read Option**, snap and choose: LB gives to the back, or keep the ball and run. Once you cross the line, LB becomes a backward pitch.
+
 In menus, use the D-pad or left stick, A to select and B to go back. LB/RB jumps a page in long lists.
 
 ## Keyboard controls
@@ -72,7 +91,7 @@ WASD moves, Shift sprints and Space snaps. Numbers 1–5 throw to the matching r
 
 With the ball, left/right arrows juke, up trucks and down spins. J jumps, F dives, E also spins and Q pitches backward. Y opens the playbook before the snap. Escape pauses.
 
-Menus use arrows, Enter and Escape. Q/R jumps a page.
+Menus use arrows, Enter and Escape. Q/R jumps a page. You can also click menu cards. WASD nudges pass placement as you release the number key.
 
 ## Want to sim?
 
@@ -80,7 +99,7 @@ Menus use arrows, Enter and Escape. Q/R jumps a page.
 - **Pause > Sim Rest of Game** finishes the game you're already in.
 - **Playbook > Simulate Drive** finishes your possession before the snap.
 
-The results count toward the season. Your team saves automatically, but a live game can't be resumed after closing it. Leaving an unfinished league game counts as a 0–21 forfeit.
+Franchise results count toward the season. Exhibition games leave your franchise alone. Your team saves automatically, but a live game can't be resumed after closing it. Leaving an unfinished league game counts as a 0–21 forfeit.
 
 The [full guide](docs/FRANCHISE-GUIDE.md) covers trades, contracts, training, injuries, playoff rules and saves.
 
@@ -90,7 +109,7 @@ It's written in **C#** and runs as a normal Windows app. It doesn't use Unity or
 
 The code moves the players, checks catches and tackles, keeps score, and decides what the defense does. Another part draws the field and the little pixel players. The office and menus are drawn the same way.
 
-The art is made by the game from colored shapes. The football, uniforms and menus don't need a separate pile of image files, which is why the game can run from one exe.
+The art is made by the game from colored shapes. The sounds are short waveforms made in code, with no downloaded recordings. The football, uniforms and menus don't need a separate pile of image files, which is why the game can run from one exe.
 
 The team and season live in a save file on your PC. They aren't stored on a server. The installer copies the game and instructions into your Windows user folder and puts a working exe on your desktop.
 
@@ -99,8 +118,10 @@ If you're looking around the source:
 - **Simulation.cs, Mechanics.cs:** the football rules, movement and game flow.
 - **Defense.cs, LinePlay.cs:** coverage, pursuit, blocking and stunts.
 - **Impacts.cs:** trucks, knockback and falling.
-- **Franchise.cs:** teams, players, trades, contracts, injuries and the season.
-- **GameForm.cs, FranchiseUI.cs:** what you see and how the menus work.
+- **Franchise.cs, Career.cs:** teams, contracts, league history, coach records and awards.
+- **GameForm.cs, FranchiseUI.cs, BetaUI.cs:** what you see and how the menus work.
+- **DrawnPlay.cs, PlayDesigner.cs:** drawing routes and running them on the field.
+- **GameAudio.cs:** the sound effects.
 - **Input.cs:** keyboard and Xbox input.
 - **PixelArt.cs:** the pixel players and lettering.
 - **installer/Installer.cs:** the setup program.
@@ -127,4 +148,4 @@ This is single-player and offense-only right now. There's no playable defense, o
 
 The automated tests cover the game rules, league, saves, menus and the installer. That doesn't mean every controller or every possible play has been tested by a person. If something feels off, [open an issue](https://github.com/dstaggs-15/downfieldftbl/issues) and tell me what happened.
 
-The source and original artwork are under the [MIT license](LICENSE.txt). Retro Bowl is a separate game; its code and assets aren't included here.
+The source, original artwork and generated sounds are under the [MIT license](LICENSE.txt). Retro Bowl is a separate game; its code and assets aren't included here.

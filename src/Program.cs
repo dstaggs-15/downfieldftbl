@@ -4,7 +4,7 @@ using System.Windows.Forms;
 namespace Downfield {
 static class Program {
     [STAThread] static int Main(string[] args){
-        if(args.Length>0&&args[0]=="--test")return SimulationTests.Run()+InputTests()+ProfileTests.Run()+UpdateTests.Run()+FranchiseTests.Run()+MechanicsTests.Run()+LinePlayTests.Run();
+        if(args.Length>0&&args[0]=="--test")return SimulationTests.Run()+InputTests()+ProfileTests.Run()+UpdateTests.Run()+FranchiseTests.Run()+MechanicsTests.Run()+LinePlayTests.Run()+BetaTests.Run();
         Application.EnableVisualStyles();Application.SetCompatibleTextRenderingDefault(false);
         if(args.Length>0&&args[0]=="--ui-test")return UiTests.Run();
         try{using(GameForm form=new GameForm()){
