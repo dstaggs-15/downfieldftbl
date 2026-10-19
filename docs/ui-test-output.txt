@@ -73,10 +73,13 @@ PASS UI exhibition uses independent teams and no league fixture
 PASS UI quick play result leaves franchise and save untouched
 PASS UI quick game returns to exhibition
 PASS UI draw a play opens before snap
+PASS UI designer starts with five visible routes
+PASS UI receiver plus route preset works
 PASS UI mouse draws receiver route points
+PASS UI dragging off field cannot activate route buttons
 PASS UI designer undo removes last point
 PASS UI saved play loads independently of edits
-PASS UI controller style buttons select next receiver and add point
+PASS UI controller selects next receiver and assigns route
 PASS UI drawn play becomes live call
 PASS UI left movement stick placement reaches release input
 PASS UI halftime menu starts new receiving possession
@@ -84,4 +87,4 @@ PASS UI season history opens individual club history
 PASS UI playoff and championship artwork render
 PASS UI sound option toggles
 XInput native poll: connected=False. Physical controller unverified.
-UI: 85 checks, 0 failures
+UI: 88 checks, 0 failures

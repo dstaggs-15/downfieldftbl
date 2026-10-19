@@ -92,13 +92,20 @@ The playbook shows six visual cards per page. Read Option starts with the QB: **
 
 For a small placement adjustment, move **left stick / WASD as you release** the receiver button. Maximum offset is 1.75 yards sideways and 2 yards up/downfield. Neutral means the normal predicted receiver location. QB power, accuracy, movement and pressure still affect the throw. The existing right-stick/arrow manual lead remains available.
 
-Open **Playbook > Draw a Play** before the snap. Pick one of five receivers, then click or drag points on the board. Routes are relative to the line of scrimmage. Unedited receivers keep the stock route. Each receiver allows 20 points. Undo removes a point; Clear Route resets the selected receiver; Run Play applies it. This draws routes, not new formations or run-block assignments.
+Open **Playbook > Create Play** before the snap. It starts with five visible routes.
 
-With a controller: left stick/D-pad moves the cursor, A adds a point, Y changes receiver, X undoes, RB saves, LB loads, Menu runs the play and B cancels. With keyboard use arrows/WASD, Enter, Y, X, R, Q and P respectively. You can store one custom play in your local save. Calling a stock play exits the custom play.
+1. Pick a receiver on the left.
+2. Choose a route on the right: go, slant, out, in, cross, curl, post, corner or flat. The preview changes immediately.
+3. Press **Use Play**, then snap on the field.
 
+**Stock** restores that receiver's original playbook route. **Save** stores one custom play; **Load** restores it. A short message confirms each action. Empty saves cannot overwrite your play. Calling a stock play exits the custom play.
+
+With Xbox: D-pad/left stick navigates, A selects the receiver or route, Y changes receiver, RB saves, LB loads, and Menu uses the play. Move right from routes or down from the last row to reach the bottom buttons. B returns to player selection, then exits. With keyboard use arrows/WASD, Enter, Y, R, Q, P and Escape.
+
+Freehand drawing is optional. Press **Draw**, then click/drag on the field. The first point replaces the selected preset; each receiver allows 20 points. **Undo / X** removes a point. With a controller, move the field cursor and press A to place points. B exits drawing mode. Routes are relative to the line of scrimmage. Curl, in, out, cross and flat routes stop at their endpoint until scramble behavior takes over. The editor changes receiver routes, not formation or run blocking.
 ## Sounds and ratings
 
-Options has a sound switch. Menu, snap, pass, catch, hit, truck, jump, kick, touchdown, whistle and halftime sounds are original generated waveforms. No third-party audio or extra audio downloads are needed. See SOUND-NOTES.md.
+Stadium ambience runs during matches, with louder cheers and a horn for scores, applause for first downs, big-hit reactions and groans for turnovers or missed kicks. Hits, whistles and crowd sounds play together. Mute and losing window focus silence all layers. These are original synthesized sounds, included in the EXE. See docs/SOUND-NOTES.md in the repository.
 
 Speed now has a wider range: a 99-speed WR is about 3.3 yards/second faster than a 70-speed corner before situational modifiers. OVR changes acceleration and defensive reaction, hands changes drops, and power changes accuracy/contact. A matched 200-throw open-receiver probe caught 147 with 70 hands and 185 with 99 hands. This is a scripted sample, not a promise that a covered receiver always wins.
 
@@ -142,7 +149,7 @@ Simulated drives are logged as simulated summaries; they are not reconstructed a
 
 New franchise state is saved beside the old club file at `%LOCALAPPDATA%/Downfield/club.txt.franchise.xml`, with an atomic previous-version `.bak`. Existing `club.txt` and `club.txt.roster` supply migration data and remain present. The original source/build before this update is backed up in `Downloads/Downfield-v2-backup-before-franchise`.
 
-**342 automated checks pass:** 42 simulation, 5 input, 11 profile, 19 earlier-update, 96 franchise, 22 mechanics, 12 line-play, 50 beta and 85 native UI checks. Tests use isolated save directories. Screenshots in this folder show the office, roster, market, trade/coaching pages, bracket, field/end zone, kick windup/flight and pause menu.
+**394 automated checks pass:** 42 simulation, 5 input, 11 profile, 19 earlier-update, 96 franchise, 22 mechanics, 12 line-play, 50 beta, 33 audio, 16 designer and 88 native UI checks. Tests use isolated save directories. Screenshots in this folder show the office, roster, market, trade/coaching pages, bracket, field/end zone, kick windup/flight and pause menu.
 
 Balance probes: 65 catches in 120 varied defended throw scenarios; 47 catches produced more than two yards after catch. A fixed sideline-sprint pattern was stopped in 60/60 trials, with about 5.3 yards average gain. These are scripted scenarios, not a human playtest or a guarantee against all exploits. Physical Xbox controller feel and prolonged human balance testing remain unverified.
 

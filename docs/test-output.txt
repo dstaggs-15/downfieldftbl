@@ -55,3 +55,6 @@ Rush mix: 637 straight / 163 stunts across 800 calls
 Line play: 12 checks, 0 failures
 Hands ratings: 70 = 147 / 200, 99 = 185 / 200 matched open throws
 Beta: 50 checks, 0 failures
+Audio: 33 checks, 0 failures
+Created-play passing: 12 catches / 12 open slants
+Designer: 16 checks, 0 failures

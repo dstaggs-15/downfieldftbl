@@ -22,11 +22,13 @@ The first screen now has **Exhibition** for a quick game and **Franchise** for y
 - Keep your coach record when you change teams.
 - Follow past seasons and champions, and collect championship, MVP and OPOTY trophies.
 - Call from 24 plays, including read option, jet sweep, toss, mesh and wheel routes.
-- Draw your own routes before the snap and save a custom play.
+- Create a play: pick a receiver, choose a route, then press Use Play. Save it or draw your own routes if you want.
 - Nudge the left stick as you release a throw to lead your receiver a little.
-- Hear original arcade sound effects. Sound can be switched off in Options.
+- Hear stadium crowds, touchdown cheers, first-down applause, big-hit reactions, whistles and tackle sounds. Options has a mute switch.
 
 Halftime now resets the field and possession. You receive to start the game; the opponent receives at its own 20 after halftime. Playoff games have their own scoreboard label and bowl art. Speed, hands and OVR make more of a difference, and receivers block once your QB crosses the line.
+
+![Create a play](docs/create-play.png)
 
 ![Pick a mode](docs/menu.png)
 
@@ -121,7 +123,7 @@ If you're looking around the source:
 - **Franchise.cs, Career.cs:** teams, contracts, league history, coach records and awards.
 - **GameForm.cs, FranchiseUI.cs, BetaUI.cs:** what you see and how the menus work.
 - **DrawnPlay.cs, PlayDesigner.cs:** drawing routes and running them on the field.
-- **GameAudio.cs:** the sound effects.
+- **GameAudio.cs, FootballSounds.cs, StadiumMixer.cs, WaveOutput.cs:** crowd ambience, reactions and mixed sound effects.
 - **Input.cs:** keyboard and Xbox input.
 - **PixelArt.cs:** the pixel players and lettering.
 - **installer/Installer.cs:** the setup program.

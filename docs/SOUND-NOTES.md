@@ -1,9 +1,17 @@
-# Downfield sounds
+# Stadium sounds
 
-All sound effects in this build are made by GameAudio.cs. They use short sine/square tones and seeded noise written into PCM WAV data in memory. They are covered by the project's MIT license along with the source.
+The game now mixes a continuous stadium crowd with football events. Touchdowns get a larger cheer and horn; first downs get applause; big hits get a crowd surge; interceptions, lost fumbles and missed kicks get a disappointed reaction. Simulated results also trigger the appropriate crowd response.
 
-The game has menu, confirmation, snap, throw, catch, tackle, truck, jump, kick, touchdown, whistle and halftime cues. Options switches sound on/off. Windows plays them through SoundPlayer; there are no audio files to install, network requests or extra audio libraries.
+Hits use short low thumps, fabric-like noise and stereo variation. Whistles start just after contact so the hit remains audible. Crowd reactions last several seconds and play alongside other effects. Smaller cheers cannot interrupt a touchdown celebration.
 
-No recordings from Retro Bowl, Madden, Kenney or another GitHub project are included. CC0 packs were considered; this release uses original synthesis instead. This avoids requiring a separately downloaded sound pack.
+These are original synthesized effects, not stadium recordings. FootballSounds.cs combines layered vowel-like voices, filtered noise, scattered claps and a short echo. The source and generated audio are under the project's MIT license. No Retro Bowl, Madden or third-party audio is included.
 
-Automated checks verify the WAV headers/data sizes, cue handling and mute switch. Native UI checks run with playback suppressed. Actual speaker/headphone playback still needs a human listen on the target PC.
+StadiumMixer.cs combines the effects and ambience, limits voice count and controls output level. WaveOutput.cs streams stereo PCM through Windows' built-in waveOut API. There are no audio files, extra codecs or downloads to install. [Windows waveform output documentation](https://learn.microsoft.com/en-us/windows/win32/api/mmeapi/nf-mmeapi-waveoutwrite).
+
+Options mutes all channels. Losing focus clears effects and silences playback. Leaving the match fades the crowd out; practice has no crowd ambience.
+
+33 audio checks cover clip bounds, overlap, delayed whistles, crowd priority/volume, mute, focus loss, voice lifetime and actual gameplay cues. A native smoke run opened the available Windows output device and submitted 184 buffers successfully. This verifies the output path, not subjective sound quality or speaker/headphone volume.
+
+Optional checks:
+    build\Downfield.Tests.exe --audio-smoke
+    build\Downfield.Tests.exe --audio-preview build\Football-stadium-preview.wav

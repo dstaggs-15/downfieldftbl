@@ -1,0 +1,14 @@
+using System;
+using System.IO;
+using System.Reflection;
+namespace Downfield {
+public static class DesignerTests {
+ static int checks,failures;static void Check(bool ok,string name){checks++;if(!ok){failures++;Console.WriteLine("FAIL Designer: "+name);}}
+ public static int Run(){checks=failures=0;foreach(string name in new string[]{"GO","SLANT","OUT","IN","CROSS","CURL","POST","CORNER","FLAT"}){bool valid=true;foreach(float x in new float[]{-19,19,-2}){DrawnRoute r=DrawnPlay.Preset(0,name,x,x==-2?-6.5f:0);valid&=r.Points.Count>0&&r.Label==name;foreach(RouteNode n in r.Points)valid&=n.X>=-25&&n.X<=25&&n.Z>=-8&&n.Z<=40;}Check(valid,"valid route preset "+name);}
+  Simulation s=new Simulation(51);s.Practice=true;s.NewGame();DrawnPlay play=DrawnPlay.Default(14,s);Check(play.Routes.Count==5&&play.BasePlay==14,"complete play with correct base call");Check(DrawnPlay.Default(10,s).BasePlay==0,"run call switches to a passing base");play.Routes.RemoveAll(r=>r.Receiver==0);play.Routes.Add(DrawnPlay.Preset(0,"CURL",-19,0));s.CustomPlay=play;s.UseCustom=true;float[] hold=s.GetRoutePoint(s.Receiver(0),50);Check(Math.Abs(hold[0]+17)<.01&&Math.Abs(hold[1]-s.Spot-10)<.01,"curl stops at its comeback point");DrawnPlay copy=play.Copy();copy.Routes.Find(r=>r.Receiver==0).Points[0].X=15;Check(play.Routes.Find(r=>r.Receiver==0).Points[0].X==-19&&copy.BasePlay==14&&copy.Routes.Find(r=>r.Receiver==0).Hold,"save copy retains route behavior and isolates edits");
+  int catches=0;for(int seed=0;seed<12;seed++){s=new Simulation(770+seed);s.Practice=true;s.NewGame();play=DrawnPlay.Default(0,s);play.Routes.RemoveAll(r=>r.Receiver==0);play.Routes.Add(DrawnPlay.Preset(0,"SLANT",-19,0));s.CustomPlay=play;s.UseCustom=true;s.Receiver(0).Hands=99;s.Snap();for(int i=0;i<65;i++)s.Update(.02f,0,0);if(seed==0)Check(s.Receiver(0).X>-18,"created slant actually cuts across field");s.BeginPass(0);s.Charge=.35f;s.ReleasePass();for(int i=0;i<150&&s.State==Phase.Flight;i++)s.Update(.02f,0,0);if(s.Completions>0)catches++;}Console.WriteLine("Created-play passing: "+catches+" catches / 12 open slants");Check(catches>=8,"passes can connect on created routes");
+  string old=Profile.StorageOverride,folder=Path.Combine(Path.GetTempPath(),"Downfield-designer-"+Guid.NewGuid().ToString("N"));Profile.StorageOverride=Path.Combine(folder,"club.txt");try{Franchise club=Franchise.Create(new Profile(),new Roster());club.SavedPlay=copy;club.Save();Franchise loaded=Franchise.Load(new Profile(),new Roster());DrawnRoute curl=loaded.SavedPlay.Routes.Find(r=>r.Receiver==0);Check(curl.Label=="CURL"&&curl.Hold&&loaded.SavedPlay.BasePlay==14,"named routes and holds survive save/load");}finally{Profile.StorageOverride=old;if(Directory.Exists(folder))Directory.Delete(folder,true);}
+  Console.WriteLine("Designer: "+checks+" checks, "+failures+" failures");return failures;
+ }
+}
+}

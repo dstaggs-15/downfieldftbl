@@ -35,8 +35,10 @@ The office also has trades, coaches, training, team colors, standings and playof
 
 NEW PLAY TOOLS
 24 plays, including Read Option: LB/Q gives to the back, or keep and run.
-Playbook > Draw a Play lets you draw, save and load custom receiver routes.
-Original sound effects can be switched off in Options.
+Playbook > Create Play: pick a receiver, pick a route, press Use Play, then snap.
+Save/Load keeps your play. Draw is optional for freehand routes.
+Crowd ambience, touchdown cheers, big-hit reactions and whistles are included.
+Sound can be switched off in Options.
 
 SIM OPTIONS
 Schedule > Sim Next Game
