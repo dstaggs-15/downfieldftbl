@@ -23,3 +23,12 @@ Retro Bowl is a separate game by New Star Games. Downfield is an independent
 implementation with original code, fictional teams, and procedural graphics.
 Research evidence is excluded from this software license; third-party rights
 in referenced material remain with their respective owners.
+
+Third-party crowd recordings retain their CC0 1.0 dedication.
+Stadium Crowd - stomachache: https://freesound.org/s/274516/
+College Football Game - timmyg62: https://freesound.org/s/328623/
+BaseballGameApplause - eeease: https://freesound.org/s/354056/
+Crowd Groans At Bad Joke 01 - ShangusBurger / Shane Vincent:
+https://freesound.org/s/764144/
+CC0 terms: https://creativecommons.org/publicdomain/zero/1.0/
+Retrieved copies and processing: audio/CREDITS.md in the repository.

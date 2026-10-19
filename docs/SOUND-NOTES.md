@@ -1,17 +1,16 @@
 # Stadium sounds
 
-The game now mixes a continuous stadium crowd with football events. Touchdowns get a larger cheer and horn; first downs get applause; big hits get a crowd surge; interceptions, lost fumbles and missed kicks get a disappointed reaction. Simulated results also trigger the appropriate crowd response.
+Crowd ambience, football cheers, applause and groans now use real CC0 recordings. The background is deliberately quiet; scores and big collisions bring the crowd up. There is no synthetic voice/noise crowd layer. Authors, sources and edits are listed in [audio/CREDITS.md](../audio/CREDITS.md).
 
-Hits use short low thumps, fabric-like noise and stereo variation. Whistles start just after contact so the hit remains audible. Crowd reactions last several seconds and play alongside other effects. Smaller cheers cannot interrupt a touchdown celebration.
+Hits, the heavier slam, whistles, kick contacts, horns and menu sounds remain original synthesized effects. Whistles start just after contact. Smaller crowd reactions cannot interrupt a touchdown celebration.
 
-These are original synthesized effects, not stadium recordings. FootballSounds.cs combines layered vowel-like voices, filtered noise, scattered claps and a short echo. The source and generated audio are under the project's MIT license. No Retro Bowl, Madden or third-party audio is included.
+CrowdRecordings.cs reads embedded mono PCM WAV resources. FootballSounds.cs caches those clips and makes the other effects. StadiumMixer.cs mixes them into stereo and applies category gains; WaveOutput.cs streams through Windows waveOut. Every sound is in the standalone EXE.
 
-StadiumMixer.cs combines the effects and ambience, limits voice count and controls output level. WaveOutput.cs streams stereo PCM through Windows' built-in waveOut API. There are no audio files, extra codecs or downloads to install. [Windows waveform output documentation](https://learn.microsoft.com/en-us/windows/win32/api/mmeapi/nf-mmeapi-waveoutwrite).
+Pause > Settings controls Master, Crowd, Whistles, Hits + Moves, Stadium Horns and Menu Sounds. Left/right, channel mute and draggable bars work. Whistles default to 25%. Xbox View, keyboard M and the field sound button toggle global mute. Preferences save beside the profile in club.txt.audio.xml. Losing focus silences playback. Leaving a match fades the crowd; practice stays quiet.
 
-Pause > Settings controls Master, Crowd, Whistles, Hits + Moves, Stadium Horns and Menu Sounds independently. Left/right, channel mute and draggable mouse bars are supported. Whistles default to 25% of their channel level. Xbox View, keyboard M and the field sound button toggle global mute. Preferences save beside the profile in club.txt.audio.xml. Options also keeps its global mute switch. Losing focus clears effects and silences playback. Leaving the match fades the crowd out; practice has no crowd ambience.
-
-33 audio checks cover clip bounds, overlap, delayed whistles, crowd priority/volume, mute, focus loss, voice lifetime and actual gameplay cues. A native smoke run opened the available Windows output device and submitted 184 buffers successfully. This verifies the output path, not subjective sound quality or speaker/headphone volume.
+39 audio checks cover bounded clips, embedded recordings, quiet background levels, changing cheer energy, layering, delayed whistles, mute, focus and gameplay cues. Native playback opened the Windows device and submitted more than 180 buffers. This verifies playback, not subjective sound quality on speakers or headphones.
 
 Optional checks:
+
     build\Downfield.Tests.exe --audio-smoke
     build\Downfield.Tests.exe --audio-preview build\Football-stadium-preview.wav

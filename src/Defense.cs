@@ -10,13 +10,13 @@ public partial class Simulation {
    p.StartX=p.X;p.StartZ=p.Z;p.ThinkTime=0;p.RushStage=0;p.RushAssignment=0;if(p.Role=="DL"&&stunt>0){int index=i-11;int end=stuntSide==0?0:3,inside=stuntSide==0?1:2;if(stunt==3){p.RushAssignment=index==(stuntSide==0?1:2)?2:index==(stuntSide==0?2:1)?1:0;}else{p.RushAssignment=index==(stunt==1?end:inside)?2:index==(stunt==1?inside:end)?1:0;}}
   }
  }
- void ReadDefense(Player p,float dt){if(p.KnockTime>0)return;if(p.BlockPartner>=0){p.VX=p.VZ=0;p.Pose="block";p.PoseTime=.1f;return;}if(p.Blocked>0){if(p.Pose!="stumble")p.Pose="block";p.VX=p.VZ=0;return;}float speed=p.Speed*(.95f+Difficulty*.035f);bool runner=State==Phase.Live&&(Controlled.Role!="QB"||Controlled.Z>Spot);
+ void ReadDefense(Player p,float dt){if(!p.Active||p.KnockTime>0)return;if(p.BlockPartner>=0){p.VX=p.VZ=0;p.Pose="block";p.PoseTime=.1f;return;}if(p.Blocked>0){if(p.Pose!="stumble")p.Pose="block";p.VX=p.VZ=0;return;}float speed=p.Speed*(.95f+Difficulty*.035f);bool runner=State==Phase.Live&&(Controlled.Role!="QB"||Controlled.Z>Spot);
   if(runner){PursueRunner(p,speed,dt);return;}
   bool blitz=p.Role=="DL"||coverageId==3&&p.Role=="LB"&&playTime>.6f;
   if(blitz){Rush(p,speed,dt);return;}
   float tx=p.StartX,tz=Spot+12;
   if(Disguised&&playTime<.5f){tz=p.StartZ;tx=p.StartX;}
-  else if(coverageId==0||coverageId==4||coverageId==7){if(p.Mark>=0){Player r=Players[p.Mark];float cushion=coverageId==4?.6f:1.0f;
+  else if(coverageId==0||coverageId==4||coverageId==7){if(p.Mark>=0&&Players[p.Mark].Active){Player r=Players[p.Mark];float cushion=coverageId==4?.6f:1.0f;
     tx=r.X+r.VX*.10f;tz=r.Z+cushion;
     // Coverage tracks a route after a reaction interval, not every rendered frame.
     if(playTime<.65f&&coverageId==4&&Distance(p.X,p.Z,r.X,r.Z)<1.7f){float release=(r.OVR-p.OVR)*.006f+(r.Power-p.Power)*.004f;if(release<0)r.Blocked=Math.Min(.14f,-release);p.Pose="block";}
@@ -27,9 +27,9 @@ public partial class Simulation {
    float zz=Spot+(deep?22:p.Role=="LB"?7:p.Role=="CB"?8:10);
    if(coverageId==6&&p.Role=="LB"&&p.StartX>0){zz=Spot+19;deep=true;zx=0;}
    tx=zx;tz=zz;Player near=null;float best=deep?13:9;
-   for(int n=0;n<5;n++){Player r=Receiver(n);float score=Distance(r.X,r.Z,zx,zz);if(deep&&r.Z>zz)score*=.6f;if(score<best){best=score;near=r;}}
+   for(int n=0;n<5;n++){Player r=Receiver(n);if(!r.Active)continue;float score=Distance(r.X,r.Z,zx,zz);if(deep&&r.Z>zz)score*=.6f;if(score<best){best=score;near=r;}}
    if(near!=null){tx=near.X;tz=near.Z+(deep?2.5f:1.3f);if(!deep){tx=Clamp(tx,zx-8,zx+8);tz=Clamp(tz,Spot+2,Spot+15);}}
-   if(deep){float deepest=Spot+14;for(int n=0;n<5;n++){Player r=Receiver(n);if(Math.Abs(r.X-zx)<14)deepest=Math.Max(deepest,r.Z+2);}tz=Math.Max(tz,deepest);}
+   if(deep){float deepest=Spot+14;for(int n=0;n<5;n++){Player r=Receiver(n);if(r.Active&&Math.Abs(r.X-zx)<14)deepest=Math.Max(deepest,r.Z+2);}tz=Math.Max(tz,deepest);}
   }
   float familiarity=Math.Min(.12f,callsUsed[Math.Max(0,Math.Min(callsUsed.Length-1,Playbook))]*.015f);
   if(State==Phase.Flight&&passTime>.38f-familiarity+(p.OVR<80?.06f:0)&&Distance(p.X,p.Z,toX,toZ)<13){tx=toX;tz=toZ;}

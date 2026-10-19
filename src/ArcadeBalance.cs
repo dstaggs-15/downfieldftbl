@@ -3,7 +3,7 @@ namespace Downfield {
 public partial class Simulation {
  public const float HopDuration=.58f,MoveDuration=.30f;
  public float OpenFieldPace=1,HurdleRiskWindow;public bool DangerousLanding;public int HurdlesMade,BigHits,MissedTackles;
- public void Update(float dt,float mx,float mz){dt=Clamp(dt,0,.05f);float targetPace=1;
+ public void Update(float dt,float mx,float mz){if(OnsideRulesPending)return;dt=Clamp(dt,0,.05f);float targetPace=1;
   if(!Practice&&State==Phase.Live&&Controlled!=null&&Controlled.HasBall&&Controlled.Z>Spot+12&&Sprint&&mz>.65f&&Math.Abs(mx)<.45f&&skillTime<=0){bool clear=true;foreach(Player d in Players)if(d.Team==1&&d.Active&&d.KnockTime<=0&&d.Blocked<=0){float distance=Distance(d.X,d.Z,Controlled.X,Controlled.Z);if(distance<9||d.Z>Controlled.Z-2){clear=false;break;}}if(clear)targetPace=1.45f;}
   if(targetPace==1)OpenFieldPace=1;else OpenFieldPace=Math.Min(targetPace,OpenFieldPace+dt*.75f);
   float left=dt*OpenFieldPace;while(left>.00001f){float step=Math.Min(.025f,left);UpdateStep(step,mx,mz);left-=step;}

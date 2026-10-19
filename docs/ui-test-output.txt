@@ -80,6 +80,17 @@ PASS UI dragging off field cannot activate route buttons
 PASS UI designer undo removes last point
 PASS UI saved play loads independently of edits
 PASS UI controller selects next receiver and assigns route
+PASS UI clicking a receiver preserves route until drag starts
+PASS UI drag from receiver draws own route with a cut
+PASS UI drawing outside field cannot select preset buttons
+PASS UI mouse release ends drawing gesture
+PASS UI freehand route saves and loads independently
+PASS UI X opens controller drawing mode directly
+PASS UI holding A and moving draws continuous controller route
+PASS UI X undoes last controller drawing point
+PASS UI B finishes drawing and keeps play editor open
+PASS UI hand-drawn route becomes live call
+PASS UI receiver route target follows actual drawn endpoint
 PASS UI drawn play becomes live call
 PASS UI left movement stick placement reaches release input
 PASS UI halftime menu starts new receiving possession
@@ -100,5 +111,28 @@ PASS UI stretcher pickup renders loaded patient
 PASS UI controller A skips ambulance timeout
 PASS UI continuing replaces injured starter
 PASS UI successful hurdle visibly clears a DB
+PASS UI office exposes clear stadium money department
+PASS UI office opens stadium and money controls
+PASS UI food price increases through real menu input
+PASS UI food price decreases through real menu input
+PASS UI parking price changes independently
+PASS UI player prices display dollars
+PASS UI signing confirmation carries exact player profile
+PASS UI named roster row has matching player portrait
+PASS UI RB or R opens first-game onside explanation
+PASS UI explanation pauses gameplay clock
+PASS UI confirm starts real fourth-and-thirteen play
+PASS UI later attempt skips popup in same game
+PASS UI score kickoff menu offers onside alternative
+PASS UI normal kickoff remains available after closing rule popup
+PASS UI right moves from MVP race to offensive player of year
+PASS UI passing category is available with separate stats
+PASS UI fired coach is directed to coaching jobs
+PASS UI spectacular launch and turf burst render
+PASS UI replacement on field uses reserve identity and jersey
+PASS UI exhausted RB depth shows ten actual players
+PASS UI short-handed run call keeps ball with real QB
+PASS UI RB pitch back gives QB passing controls and receiver routes
+PASS UI flea flicker forward pass works through keyboard input
 XInput native poll: connected=False. Physical controller unverified.
-UI: 102 checks, 0 failures
+UI: 136 checks, 0 failures

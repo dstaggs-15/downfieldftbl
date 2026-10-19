@@ -1,0 +1,13 @@
+using System;
+using System.IO;
+using System.Reflection;
+namespace Downfield {
+// Baked PCM assets: no codec, network request or loose files needed at runtime.
+// Recording authors, sources, edits and CC0 terms: audio/CREDITS.md.
+public static class CrowdRecordings {
+ public static bool IsCrowd(string cue){return cue=="ambience"||cue=="crowd_cheer"||cue=="crowd_big"||cue=="crowd_first"||cue=="crowd_groan";}
+ public static float[] Read(string name){using(Stream stream=Assembly.GetExecutingAssembly().GetManifestResourceStream("Downfield.Audio."+name+".wav")){if(stream==null)throw new InvalidDataException("Missing crowd recording: "+name);using(BinaryReader reader=new BinaryReader(stream)){if(new string(reader.ReadChars(4))!="RIFF")throw new InvalidDataException("Invalid crowd WAV");reader.ReadInt32();if(new string(reader.ReadChars(4))!="WAVE")throw new InvalidDataException("Invalid crowd WAV");bool format=false;while(stream.Position+8<=stream.Length){string id=new string(reader.ReadChars(4));int size=reader.ReadInt32();long next=stream.Position+size+(size&1);if(size<0||next>stream.Length)throw new InvalidDataException("Invalid crowd WAV size");if(id=="fmt "){format=reader.ReadInt16()==1&&reader.ReadInt16()==1&&reader.ReadInt32()==FootballSounds.Rate;reader.ReadInt32();format&=reader.ReadInt16()==2&&reader.ReadInt16()==16;}else if(id=="data"){if(!format||size%2!=0)throw new InvalidDataException("Crowd recording must be mono 16-bit PCM at 22050 Hz");float[] samples=new float[size/2];for(int i=0;i<samples.Length;i++)samples[i]=reader.ReadInt16()/32768f;return samples;}stream.Position=next;}throw new InvalidDataException("Crowd recording has no audio");}}}
+ static float[] Reaction(string name,double start,double seconds,float gain){float[] source=Read(name);int offset=(int)(start*FootballSounds.Rate),length=Math.Min((int)(seconds*FootballSounds.Rate),source.Length-offset);float[] samples=new float[length];for(int i=0;i<length;i++){double t=i/(double)FootballSounds.Rate,envelope=Math.Min(1,t/.07)*Math.Min(1,(length-i)/(FootballSounds.Rate*.5));samples[i]=source[offset+i]*gain*(float)envelope;}return samples;}
+ public static float[] Get(string cue){if(cue=="ambience"){float[] samples=Read("stadium");int cross=FootballSounds.Rate/4;for(int i=0;i<cross;i++){float blend=i/(float)(cross-1);samples[samples.Length-cross+i]=samples[samples.Length-cross+i]*(1-blend)+samples[i]*blend;}return samples;}if(cue=="crowd_cheer")return Reaction("cheer",.2,4.8,1);if(cue=="crowd_big")return Reaction("cheer",2.4,2.4,.85f);if(cue=="crowd_first")return Reaction("applause",.15,3.6,.85f);if(cue=="crowd_groan")return Reaction("groan",.02,2.5,.9f);throw new ArgumentException("Unknown crowd cue");}
+}
+}

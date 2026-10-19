@@ -1,0 +1,20 @@
+using System;
+using System.Drawing;
+using System.IO;
+using System.Reflection;
+using System.Windows.Forms;
+namespace Downfield {
+public static partial class UiTests {
+ static void DesignerPointer(GameForm f,string name,PointF point){Point p=new Point((int)Math.Round(point.X*f.ClientSize.Width/1280f),(int)Math.Round(point.Y*f.ClientSize.Height/800f));typeof(Control).GetMethod(name,BindingFlags.Instance|BindingFlags.NonPublic).Invoke(f,new object[]{new MouseEventArgs(MouseButtons.Left,1,p.X,p.Y,0)});}
+ static void RouteDrawingScreens(GameForm f,string evidence){DrawnPlay original=((DrawnPlay)Get(f,"draftPlay")).Copy();Franchise club=(Franchise)Get(f,"franchise");DrawnPlay saved=club.SavedPlay;Simulation game=(Simulation)Get(f,"game");
+  try{typeof(GameForm).GetMethod("DesignerAction",flags).Invoke(f,new object[]{0});f.SavePreview(Path.Combine(evidence,"create-play.png"));Player receiver=game.Receiver(0);PointF start=(PointF)typeof(GameForm).GetMethod("DesignPoint",flags).Invoke(f,new object[]{receiver.StartX,receiver.StartZ-game.Spot});DrawnRoute before=((DrawnPlay)Get(f,"draftPlay")).Routes.Find(r=>r.Receiver==0);string label=before.Label;int count=before.Points.Count;
+   DesignerPointer(f,"OnMouseDown",start);Check((bool)Get(f,"routeDragArmed")&&before.Points.Count==count&&before.Label==label,"clicking a receiver preserves route until drag starts");
+   DesignerPointer(f,"OnMouseMove",new PointF(start.X,start.Y-90));DesignerPointer(f,"OnMouseMove",new PointF(start.X+132,start.Y-90));DrawnPlay draft=(DrawnPlay)Get(f,"draftPlay");DrawnRoute route=draft.Routes.Find(r=>r.Receiver==0);Check(route.Label=="CUSTOM"&&route.Points.Count==2&&Math.Abs(route.Points[1].X-route.Points[0].X-12)<.2,"drag from receiver draws own route with a cut");
+   int selected=(int)Get(f,"routeReceiver");DesignerPointer(f,"OnMouseMove",new PointF(1100,180));Check((int)Get(f,"routeReceiver")==selected&&route.Points.Count==2,"drawing outside field cannot select preset buttons");DesignerPointer(f,"OnMouseUp",new PointF(1100,180));Check(!(bool)Get(f,"drawing")&&!(bool)Get(f,"routeDragArmed"),"mouse release ends drawing gesture");
+   f.SavePreview(Path.Combine(evidence,"draw-route-drag.png"));typeof(GameForm).GetMethod("DesignerAction",flags).Invoke(f,new object[]{8});route.Points.Clear();typeof(GameForm).GetMethod("DesignerAction",flags).Invoke(f,new object[]{9});draft=(DrawnPlay)Get(f,"draftPlay");route=draft.Routes.Find(r=>r.Receiver==0);Check(route.Points.Count==2&&route.Label=="CUSTOM","freehand route saves and loads independently");
+   Tap(f,Keys.X);Check((bool)Get(f,"freehand"),"X opens controller drawing mode directly");Step(f,Keys.Enter,true,1);Step(f,Keys.W,true,15);Step(f,Keys.W,false,1);Step(f,Keys.Enter,false,1);route=draft.Routes.Find(r=>r.Receiver==0);Check(route.Points.Count>=4&&route.Points[route.Points.Count-1].Z>route.Points[0].Z+6,"holding A and moving draws continuous controller route");count=route.Points.Count;Tap(f,Keys.X);Check(route.Points.Count==count-1,"X undoes last controller drawing point");Tap(f,Keys.Escape);Check(!(bool)Get(f,"freehand")&&(string)Get(f,"screen")=="designer","B finishes drawing and keeps play editor open");
+   Call(f,"ApplyDraft");Check(game.UseCustom&&game.CustomPlay.Routes.Find(r=>r.Receiver==0).Label=="CUSTOM"&&(string)Get(f,"screen")=="game","hand-drawn route becomes live call");RouteNode end=game.CustomPlay.Routes.Find(r=>r.Receiver==0).Points[route.Points.Count-1];float distance=0,x=receiver.StartX,z=receiver.StartZ-game.Spot;foreach(RouteNode node in route.Points){distance+=Simulation.Distance(x,z,node.X,node.Z);x=node.X;z=node.Z;}float[] target=game.GetRoutePoint(receiver,distance/receiver.Speed);Check(Math.Abs(target[0]-end.X)<.05&&Math.Abs(target[1]-game.Spot-end.Z)<.05,"receiver route target follows actual drawn endpoint");
+  }finally{club.SavedPlay=saved;Set(f,"draftPlay",original);Set(f,"screen","designer");Set(f,"freehand",false);Set(f,"drawing",false);Set(f,"routeDragArmed",false);Set(f,"routeReceiver",1);}
+ }
+}
+}

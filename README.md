@@ -16,15 +16,16 @@ You can also grab the whole repo with **Code > Download ZIP**, extract it, and o
 
 ## New in this update
 
-- Quicker run pressure and better pursuit angles, with bigger cuts, hits and timed hurdles.
-- Clear breakaways move faster so there is less empty running.
-- A badly timed hurdle can cause a fumble or a hard-landing injury. Injuries last two to six weeks, with an ambulance pickup.
-- Four seconds come off the clock after in-bounds plays. Incompletions and out-of-bounds plays stop it.
-- **Pause > Settings** has separate crowd, whistle, hit, horn, menu and master volumes. Click the in-game sound button, press Xbox View or use M to mute.
-- Click the **right stick** to throw away behind the line. Keyboard: **T**.
-- New stands, lights, scoreboard, sidelines, turf, end-zone paint and midfield bowl crests.
+- Real crowd recordings, quieter ambience and bigger reactions. Volume controls are in **Pause > Settings**.
+- Draw routes by dragging from a receiver in **Create a Play**. On Xbox, press **X** to draw, then hold **A** while moving the left stick. Presets still work.
+- An onside alternative: **4th-and-13 from your own 30**. Gain 13 to keep it. Fall short and the opponent takes over. Any quarter, any score. The first attempt each game explains the rule.
+- Flea-flickers: the RB can pitch back to the QB, who can throw if the ball stayed behind the line and no forward pass has been used.
+- Bigger airborne hits, hard landings, turf bursts and more injuries. Real reserves come in wearing their own numbers. No healthy backup means an empty spot.
+- A pixel office, clearer menu pictures, player portraits and dollar prices.
+- **Stadium + Money** has food and parking prices. Games have running costs; byes still have bills. Expensive prices can hurt attendance and fan support. Bad results, unhappy fans or serious debt can get you fired. Your coach record follows you to your next job.
+- Clear MVP and Offensive Player of the Year races, plus passing, rushing and receiving tables. All 12 clubs compete using player stats and ratings.
 
-![Sound settings](docs/pause-settings.png)
+![The clubhouse](docs/office.png)
 
 ## Modes and team features
 
@@ -134,10 +135,10 @@ If you're looking around the source:
 - **Simulation.cs, Mechanics.cs:** the football rules, movement and game flow.
 - **Defense.cs, LinePlay.cs:** coverage, pursuit, blocking and stunts.
 - **Impacts.cs:** trucks, knockback and falling.
-- **Franchise.cs, Career.cs:** teams, contracts, league history, coach records and awards.
+- **Franchise.cs, Career.cs, ClubBusiness.cs:** teams, contracts, costs, fans, jobs, history and awards.
 - **GameForm.cs, FranchiseUI.cs, BetaUI.cs:** what you see and how the menus work.
 - **DrawnPlay.cs, PlayDesigner.cs:** drawing routes and running them on the field.
-- **GameAudio.cs, FootballSounds.cs, StadiumMixer.cs, WaveOutput.cs:** crowd ambience, reactions and mixed sound effects.
+- **GameAudio.cs, CrowdRecordings.cs, FootballSounds.cs, StadiumMixer.cs, WaveOutput.cs:** recorded crowds and mixed sound effects.
 - **Input.cs:** keyboard and Xbox input.
 - **PixelArt.cs:** the pixel players and lettering.
 - **installer/Installer.cs:** the setup program.
@@ -164,4 +165,4 @@ This is single-player and offense-only right now. There's no playable defense, o
 
 The automated tests cover the game rules, league, saves, menus and the installer. That doesn't mean every controller or every possible play has been tested by a person. If something feels off, [open an issue](https://github.com/dstaggs-15/downfieldftbl/issues) and tell me what happened.
 
-The source, original artwork and generated sounds are under the [MIT license](LICENSE.txt). Retro Bowl is a separate game; its code and assets aren't included here.
+The source, original artwork and generated effects are under the [MIT license](LICENSE.txt). Recorded crowds are CC0; their [creators and sources are here](audio/CREDITS.md). Retro Bowl is a separate game; its code and assets aren't included here.

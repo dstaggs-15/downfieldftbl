@@ -55,8 +55,14 @@ Rush mix: 637 straight / 163 stunts across 800 calls
 Line play: 12 checks, 0 failures
 Hands ratings: 70 = 147 / 200, 99 = 185 / 200 matched open throws
 Beta: 50 checks, 0 failures
-Audio: 33 checks, 0 failures
+Audio: 39 checks, 0 failures
 Created-play passing: 12 catches / 12 open slants
 Designer: 16 checks, 0 failures
-Hurdle timing: 131/160 well timed; 0 early, 0 late; penalties good=20, mistimed=81
+Hurdle timing: 131/160 well timed; 0 early, 0 late; penalties good=20, mistimed=90
 Arcade: 33 checks, 0 failures
+Onside: 26 checks, 0 failures
+Economy: 18 checks, 0 failures
+Club update: 13 checks, 0 failures
+Flea-flicker return pitches: 14 / 20
+Personnel: 14 checks, 0 failures
+Built C:\Users\Daniel\Downloads\Downfield-v2\build\Downfield.exe

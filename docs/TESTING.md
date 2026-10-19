@@ -1,30 +1,33 @@
-# Verification - second beta update
+# Verification
 
-441 game checks pass: 42 simulation, 5 input, 11 legacy profile, 19 earlier-update regression, 96 franchise, 22 mechanics, 12 line-play, 50 beta, 33 audio, 16 designer, 33 arcade and 102 native-window UI.
+**552 automated checks pass:** 42 simulation, 5 input, 11 legacy profile, 19 earlier-update regression, 96 franchise, 22 mechanics, 12 line-play, 50 beta, 39 audio, 16 designer, 33 arcade, 26 onside, 18 economy, 13 club-update, 14 personnel and 136 native-window UI.
 
-Installer checks also verify fresh installation, byte-identical game and desktop copy, bundled instructions/license, repeat installation and preservation of unrelated files. The packaging script refreshes the ZIP and checksums after the installer passes.
+Core and UI checks use isolated save directories. Output: test-output.txt and ui-test-output.txt. The installer checks fresh installation, byte-identical game and desktop copy, bundled guide/license, reinstall and preservation of saves and unrelated files. Packaging refreshes the ZIP and checksums afterward.
 
-Core output: test-output.txt. Native UI output: ui-test-output.txt. Tests use isolated save directories.
+The latest checks play through drag-to-draw and controller route drawing, independent save/load, an actual RB pitch back and QB forward pass, reserve jersey identities, an empty RB spot, a wildcat QB without cloning a player, and unique persistent roster numbers. The 20-seed pitch-back probe returned 14 balls to the QB; drops and loose balls remain possible.
 
-New checks cover capped left-stick placement in both directions, the release input path, both halftime receiving branches, an untimed PAT before halftime, option give/keep, jet-sweep handoff, rating differences, actual WR blocking engagements after a QB crosses the line, custom route movement/copy/save/load, career migration, duplicate-result protection, switching clubs, season archives and all three awards.
+Onside checks cover the first-use explanation and frozen clock, fourth-and-13 at the own 30, the own-43 conversion line, exact turnover spots, no repeat explanation, all quarters while leading, PAT/field-goal kickoff choices, regular kickoffs and new-game reset. Kicking or simulating a whole drive cannot bypass the attempt.
 
-Native UI checks navigate Exhibition and Franchise, edit a coach's name and appearance, open the trophy winners, choose a receiver/preset, draw/undo/save/load/use a play, continue halftime and inspect team history. Exhibition simulation is checked against the original franchise values and byte-identical save file. Screenshots include create-play.png, draw-play-freehand.png, menu.png, franchise.png, coach.png, draw-play.png, trophies-won.png, history.png, playoff-field.png and championship-field.png.
+Business checks cover game and bye expenses, duplicate-result protection, independent food/parking prices, limits, initial sales versus lost fan support, saved prices/fans/job security, firing after a grace period, available jobs and the unchanged career record after hiring elsewhere. A perfect regular season earns less than $55 net before spending.
 
-The 800-call rush probe produces 637 straight calls and 163 stunts, with no consecutive stunts. Truck checks cover both success and failure, actual knockback, a prone interval and post-whistle animation without changing the dead-ball spot. Other checks include 24,000 randomized frames, trades, contracts, injuries, playoff byes/reseeding and atomic save recovery.
+All 12 teams produce award candidates. Stat categories sort actual yards. Matched simulated offenses produce more passing with better ratings. Receiving yards, catches and touchdowns reconcile with QB totals. Final MVP and OPOTY winners match the visible rankings, and winner profiles survive save/load. Simulated stats are estimates based on ratings, matchup, role and game variation.
 
-Balance probes: 66/120 defended throws completed; 46 catches gained more than two yards after catch; average prethrow separation 2.7 yards. A repeated sideline sprint scored 0/60 touchdowns and averaged 3.1 yards. In matched open throws, 70 hands caught 147/200 and 99 hands caught 185/200. These are scripted probes, not a full human balance test.
+Spectacular-hit checks verify launches of several yards, recovery, heavy contacts from both sides and unchanged dead-ball spots. The 800-call rush probe remains 637 straight rushes / 163 stunts, without consecutive stunts. The repeated 60-seed sideline run averages 3.1 yards with no touchdowns. Defended passing remains 66/120 completions, 46 gaining more than two yards after catch, with 2.7 yards average prethrow separation. These scripts do not establish that every human exploit is fixed.
 
-Audio tests verify crowd layering, contact/whistle overlap, delayed whistles, mute, focus loss, bounded voices, no clipping and cue triggers. A separate native playback smoke test opened the Windows device and submitted 184 PCM buffers. Scripted created-play passing completed 12/12 open slants. Human listening and balance review remain useful. Native UI tests isolate keyboard input from XInput. A physical Xbox playthrough remains unverified; the poll found no connected controller.
+The 160-contact hurdle probe clears 131 defenders with good timing and none at the takeoff/landing edges. Fumble/injury penalties occur in 20 well-timed trials and 90 mistimed trials under the updated injury rates. Outcomes depend on timing, ratings and support.
 
-Build: powershell -ExecutionPolicy Bypass -File .\build.ps1
+Audio checks verify embedded recordings, a quiet ambient bed, reaction dynamics and the mixer. Native playback opened the Windows device and submitted more than 180 buffers. Subjective listening remains useful. XInput polling found no connected Xbox controller; physical controller feel remains unverified.
 
-UI: build\Downfield.Tests.exe --ui-test
+New screenshots show the office, stadium pricing, signing profiles, MVP/OPOTY races, passing leaders, firing/jobs, route drawing, onside explanation/attempt/kickoff choice, spectacular hits, reserve substitution, short-handed offense and both stages of a flea-flicker.
 
-Installer/ZIP: powershell -ExecutionPolicy Bypass -File .\build-installer.ps1
-The arcade update adds model and native UI checks for the hurdle timing window, mistimed collision penalties, shared breakaway pace, real-time clock accounting, four-second runoff and its exceptions, quarter-ending punts, RS-click throwaways, exact injury recovery, ambulance arrival/loading/skip, reserve replacement, per-channel mute, preference persistence and pause-menu navigation.
+Build and core checks:
 
-A matched 160-contact hurdle probe cleared defenders 131 times with good timing and zero times at the takeoff/landing edges. Fumble or injury penalties occurred in 20 good-timing trials and 81 mistimed trials. The tests use fixed timing and ratings; these are not guaranteed player success rates.
+    powershell -ExecutionPolicy Bypass -File .\build.ps1
 
-The same 60-seed sideline sprint probe fell from 5.3 to 3.1 yards average gain. The varied passing probe remains close to its previous result: 66/120 completions with 46 catches gaining more than two yards after catch. A separate 100-scene open-field cut/juke probe had 95 stops and 5 touchdowns; the old build had 100 stops. That sample shows a few earned breakaways rather than every tackle being automatic. It does not establish that every human exploit is fixed.
+Native UI:
 
-New screenshots: pause-settings.png, quick-mute.png, hurdle-cleared.png, ambulance-arrival.png, ambulance-pickup.png and injuries-serious.png. Physical Xbox feel and human game balance still need playtesting.
+    .\build\Downfield.Tests.exe --ui-test
+
+Installer and ZIP:
+
+    powershell -ExecutionPolicy Bypass -File .\build-installer.ps1

@@ -44,7 +44,7 @@ The office also has trades, coaches, training, team colors, standings and playof
 NEW PLAY TOOLS
 24 plays, including Read Option: LB/Q gives to the back, or keep and run.
 Playbook > Create Play: pick a receiver, pick a route, press Use Play, then snap.
-Save/Load keeps your play. Draw is optional for freehand routes.
+Save/Load keeps your play. Drag from a receiver to draw. Xbox: X opens drawing; hold A while moving the left stick, X undoes, B finishes.
 Crowd ambience, touchdown cheers, big-hit reactions and whistles are included.
 Pause > Settings has separate volumes, including whistles. Click/drag a bar
 or use left/right. The field sound button also toggles mute.
@@ -61,3 +61,21 @@ Updating or reinstalling the game keeps those saves.
 
 Full instructions: FRANCHISE-GUIDE.md
 Game and source: https://github.com/dstaggs-15/downfieldftbl
+
+LATEST GAMEPLAY AND CLUBHOUSE UPDATE
+RS click throws away behind the line. Keyboard T.
+Before snap, RB / keyboard R offers the onside alternative: 4th-and-13
+from your own 30. Convert to keep it. Fail and they get the ball.
+After scores choose a normal kickoff or the same onside try.
+The first attempt each game explains it. Any quarter, any score.
+
+RBs can pitch back to the QB. If the ball never crossed the line and
+no forward pass has been thrown, the QB can pass. Receivers resume routes.
+Injured players use real reserves with their own jerseys. No backup
+means a missing player. If all QBs are hurt, an existing player runs wildcat.
+
+Clubhouse > Stadium + Money: set food and parking prices. Games and byes
+have operating costs. Keep fans and the board happy or risk being fired.
+Coaching Jobs lets a fired coach find work; your career record stays.
+Stat Leaders has MVP/OPOTY races and passing, rushing, receiving tables.
+Crowds use real CC0 recordings. Source credits are in the license.
