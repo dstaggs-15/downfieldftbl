@@ -16,6 +16,18 @@ You can also grab the whole repo with **Code > Download ZIP**, extract it, and o
 
 ## New in this update
 
+- Quicker run pressure and better pursuit angles, with bigger cuts, hits and timed hurdles.
+- Clear breakaways move faster so there is less empty running.
+- A badly timed hurdle can cause a fumble or a hard-landing injury. Injuries last two to six weeks, with an ambulance pickup.
+- Four seconds come off the clock after in-bounds plays. Incompletions and out-of-bounds plays stop it.
+- **Pause > Settings** has separate crowd, whistle, hit, horn, menu and master volumes. Click the in-game sound button, press Xbox View or use M to mute.
+- Click the **right stick** to throw away behind the line. Keyboard: **T**.
+- New stands, lights, scoreboard, sidelines, turf, end-zone paint and midfield bowl crests.
+
+![Sound settings](docs/pause-settings.png)
+
+## Modes and team features
+
 The first screen now has **Exhibition** for a quick game and **Franchise** for your team. The clubhouse uses shorter labels, icons and little pixel players.
 
 - Name your coach and change his pixel appearance.
@@ -24,7 +36,7 @@ The first screen now has **Exhibition** for a quick game and **Franchise** for y
 - Call from 24 plays, including read option, jet sweep, toss, mesh and wheel routes.
 - Create a play: pick a receiver, choose a route, then press Use Play. Save it or draw your own routes if you want.
 - Nudge the left stick as you release a throw to lead your receiver a little.
-- Hear stadium crowds, touchdown cheers, first-down applause, big-hit reactions, whistles and tackle sounds. Options has a mute switch.
+- Hear stadium crowds, touchdown cheers, first-down applause, big-hit reactions, whistles and tackle sounds. Pause > Settings has the sound mixer.
 
 Halftime now resets the field and possession. You receive to start the game; the opponent receives at its own 20 after halftime. Playoff games have their own scoreboard label and bowl art. Speed, hands and OVR make more of a difference, and receivers block once your QB crosses the line.
 
@@ -72,6 +84,8 @@ The league has **12 teams**, including **New Orleans**. You play everyone once o
 | Lob / bullet | Tap the receiver button / hold it and release |
 | Small pass placement at release | Left stick, up to about 2 yards |
 | Extra manual pass lead | Right stick |
+| Throw away behind the line | Click right stick |
+| Quick mute | View button, or click the sound button |
 | Juke with the ball | Right stick left or right |
 | Truck | Right stick up |
 | Spin | Right stick down or B |
@@ -93,7 +107,7 @@ WASD moves, Shift sprints and Space snaps. Numbers 1–5 throw to the matching r
 
 With the ball, left/right arrows juke, up trucks and down spins. J jumps, F dives, E also spins and Q pitches backward. Y opens the playbook before the snap. Escape pauses.
 
-Menus use arrows, Enter and Escape. Q/R jumps a page. You can also click menu cards. WASD nudges pass placement as you release the number key.
+T throws away while passing. M mutes. Menus use arrows, Enter and Escape. Q/R jumps a page. You can also click menu cards. WASD nudges pass placement as you release the number key.
 
 ## Want to sim?
 

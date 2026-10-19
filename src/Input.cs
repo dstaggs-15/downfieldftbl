@@ -9,7 +9,7 @@ public class Input {
  [DllImport("xinput1_4.dll",EntryPoint="XInputGetState")]static extern uint Read4(uint i,out State s);
  [DllImport("xinput1_3.dll",EntryPoint="XInputGetState")]static extern uint Read3(uint i,out State s);
  [DllImport("xinput9_1_0.dll",EntryPoint="XInputGetState")]static extern uint Read9(uint i,out State s);
- public const int A=0x1000,B=0x2000,X=0x4000,Y=0x8000,LB=0x100,RB=0x200,Start=0x10,Up=1,Down=2,Left=4,Right=8;
+ public const int A=0x1000,B=0x2000,X=0x4000,Y=0x8000,LB=0x100,RB=0x200,Start=0x10,View=0x20,RClick=0x80,Up=1,Down=2,Left=4,Right=8;
  public HashSet<Keys> KeysDown=new HashSet<Keys>();HashSet<Keys> priorKeys=new HashSet<Keys>();
  public bool SuppressPad;public bool Connected,Focused=true,UsesController,PausePressed;public int Controller=-1,Buttons,Previous;public float MoveX,MoveZ,AimX,AimZ,Sprint;
  public string Context="menu";int provider=4,lastPad;float oldX,oldZ,oldAimX,oldAimZ,oldSprint;
@@ -23,10 +23,10 @@ public class Input {
   State s;for(uint i=0;i<4&&!SuppressPad;i++)if(Read(i,out s)==0){Connected=true;Controller=(int)i;if(Focused){Buttons=s.pad.buttons;Analog(s.pad.lx,s.pad.ly,out MoveX,out MoveZ);Analog(s.pad.rx,s.pad.ry,out AimX,out AimZ);Sprint=s.pad.rt/255f;ObservePadActivity(Buttons,MoveX,MoveZ,AimX,AimZ,Sprint);}break;}
   if(!Focused)return;foreach(Keys k in KeysDown)if(!priorKeys.Contains(k))NoteKeyboard();PausePressed=K(Keys.Escape)&&!priorKeys.Contains(Keys.Escape)||K(Keys.P)&&!priorKeys.Contains(Keys.P);priorKeys=new HashSet<Keys>(KeysDown);
   float x=(K(Keys.D)?1:0)-(K(Keys.A)?1:0),z=(K(Keys.W)?1:0)-(K(Keys.S)?1:0),l=(float)Math.Sqrt(x*x+z*z);if(l>0){MoveX=x/Math.Max(1,l);MoveZ=z/Math.Max(1,l);}if(K(Keys.ShiftKey)||K(Keys.LShiftKey)||K(Keys.RShiftKey))Sprint=1;
-  if(K(Keys.Enter)||K(Keys.Space))Buttons|=A;if(K(Keys.P))Buttons|=Start;
+  if(K(Keys.Enter)||K(Keys.Space))Buttons|=A;if(K(Keys.P))Buttons|=Start;if(K(Keys.M))Buttons|=View;
   if(Context=="qb"){
    if(K(Keys.D1)||K(Keys.NumPad1))Buttons|=A;if(K(Keys.D2)||K(Keys.NumPad2))Buttons|=X;if(K(Keys.D3)||K(Keys.NumPad3))Buttons|=Y;if(K(Keys.D4)||K(Keys.NumPad4))Buttons|=B;if(K(Keys.D5)||K(Keys.NumPad5))Buttons|=RB;
-   if(K(Keys.Q))Buttons|=LB;ApplyKeyboardAim();
+   if(K(Keys.Q))Buttons|=LB;if(K(Keys.T))Buttons|=RClick;ApplyKeyboardAim();
   }else if(Context=="runner"){
    ApplyKeyboardAim();if(K(Keys.J))Buttons|=Y;if(K(Keys.F))Buttons|=X;if(K(Keys.E))Buttons|=B;if(K(Keys.Q))Buttons|=LB;
   }else{

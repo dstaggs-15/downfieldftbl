@@ -28,11 +28,11 @@ PASS four failures turn over
 PASS expired quarter advances after play
 PASS final conversion no phantom opponent drive
 PASS eight defensive calls without consecutive repeats
-Pressure sample: 30 sacks / 30 stationary pockets; max 2.21
+Pressure sample: 30 sacks / 30 stationary pockets; max 2.50
 PASS finite pocket and meaningful QB pressure
 Open pass sample: 200 completions / 50 drops / 0 misses
 PASS open receivers can drop passes
-Defended sample: 10 interceptions / 100 throws
+Defended sample: 13 interceptions / 100 throws
 PASS defenders intercept real throws
 PASS badly led pass incomplete
 PASS LB lateral strictly backwards
@@ -48,8 +48,8 @@ Input: 5 checks, 0 failures (radial deadzone, backward, diagonal, analog magnitu
 Profile: 11 checks, 0 failures; isolated temporary storage.
 Update: 19 checks, 0 failures
 Franchise: 96 checks, 0 failures
-Run balance: 0 TD / 60 stops in 60 repeated sideline sprint trials; avg 5.3 best 9.5
-Pass balance: 65 catches / 120; 57 open before throw; 47 gained >2 YAC; average separation 2.7
+Run balance: 0 TD / 60 stops in 60 repeated sideline sprint trials; avg 3.1 best 9.4
+Pass balance: 66 catches / 120; 57 open before throw; 46 gained >2 YAC; average separation 2.7
 Mechanics: 22 checks, 0 failures
 Rush mix: 637 straight / 163 stunts across 800 calls
 Line play: 12 checks, 0 failures
@@ -58,3 +58,5 @@ Beta: 50 checks, 0 failures
 Audio: 33 checks, 0 failures
 Created-play passing: 12 catches / 12 open slants
 Designer: 16 checks, 0 failures
+Hurdle timing: 131/160 well timed; 0 early, 0 late; penalties good=20, mistimed=81
+Arcade: 33 checks, 0 failures

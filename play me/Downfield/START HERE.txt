@@ -20,10 +20,18 @@ Move left stick slightly at release to place the pass.
 With the ball: right stick left/right juke, down spin, up truck.
 Y jumps after you cross the line. X dives. LB pitches backward.
 Y before the snap opens the playbook. Menu pauses.
+Click the right stick to throw away behind the line. View toggles mute.
 
 Keyboard: WASD move, Shift sprint, Space snap, 1-5 pass.
 Arrow keys juke/spin/truck, J jump, F dive, E spin, Q lateral.
 Y before the snap opens the playbook. Escape pauses.
+T throws away behind the line. M toggles mute.
+
+HURDLES AND INJURIES
+Time Y/J so you meet the defender in the middle of the jump.
+Mistimed collisions can cause a fumble or injury. Injuries last 2-6 weeks.
+An ambulance picks up injured players after the whistle. A/Enter skips it.
+In-bounds plays use a 4-second runoff. Incompletions/out-of-bounds stop it.
 
 YOUR TEAM
 Choose EXHIBITION for a quick game. Choose FRANCHISE for your saved team.
@@ -38,7 +46,8 @@ NEW PLAY TOOLS
 Playbook > Create Play: pick a receiver, pick a route, press Use Play, then snap.
 Save/Load keeps your play. Draw is optional for freehand routes.
 Crowd ambience, touchdown cheers, big-hit reactions and whistles are included.
-Sound can be switched off in Options.
+Pause > Settings has separate volumes, including whistles. Click/drag a bar
+or use left/right. The field sound button also toggles mute.
 
 SIM OPTIONS
 Schedule > Sim Next Game

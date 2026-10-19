@@ -86,5 +86,19 @@ PASS UI halftime menu starts new receiving possession
 PASS UI season history opens individual club history
 PASS UI playoff and championship artwork render
 PASS UI sound option toggles
+PASS UI T / RS-click input throws away a charged pass
+PASS UI throwaway UI finishes incomplete
+PASS UI Pause Settings opens volume mixer
+PASS UI left adjusts whistle volume without changing row
+PASS UI A mutes whistle channel
+PASS UI mouse mixer sets whistle level directly
+PASS UI settings returns to paused game
+PASS UI M / Xbox View toggles in-game mute
+PASS UI clickable HUD button toggles mute
+PASS UI ambulance arrives while patient stays prone
+PASS UI stretcher pickup renders loaded patient
+PASS UI controller A skips ambulance timeout
+PASS UI continuing replaces injured starter
+PASS UI successful hurdle visibly clears a DB
 XInput native poll: connected=False. Physical controller unverified.
-UI: 88 checks, 0 failures
+UI: 102 checks, 0 failures

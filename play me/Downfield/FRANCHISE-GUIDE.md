@@ -54,6 +54,8 @@ Quarters are **60 seconds**. The offense-first arcade format remains: you play o
 | Lob / bullet | Tap / hold-release receiver icon | Tap / hold-release number |
 | Small placement at release | Left stick | WASD |
 | Extra manual lead | Right stick | Arrows |
+| Throw away behind the line | Right-stick click | T |
+| Quick mute | View button / sound button | M / sound button |
 | Juke left / right while carrying | Right stick left / right | Left / right arrows |
 | Truck while carrying | Right stick up | Up arrow |
 | Spin while carrying | Right stick down or B | Down arrow or E |
@@ -109,13 +111,29 @@ Stadium ambience runs during matches, with louder cheers and a horn for scores, 
 
 Speed now has a wider range: a 99-speed WR is about 3.3 yards/second faster than a 70-speed corner before situational modifiers. OVR changes acceleration and defensive reaction, hands changes drops, and power changes accuracy/contact. A matched 200-throw open-receiver probe caught 147 with 70 hands and 185 with 99 hands. This is a scripted sample, not a promise that a covered receiver always wins.
 
+## Arcade timing, injuries and sound settings
+
+Hurdles last about half a second. Press Y just before meeting the defender so the collision happens during the middle of the jump. A well-timed hurdle can clear corners and linebackers as well as linemen. Ratings and nearby support still matter. Colliding at takeoff or landing can cause a harder hit, a fumble or a longer injury. Jumping in empty space does not randomly injure you.
+
+Jukes travel a little farther and defenders sometimes commit to a tackle they cannot steer. Runs shed blocks sooner, and free defenders take interception angles and work around the blocker they just shed. These changes keep offensive skill moves useful while giving the defense a chance to make a stop.
+
+When sprinting straight upfield well past the line with every available defender behind and at least nine yards away, the whole play gradually runs up to 1.45 times faster. The clock still uses real time. Turning, using a skill move or approaching a defender returns normal pace immediately. It is a short finish for an uncontested breakaway; speed ratings and distances stay intact.
+
+Four seconds are deducted once at the end of each timed in-bounds play, including a touchdown or field goal. Incompletions, throwaways and out-of-bounds plays get no runoff. PATs and two-point conversions are untimed and do not charge another runoff. If runoff ends a quarter or half, the normal quarter/halftime rules apply.
+
+Bigger injuries remove a player immediately. Ordinary contact injuries last two to five weeks; hard landings can last three to six. A pixel ambulance arrives after the whistle, medics load the patient and the vehicle leaves. The camera follows the pickup, and the clock stops during it. Press A/Enter to skip the pickup, then continue to the next play. A healthy reserve or emergency player takes over. The health page and player card show the recovery time and injury type.
+
+Open **Pause > Settings** for Master, Crowd, Whistles, Hits + Moves, Stadium Horns and Menu Sounds. Left/right changes a selected volume; A mutes that channel. Mouse clicks and dragging work on the bars. Mute All silences everything. The sound button in the field view and Xbox View / keyboard M are quick mute controls. Settings save separately from the franchise and survive reinstalling.
+
+Right-stick click / T throws the ball out of bounds while the QB can still pass. It cancels a charged throw, shows the ball in flight, counts as an incomplete attempt and stops the clock without runoff. It is unavailable after crossing the line or after already throwing a forward pass.
+
 ## Grounded movement and arcade contact
 
 Movement accelerates toward the requested speed, plants on release, and slows into sharp reversals instead of instantly changing direction. Running backward is slower. Animation follows distance traveled, with visible body bob, cuts and planted feet. Nearby teammates separate instead of occupying the same location.
 
 Jukes create actual lateral space instead of granting blanket tackle immunity. Trucks use power versus defender power and nearby support, and can fail. Spin can beat an isolated reach but is not guaranteed. Jumps visibly lift the carrier and may clear a low lineman tackle; they do not make the runner untouchable. Big contacts produce a hit burst and reaction. Winning a truck launches the defender backward into a tumbling knockdown; losing a truck knocks the carrier back hard. Falls last about a second and continue after the whistle without changing the dead-ball spot. Contact fumbles remain possible, especially while sprinting.
 
-Injuries can occur on big hits. Injured players sit out future plays and are replaced by a healthy reserve at the same position, or an emergency 70 OVR player if no reserve is available. Recovery is one to three league weeks; a week advances even during a bye. Conditioning reduces injury risk. Simulated games can cause injuries too. There are no medical expenses, real-world injury diagnoses or permanent career-ending injuries.
+Injuries can occur on big hits. Injured players sit out future plays and are replaced by a healthy reserve at the same position, or an emergency 70 OVR player if no reserve is available. Recovery is two to six league weeks; a week advances even during a bye. Conditioning reduces injury risk. Simulated games can cause injuries too. There are no medical expenses, real-world injury diagnoses or permanent career-ending injuries.
 
 ## Defense and receiver separation
 
@@ -149,8 +167,8 @@ Simulated drives are logged as simulated summaries; they are not reconstructed a
 
 New franchise state is saved beside the old club file at `%LOCALAPPDATA%/Downfield/club.txt.franchise.xml`, with an atomic previous-version `.bak`. Existing `club.txt` and `club.txt.roster` supply migration data and remain present. The original source/build before this update is backed up in `Downloads/Downfield-v2-backup-before-franchise`.
 
-**394 automated checks pass:** 42 simulation, 5 input, 11 profile, 19 earlier-update, 96 franchise, 22 mechanics, 12 line-play, 50 beta, 33 audio, 16 designer and 88 native UI checks. Tests use isolated save directories. Screenshots in this folder show the office, roster, market, trade/coaching pages, bracket, field/end zone, kick windup/flight and pause menu.
+**441 automated checks pass:** 42 simulation, 5 input, 11 profile, 19 earlier-update, 96 franchise, 22 mechanics, 12 line-play, 50 beta, 33 audio, 16 designer, 33 arcade and 102 native UI checks. Tests use isolated save directories. Screenshots in this folder show the office, roster, market, trade/coaching pages, bracket, field/end zone, kick windup/flight and pause menu.
 
-Balance probes: 65 catches in 120 varied defended throw scenarios; 47 catches produced more than two yards after catch. A fixed sideline-sprint pattern was stopped in 60/60 trials, with about 5.3 yards average gain. These are scripted scenarios, not a human playtest or a guarantee against all exploits. Physical Xbox controller feel and prolonged human balance testing remain unverified.
+Balance probes: 66 catches in 120 varied defended throw scenarios; 46 catches produced more than two yards after catch. A fixed sideline-sprint pattern was stopped in 60/60 trials, with about 3.1 yards average gain. These are scripted scenarios, not a human playtest or a guarantee against all exploits. Physical Xbox controller feel and prolonged human balance testing remain unverified.
 
 Rebuild: `powershell -ExecutionPolicy Bypass -File .\build.ps1`. Then run `build\Downfield.Tests.exe --ui-test` for native UI checks. No new runtime dependencies or proprietary Retro Bowl code/art are included.
