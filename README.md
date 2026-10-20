@@ -139,7 +139,7 @@ It's written in **C#** and runs as a normal Windows app. It doesn't use Unity or
 
 The code moves the players, checks catches and tackles, keeps score, and decides what the defense does. Another part draws the field and the little pixel players. The office and menus are drawn the same way.
 
-The art is made by the game from colored shapes. The sounds are short waveforms made in code, with no downloaded recordings. The football, uniforms and menus don't need a separate pile of image files, which is why the game can run from one exe.
+The art is made by the game from colored shapes. Crowd sounds come from free CC0 recordings; hits, horns and menu sounds are made in code. The football, uniforms and menus don't need a separate pile of image files, which is why the game can run from one exe.
 
 The team and season live in a save file on your PC. They aren't stored on a server. The installer copies the game and instructions into your Windows user folder and puts a working exe on your desktop.
 
@@ -148,8 +148,8 @@ If you're looking around the source:
 - **Simulation.cs, Mechanics.cs:** the football rules, movement and game flow.
 - **Defense.cs, LinePlay.cs:** coverage, pursuit, blocking and stunts.
 - **Impacts.cs:** trucks, knockback and falling.
-- **Franchise.cs, Career.cs, ClubBusiness.cs:** teams, contracts, costs, fans, jobs, history and awards.
-- **GameForm.cs, FranchiseUI.cs, BetaUI.cs:** what you see and how the menus work.
+- **Franchise.cs, LeagueDevelopment.cs, Career.cs, ClubBusiness.cs:** teams, CPU roster decisions, drafts, contracts, costs, fans, jobs, history and awards.
+- **GameForm.cs, FranchiseUI.cs, RosterOverview.cs, ManagementCards.cs, BetaUI.cs:** what you see and how the menus work.
 - **DrawnPlay.cs, PlayDesigner.cs:** drawing routes and running them on the field.
 - **GameAudio.cs, CrowdRecordings.cs, FootballSounds.cs, StadiumMixer.cs, WaveOutput.cs:** recorded crowds and mixed sound effects.
 - **Input.cs:** keyboard and Xbox input.
