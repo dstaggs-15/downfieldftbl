@@ -16,11 +16,23 @@ There is also a [portable game EXE](https://github.com/dstaggs-15/downfieldftbl/
 
 ## New in this update
 
+- **SPRXTRM**: an intentionally unfair fifth difficulty. Maximum-rated defenders, a pace boost, relentless pressure and huge hits. Extreme also closes more escape lanes and passing windows now.
+- Direct a receiver while scrambling: hold **LT**, choose his receiver button, then flick the **right stick**. Keyboard: hold **C**, choose **1-5**, then use the arrows. Release the modifier to pass normally.
+- Six big-hit animations, including flips, clotheslines, corkscrews and turf slams.
+- Rain, snow and clearer broadcast presentation. Franchise weather follows the home city and season; Exhibition lets you pick the weather.
+- All 12 teams have their own pixel logo, used in the menus and on the field.
+- League History now starts with seasons. Pick one for its champion, awards and final standings, then select a club for its history.
+- Type your own relocation city. It costs **$45M total**: the usual $15M move plus the $30M custom-city fee.
+
+![Every team's logo](docs/team-logos.png)
+
+![Snow football](docs/snow-game.png)
+
 - CPU teams now train players, sign free agents, renew contracts, change coaches and make rebuilding trades. Other clubs can get better or fall apart over time.
 - A three-round draft after each season. Pick your rookies or let your scouts finish it. Older players decline and retire.
 - A tighter **$190 salary cap**. Stars cost more, and renewals pay for the player they have become. Old contracts stay intact until renewal.
 - A full-team roster grid with pixel players and clear ratings. New cards for player actions, staff and training, plus the whole league table on one screen.
-- **Extreme** difficulty in Options or Pause. Faster defensive reads, better deep help and a tighter pocket. Normal keeps its existing gameplay.
+- **Extreme** difficulty in Options or Pause. Faster defensive reads, better deep help and a tighter pocket. Normal keeps its earlier defensive tuning.
 - The piercing whistle is gone. The stadium background is softer and runs through a longer mix. Pause > Settings still has separate volumes.
 
 - The game and installer now leave development tests out of the files players download. Both have clear product/version details. The reported Defender warning is still being reviewed; a local scan found no threats.
@@ -98,6 +110,7 @@ The league has **12 teams**, including **New Orleans**. You play everyone once o
 | Lob / bullet | Tap the receiver button / hold it and release |
 | Small pass placement at release | Left stick, up to about 2 yards |
 | Extra manual pass lead | Right stick |
+| Direct a scrambling receiver | Hold LT, choose A/X/Y/B/RB, then flick right stick |
 | Throw away behind the line | Click right stick |
 | Quick mute | View button, or click the sound button |
 | Juke with the ball | Right stick left or right |
@@ -122,6 +135,8 @@ WASD moves, Shift sprints and Space snaps. Numbers 1–5 throw to the matching r
 With the ball, left/right arrows juke, up trucks and down spins. J jumps, F dives, E also spins and Q pitches backward. Y opens the playbook before the snap. Escape pauses.
 
 T throws away while passing. M mutes. Menus use arrows, Enter and Escape. Q/R jumps a page. You can also click menu cards. WASD nudges pass placement as you release the number key.
+
+Hold C while behind the line to direct a receiver: 1-5 picks him, arrows send him left, right, deep or back toward the ball. This won't throw the pass. Release C and use his number normally when you're ready.
 
 ## Want to sim?
 

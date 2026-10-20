@@ -88,8 +88,23 @@ League season 7: ratings 83,84,86,85,81,82,80,76,79,75,88,78,87 / retired 24
 League season 8: ratings 83,84,86,85,81,82,80,76,79,75,88,78,87 / retired 31
 League development: 26 checks, 0 failures
 Rated offense 95 / drawn verticals: TD 12/80, catches 72, first downs 70, avg yards 33.4
-Rated offense 95 / drawn verticals: TD 0/80, catches 43, first downs 43, avg yards 13.3
-Rated offense 95 / 0: TD 0/80, catches 49, first downs 28, avg yards 5.8
-Extreme elite full games: avg 3.3, peak 28; Normal avg 29.6
+Rated offense 95 / drawn verticals: TD 0/80, catches 6, first downs 6, avg yards -1.7
+Rated offense 95 / 0: TD 0/80, catches 54, first downs 22, avg yards 6.2
+Extreme elite full games: avg 0.0, peak 0; Normal avg 29.6
 Extreme: 8 checks, 0 failures
+Adaptive attack / difficulty 1 / attack 0: TD 1/60, first 35, yards 15.1, sacks 0, picks 0, huge 42
+Adaptive attack / difficulty 3 / attack 0: TD 0/60, first 12, yards 4.8, sacks 4, picks 0, huge 27
+Adaptive attack / difficulty 4 / attack 0: TD 0/60, first 11, yards 2.7, sacks 31, picks 0, huge 60
+Adaptive attack / difficulty 1 / attack 1: TD 2/60, first 7, yards 8.7, sacks 0, picks 0, huge 50
+Adaptive attack / difficulty 3 / attack 1: TD 0/60, first 0, yards 0.6, sacks 0, picks 0, huge 29
+Adaptive attack / difficulty 4 / attack 1: TD 0/60, first 0, yards -1.5, sacks 0, picks 0, huge 60
+Adaptive attack / difficulty 1 / attack 2: TD 4/60, first 10, yards 7.1, sacks 0, picks 0, huge 16
+Adaptive attack / difficulty 3 / attack 2: TD 1/60, first 6, yards 3.0, sacks 0, picks 1, huge 11
+Adaptive attack / difficulty 4 / attack 2: TD 0/60, first 0, yards 1.2, sacks 0, picks 43, huge 9
+Adaptive attack / difficulty 1 / attack 3: TD 2/60, first 13, yards 6.7, sacks 0, picks 4, huge 15
+Adaptive attack / difficulty 3 / attack 3: TD 0/60, first 7, yards 4.5, sacks 0, picks 7, huge 15
+Adaptive attack / difficulty 4 / attack 3: TD 0/60, first 6, yards 2.7, sacks 0, picks 29, huge 20
+SPRXTRM pocket: penetration 60/60, sacks 60/60
+Hard modes: 12 checks, 0 failures
+Presentation update: 24 checks, 0 failures
 Built C:\Users\Daniel\Downloads\Downfield-v2\build\Downfield.exe

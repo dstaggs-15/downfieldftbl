@@ -93,3 +93,12 @@ At the end of a season, older players can retire and a 3-round draft opens.
 Choose your rookies in DRAFT or let your scouts auto draft the remaining picks.
 The full roster is now a grid: select any player for stats and starting assignments.
 Want a tougher defense? Choose EXTREME in Options or the pause menu.
+SPRXTRM AND PRESENTATION UPDATE
+Options/Pause now includes SPRXTRM above Extreme: maximum defense, relentless
+pressure and huge hits. Extreme is tougher against scrambles and quick throws too.
+While QB can pass: hold LT, pick a receiver icon and flick RS to direct him.
+Keyboard: hold C, pick 1-5 and use arrows. Release LT/C to pass normally.
+Exhibition has a weather card. Franchise rain/snow follows the home city and week.
+All teams have pixel logos in menus and on the field, plus six hit animations.
+History: pick a season, view champion/awards/standings, then pick a club.
+Move Team > Type a Custom City costs $45M: $15M move + $30M custom fee.

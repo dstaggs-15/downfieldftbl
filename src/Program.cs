@@ -5,8 +5,8 @@ namespace Downfield {
 static class Program {
     [STAThread] static int Main(string[] args){
 #if DOWNFIELD_TESTS
-        if(args.Length>0&&args[0]=="--test")return SimulationTests.Run()+InputTests()+ProfileTests.Run()+UpdateTests.Run()+FranchiseTests.Run()+MechanicsTests.Run()+LinePlayTests.Run()+BetaTests.Run()+AudioTests.Run()+DesignerTests.Run()+ArcadeTests.Run()+OnsideTests.Run()+EconomyTests.Run()+ClubUpdateTests.Run()+PersonnelTests.Run()+DefenseBalanceTests.Run()+LeagueDevelopmentTests.Run()+ExtremeTests.Run();
-        if(args.Length>0&&args[0]=="--balance-test")return DefenseBalanceTests.Run();
+        if(args.Length>0&&args[0]=="--test")return SimulationTests.Run()+InputTests()+ProfileTests.Run()+UpdateTests.Run()+FranchiseTests.Run()+MechanicsTests.Run()+LinePlayTests.Run()+BetaTests.Run()+AudioTests.Run()+DesignerTests.Run()+ArcadeTests.Run()+OnsideTests.Run()+EconomyTests.Run()+ClubUpdateTests.Run()+PersonnelTests.Run()+DefenseBalanceTests.Run()+LeagueDevelopmentTests.Run()+ExtremeTests.Run()+HardModeTests.Run()+PresentationUpdateTests.Run();
+        if(args.Length>0&&args[0]=="--hard-test")return HardModeTests.Run();if(args.Length>0&&args[0]=="--balance-test")return DefenseBalanceTests.Run();
         if(args.Length>0&&args[0]=="--audio-smoke")return AudioTests.Smoke();
         if(args.Length>1&&args[0]=="--audio-preview"){AudioTests.Preview(args[1]);return 0;}
 #endif

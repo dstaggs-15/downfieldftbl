@@ -94,7 +94,8 @@ PASS UI receiver route target follows actual drawn endpoint
 PASS UI drawn play becomes live call
 PASS UI left movement stick placement reaches release input
 PASS UI halftime menu starts new receiving possession
-PASS UI season history opens individual club history
+PASS UI history opens a completed season summary
+PASS UI season summary opens a club history table
 PASS UI playoff and championship artwork render
 PASS UI sound option toggles
 PASS UI T / RS-click input throws away a charged pass
@@ -140,11 +141,31 @@ PASS UI roster right moves one card
 PASS UI card opens full player controls
 PASS UI options selects and saves Extreme
 PASS UI franchise kickoff applies Extreme
-PASS UI pause difficulty cycles Extreme to Rookie
+PASS UI pause difficulty cycles Extreme to SPRXTRM
+PASS UI pause cycles SPRXTRM to Rookie
 PASS UI franchise play button opens pending draft
 PASS UI draft pick shows exact rookie portrait and contract
 PASS UI confirmed pick advances CPU until next human pick
 PASS UI auto draft menu completes all remaining league picks
 PASS UI all twelve standings rows and roster scouting links visible
+PASS UI all twelve branded team cards are selectable
+PASS UI SPRXTRM exhibition uses chosen snow and real home team
+PASS UI weather and field logo presentation keeps presnap input available
+PASS UI exhibition weather card cycles overrides
+PASS UI C and receiver icon select a scramble target without throwing
+PASS UI playmaker arrow sends selected receiver left
+PASS UI receiver follows command and modifier release never fires a ghost pass
+PASS UI ordinary receiver passing works after directing a route
+PASS UI custom relocation opens city keyboard
+PASS UI city move reviews the full 45 million before charging
+PASS UI confirmed custom move uses typed city and correct price
+PASS UI exhibition field matches the custom team branding shown in its picker
+PASS UI history lists a season once instead of twelve repeated team entries
+PASS UI year opens champion and final standings
+PASS UI season summary shows all twelve teams and back without paging
+PASS UI team history returns to its season summary
+PASS UI season back returns to year browser
+PASS UI away game keeps home field identity and correct home/visitor labels
+PASS UI all six big-hit animations render in a real contact scene
 XInput native poll: connected=False. Physical controller unverified.
-UI: 148 checks, 0 failures
+UI: 169 checks, 0 failures
