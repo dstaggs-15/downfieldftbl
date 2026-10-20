@@ -16,6 +16,7 @@ You can also grab the whole repo with **Code > Download ZIP**, extract it, and o
 
 ## New in this update
 
+- Defense update: safeties stay deep, help against fast receivers and take better tackling angles. Zones carry vertical routes, linebackers watch repeated QB escapes, and the defense adjusts when you keep calling deep passes. Good signings still matter, but one go route should take more work.
 - Real crowd recordings, quieter ambience and bigger reactions. Volume controls are in **Pause > Settings**.
 - Draw routes by dragging from a receiver in **Create a Play**. On Xbox, press **X** to draw, then hold **A** while moving the left stick. Presets still work.
 - An onside alternative: **4th-and-13 from your own 30**. Gain 13 to keep it. Fall short and the opponent takes over. Any quarter, any score. The first attempt each game explains the rule.

@@ -32,7 +32,7 @@ Pressure sample: 30 sacks / 30 stationary pockets; max 2.50
 PASS finite pocket and meaningful QB pressure
 Open pass sample: 200 completions / 50 drops / 0 misses
 PASS open receivers can drop passes
-Defended sample: 13 interceptions / 100 throws
+Defended sample: 9 interceptions / 100 throws
 PASS defenders intercept real throws
 PASS badly led pass incomplete
 PASS LB lateral strictly backwards
@@ -48,8 +48,8 @@ Input: 5 checks, 0 failures (radial deadzone, backward, diagonal, analog magnitu
 Profile: 11 checks, 0 failures; isolated temporary storage.
 Update: 19 checks, 0 failures
 Franchise: 96 checks, 0 failures
-Run balance: 0 TD / 60 stops in 60 repeated sideline sprint trials; avg 3.1 best 9.4
-Pass balance: 66 catches / 120; 57 open before throw; 46 gained >2 YAC; average separation 2.7
+Run balance: 0 TD / 60 stops in 60 repeated sideline sprint trials; avg 2.9 best 7.7
+Pass balance: 64 catches / 120; 60 open before throw; 39 gained >2 YAC; average separation 3.0
 Mechanics: 22 checks, 0 failures
 Rush mix: 637 straight / 163 stunts across 800 calls
 Line play: 12 checks, 0 failures
@@ -65,4 +65,16 @@ Economy: 18 checks, 0 failures
 Club update: 13 checks, 0 failures
 Flea-flicker return pitches: 14 / 20
 Personnel: 14 checks, 0 failures
-Built C:\Users\Daniel\Downloads\Downfield-v2\build\Downfield.exe
+Rated offense 85 / 2: TD 4/80, catches 47, first downs 45, avg yards 15.1
+Rated offense 95 / 2: TD 9/80, catches 61, first downs 59, avg yards 25.2
+Rated offense 85 / drawn verticals: TD 6/80, catches 64, first downs 62, avg yards 25.7
+Rated offense 95 / drawn verticals: TD 12/80, catches 72, first downs 70, avg yards 33.4
+Rated offense 85 / 0: TD 0/80, catches 61, first downs 37, avg yards 8.3
+Rated offense 85 / 14: TD 0/80, catches 65, first downs 15, avg yards 6.9
+Rated offense 95 / 16: TD 7/80, catches 58, first downs 51, avg yards 19.3
+Rated offense 95 / 10: TD 0/80, catches 0, first downs 0, avg yards 5.8
+Full games 85 / normal kickoff: avg 10.5, peak 21 in 30 games
+Full games 85 / onside every TD: avg 13.5, peak 35 in 30 games
+Full games 95 / normal kickoff: avg 21.5, peak 35 in 30 games
+Full games 95 / onside every TD: avg 29.6, peak 70 in 30 games
+Defensive balance: 24 checks, 0 failures
