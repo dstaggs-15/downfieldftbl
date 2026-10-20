@@ -4,8 +4,6 @@ A little arcade football game I'm working on. I wanted quick games, Madden-style
 
 ## Just want to play?
 
-**Windows Defender notice:** a tester reported `Trojan:Win32/Ulthar.A!ml`. The local scan returned no threats, but Microsoft has not confirmed a false positive. Downloads are restored at the project's request while this is investigated. [Review notes and hashes](docs/SECURITY-REVIEW.md).
-
 **[Download here - Windows installer](https://github.com/dstaggs-15/downfieldftbl/raw/refs/heads/main/play%20me/Install%20Downfield.exe)**
 
 Open it and click **INSTALL GAME** to put Downfield 2 on your desktop. The installer includes the game and needs no extra downloads. You need **64-bit Windows 10/11** with Windows' .NET Framework. The installer is unsigned.
