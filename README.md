@@ -1,18 +1,14 @@
 # Downfield 2
 
-A little arcade football game I'm working on. I wanted quick games, Madden-style buttons, and a team you can build over a season. It's still a work in progress, but you can play it now.
+A little arcade football game I'm working on. I wanted quick games, Madden-style buttons, and a team you can build over a season. It's still a work in progress.
 
 ## Just want to play?
 
-**[Download here - Windows installer](https://github.com/dstaggs-15/downfieldftbl/raw/refs/heads/main/play%20me/Install%20Downfield.exe)**
+**Downloads are paused while a reported Windows Defender warning is investigated.** The reported name is `Trojan:Win32/Ulthar.A!ml`. Keep flagged copies quarantined and hold off on sharing or running them.
 
-Open it and click **INSTALL GAME**. It puts **Downfield 2.exe** on your desktop. Open that to play. The installer already has the game inside it, so there are no extra downloads or accounts to set up.
+The local files match the published build. A local Defender custom scan returned no threats, but that does not settle the reported detection. We need the affected file and Microsoft's determination before calling it a false positive. [Review notes and file hashes](docs/SECURITY-REVIEW.md).
 
-You need a **64-bit Windows 10 or Windows 11 PC**. The game uses Windows' .NET Framework. No admin account is needed. The installer isn't signed, so Windows may call it an unfamiliar app.
-
-Or download the [Windows ZIP](https://github.com/dstaggs-15/downfieldftbl/raw/refs/heads/main/play%20me/Downfield-Windows.zip), extract it, and run the installer inside.
-
-You can also grab the whole repo with **Code > Download ZIP**, extract it, and open the **play me** folder. Run the installer there, or skip setup and run **Downfield/Downfield.exe**.
+The installer, portable EXE and Windows ZIP have been withdrawn from the current branch during review. Source, game documentation and save files remain available. The existing game targets **64-bit Windows 10/11** and uses Windows' .NET Framework.
 
 ## New in this update
 

@@ -1,5 +1,6 @@
 $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $MyInvocation.MyCommand.Path
+if (Test-Path -LiteralPath (Join-Path $root 'play me\DOWNLOADS-ON-HOLD.txt')) { throw 'Distribution is paused pending review of a reported Windows Defender detection. See docs/SECURITY-REVIEW.md.' }
 $compiler = Join-Path $env:WINDIR 'Microsoft.NET\Framework64\v4.0.30319\csc.exe'
 $game = Join-Path $root 'build\Downfield.exe'
 if (!(Test-Path -LiteralPath $game)) { throw 'Run build.ps1 first.' }
