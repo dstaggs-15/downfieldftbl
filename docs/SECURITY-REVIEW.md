@@ -1,8 +1,8 @@
-# Download hold: reported Defender detection
+# Reported Defender detection
 
 Status: **under investigation**, October 20, 2026. The reported detection is `Trojan:Win32/Ulthar.A!ml`. The exact affected file and whether the warning occurred on this PC or another tester's PC are still pending. Microsoft has not issued a determination for this report.
 
-Keep flagged copies quarantined. Downloads are paused, and the installer, Windows ZIP and portable game have been withdrawn from the current GitHub branch. Historical Git commits can still contain those files; they are not recommended downloads during this review. Source and franchise saves are preserved. Packaging now stops while `play me/DOWNLOADS-ON-HOLD.txt` exists.
+Keep flagged copies quarantined. The project owner requested that downloads be restored while the suspected false positive is investigated. The installer, Windows ZIP and portable EXE are available again. This is not a Microsoft clearance. Source and franchise saves are preserved. Release cleanup and Microsoft review remain in progress.
 
 ## Files being reviewed
 
@@ -30,6 +30,6 @@ These findings do not settle the reported detection or establish that every down
 1. In Windows Security > Virus & threat protection > Protection history, open the reported detection and record its affected-file path, time, action and definition version if shown.
 2. Identify whether the affected file matches one of the hashes above. Do not restore a quarantined item just to hash it.
 3. Submit the exact affected file to [Microsoft Security Intelligence](https://www.microsoft.com/en-us/wdsi/filesubmission) for analysis. For a suspected incorrect detection of this game, select the software-developer route and include the detection name, file hash, source commit and these findings. Microsoft's [submission guide](https://learn.microsoft.com/en-us/defender-xdr/submission-guide) says to await the final determination when disputing a program detection. Submission requires signing in; no sample has been submitted from this session.
-4. Record Microsoft's submission ID and final determination here before lifting the hold. A clean local scan alone does not lift it.
+4. Record Microsoft's submission ID and final determination here. A clean local scan alone does not establish that the detection is a false positive.
 
 Franchise saves live separately under `%LOCALAPPDATA%\Downfield`. They have not been modified by this review.

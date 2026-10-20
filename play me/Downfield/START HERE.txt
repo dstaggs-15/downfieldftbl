@@ -1,7 +1,86 @@
-DOWNFIELD 2 - DOWNLOADS ON HOLD
+WINDOWS DEFENDER NOTICE
+A Trojan:Win32/Ulthar.A!ml detection was reported. Local scans returned no threats, but Microsoft review is pending.
+Downloads are restored at the project owner's request. If a file is flagged, keep it quarantined and report its affected-file path.
+See docs/SECURITY-REVIEW.md in the repository.
 
-A Windows Defender Trojan:Win32/Ulthar.A!ml detection was reported.
-Keep flagged copies quarantined and hold off on sharing or running them.
-The installer, game EXE and Windows ZIP are withdrawn from the current GitHub branch during review.
-See docs/SECURITY-REVIEW.md for hashes and the investigation status.
-Your franchise saves are separate from the game and remain unchanged.
+DOWNFIELD 2
+
+Want the easy setup? Open Install Downfield.exe and click INSTALL GAME.
+You'll get Downfield 2.exe on your desktop. That's what you open to play.
+The installer already contains the game. You don't need to download anything else or have an admin account.
+
+If you'd rather skip setup, open the Downfield folder and run Downfield.exe.
+This is a Windows 10/11 game for a 64-bit PC. It uses Windows' .NET Framework.
+This isn't a Mac, Linux, phone or browser version.
+
+On GitHub, download the installer using the download/raw button, not Save Page As.
+Or click Code > Download ZIP, extract it, and open the play me folder.
+The installer is unsigned, so Windows may identify it as an unfamiliar app.
+The complete source is included in the repository if you want to inspect or build it.
+
+QUICK CONTROLS
+Xbox: left stick move, RT sprint, A snap. A/X/Y/B/RB pass to that receiver.
+Tap an icon for a lob; hold and release for a bullet.
+Move left stick slightly at release to place the pass.
+With the ball: right stick left/right juke, down spin, up truck.
+Y jumps after you cross the line. X dives. LB pitches backward.
+Y before the snap opens the playbook. Menu pauses.
+Click the right stick to throw away behind the line. View toggles mute.
+
+Keyboard: WASD move, Shift sprint, Space snap, 1-5 pass.
+Arrow keys juke/spin/truck, J jump, F dive, E spin, Q lateral.
+Y before the snap opens the playbook. Escape pauses.
+T throws away behind the line. M toggles mute.
+
+HURDLES AND INJURIES
+Time Y/J so you meet the defender in the middle of the jump.
+Mistimed collisions can cause a fumble or injury. Injuries last 2-6 weeks.
+An ambulance picks up injured players after the whistle. A/Enter skips it.
+In-bounds plays use a 4-second runoff. Incompletions/out-of-bounds stop it.
+
+YOUR TEAM
+Choose EXHIBITION for a quick game. Choose FRANCHISE for your saved team.
+Inside Franchise, open CLUBHOUSE. JOBS picks a club, including New Orleans.
+MY COACH changes your name and pixel look. TROPHIES tracks your awards.
+Use ROSTER to manage starters and reserves. New signings start on the bench.
+The office also has trades, coaches, training, team colors, standings and playoffs.
+12 teams. 11 regular season games. The top 6 make the playoffs; top 2 get byes.
+
+NEW PLAY TOOLS
+24 plays, including Read Option: LB/Q gives to the back, or keep and run.
+Playbook > Create Play: pick a receiver, pick a route, press Use Play, then snap.
+Save/Load keeps your play. Drag from a receiver to draw. Xbox: X opens drawing; hold A while moving the left stick, X undoes, B finishes.
+Crowd ambience, touchdown cheers, big-hit reactions and whistles are included.
+Pause > Settings has separate volumes, including whistles. Click/drag a bar
+or use left/right. The field sound button also toggles mute.
+
+SIM OPTIONS
+Schedule > Sim Next Game
+Pause > Sim Rest of Game
+Playbook > Simulate Drive (before the snap)
+
+Your team saves automatically. A live game can't be resumed after closing it.
+Leaving an unfinished league game records a 0-21 forfeit.
+Saves are separate from the installation, in %LOCALAPPDATA%\Downfield.
+Updating or reinstalling the game keeps those saves.
+
+Full instructions: FRANCHISE-GUIDE.md
+Game and source: https://github.com/dstaggs-15/downfieldftbl
+
+LATEST GAMEPLAY AND CLUBHOUSE UPDATE
+RS click throws away behind the line. Keyboard T.
+Before snap, RB / keyboard R offers the onside alternative: 4th-and-13
+from your own 30. Convert to keep it. Fail and they get the ball.
+After scores choose a normal kickoff or the same onside try.
+The first attempt each game explains it. Any quarter, any score.
+
+RBs can pitch back to the QB. If the ball never crossed the line and
+no forward pass has been thrown, the QB can pass. Receivers resume routes.
+Injured players use real reserves with their own jerseys. No backup
+means a missing player. If all QBs are hurt, an existing player runs wildcat.
+
+Clubhouse > Stadium + Money: set food and parking prices. Games and byes
+have operating costs. Keep fans and the board happy or risk being fired.
+Coaching Jobs lets a fired coach find work; your career record stays.
+Stat Leaders has MVP/OPOTY races and passing, rushing, receiving tables.
+Crowds use real CC0 recordings. Source credits are in the license.

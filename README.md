@@ -4,11 +4,13 @@ A little arcade football game I'm working on. I wanted quick games, Madden-style
 
 ## Just want to play?
 
-**Downloads are paused while a reported Windows Defender warning is investigated.** The reported name is `Trojan:Win32/Ulthar.A!ml`. Keep flagged copies quarantined and hold off on sharing or running them.
+**Windows Defender notice:** a tester reported `Trojan:Win32/Ulthar.A!ml`. The local scan returned no threats, but Microsoft has not confirmed a false positive. Downloads are restored at the project's request while this is investigated. [Review notes and hashes](docs/SECURITY-REVIEW.md).
 
-The local files match the published build. A local Defender custom scan returned no threats, but that does not settle the reported detection. We need the affected file and Microsoft's determination before calling it a false positive. [Review notes and file hashes](docs/SECURITY-REVIEW.md).
+**[Download here - Windows installer](https://github.com/dstaggs-15/downfieldftbl/raw/refs/heads/main/play%20me/Install%20Downfield.exe)**
 
-The installer, portable EXE and Windows ZIP have been withdrawn from the current branch during review. Source, game documentation and save files remain available. The existing game targets **64-bit Windows 10/11** and uses Windows' .NET Framework.
+Open it and click **INSTALL GAME** to put Downfield 2 on your desktop. The installer includes the game and needs no extra downloads. You need **64-bit Windows 10/11** with Windows' .NET Framework. The installer is unsigned.
+
+Or download the [Windows ZIP](https://github.com/dstaggs-15/downfieldftbl/raw/refs/heads/main/play%20me/Downfield-Windows.zip), extract it, and run the installer inside. You can also download the whole repo, open **play me**, and run **Downfield/Downfield.exe**. If Defender flags a file, keep it quarantined and report the affected-file path; the scan result here is not a Microsoft clearance.
 
 ## New in this update
 

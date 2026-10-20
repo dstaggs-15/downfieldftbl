@@ -1,6 +1,0 @@
-Downloads are on hold pending investigation of a reported
-Trojan:Win32/Ulthar.A!ml detection.
-
-Keep flagged copies quarantined. Do not share or run them during review.
-See docs/SECURITY-REVIEW.md for the known file hashes and current findings.
-The source and franchise saves are preserved.
