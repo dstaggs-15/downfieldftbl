@@ -12,8 +12,18 @@ Open it and click **INSTALL GAME** to put Downfield 2 on your desktop. The insta
 
 Or download the [Windows ZIP](https://github.com/dstaggs-15/downfieldftbl/raw/refs/heads/main/play%20me/Downfield-Windows.zip), extract it, and run the installer inside. You can also download the whole repo, open **play me**, and run **Downfield/Downfield.exe**. If Defender flags a file, keep it quarantined and report the affected-file path; the scan result here is not a Microsoft clearance.
 
+There is also a [portable game EXE](https://github.com/dstaggs-15/downfieldftbl/raw/refs/heads/main/play%20me/Downfield/Downfield.exe) if you want the game without setup.
+
 ## New in this update
 
+- CPU teams now train players, sign free agents, renew contracts, change coaches and make rebuilding trades. Other clubs can get better or fall apart over time.
+- A three-round draft after each season. Pick your rookies or let your scouts finish it. Older players decline and retire.
+- A tighter **$190 salary cap**. Stars cost more, and renewals pay for the player they have become. Old contracts stay intact until renewal.
+- A full-team roster grid with pixel players and clear ratings. New cards for player actions, staff and training, plus the whole league table on one screen.
+- **Extreme** difficulty in Options or Pause. Faster defensive reads, better deep help and a tighter pocket. Normal keeps its existing gameplay.
+- The piercing whistle is gone. The stadium background is softer and runs through a longer mix. Pause > Settings still has separate volumes.
+
+- The game and installer now leave development tests out of the files players download. Both have clear product/version details. The reported Defender warning is still being reviewed; a local scan found no threats.
 - Defense update: safeties stay deep, help against fast receivers and take better tackling angles. Zones carry vertical routes, linebackers watch repeated QB escapes, and the defense adjusts when you keep calling deep passes. Good signings still matter, but one go route should take more work.
 - Real crowd recordings, quieter ambience and bigger reactions. Volume controls are in **Pause > Settings**.
 - Draw routes by dragging from a receiver in **Create a Play**. On Xbox, press **X** to draw, then hold **A** while moving the left stick. Presets still work.
@@ -36,7 +46,7 @@ The first screen now has **Exhibition** for a quick game and **Franchise** for y
 - Call from 24 plays, including read option, jet sweep, toss, mesh and wheel routes.
 - Create a play: pick a receiver, choose a route, then press Use Play. Save it or draw your own routes if you want.
 - Nudge the left stick as you release a throw to lead your receiver a little.
-- Hear stadium crowds, touchdown cheers, first-down applause, big-hit reactions, whistles and tackle sounds. Pause > Settings has the sound mixer.
+- Hear stadium crowds, touchdown cheers, first-down applause, big-hit reactions and tackle sounds. Pause > Settings has the sound mixer.
 
 Halftime now resets the field and possession. You receive to start the game; the opponent receives at its own 20 after halftime. Playoff games have their own scoreboard label and bowl art. Speed, hands and OVR make more of a difference, and receivers block once your QB crosses the line.
 
@@ -55,6 +65,10 @@ It's meant to be fun and arcadey.
 ![On the field](docs/gameplay.png)
 
 ## Build your team
+
+![Your roster](docs/roster.png)
+
+![Draft day](docs/draft.png)
 
 The Clubhouse is your little pixel-art office. From there you can:
 
@@ -148,7 +162,7 @@ On Windows, open PowerShell in the repo folder and run:
 
     powershell -ExecutionPolicy Bypass -File .\build.ps1
 
-That makes the game in **build/Downfield.exe** and runs the game tests. To check the menus too:
+That makes the game in **build/Downfield.exe** and runs tests using a separate **Downfield.Tests.exe**. Test classes, screenshot tools and test save redirection are excluded from the playable EXE. To check the menus too:
 
     .\build\Downfield.Tests.exe --ui-test
 
@@ -156,7 +170,11 @@ To rebuild the installer after building the game:
 
     powershell -ExecutionPolicy Bypass -File .\build-installer.ps1
 
-The installer script also tests a fresh install and reinstall in a temporary folder.
+The installer script checks a fresh install and reinstall using a separate **Downfield.Installer.Tests.exe** in the build folder. The public installer contains the installation code and game, with no installation test helper. Both public EXEs request normal user privileges.
+
+To check the release contents and embedded game:
+
+    powershell -ExecutionPolicy Bypass -File .\verify-release.ps1
 
 ## A few things to know
 

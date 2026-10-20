@@ -50,8 +50,8 @@ NEW PLAY TOOLS
 24 plays, including Read Option: LB/Q gives to the back, or keep and run.
 Playbook > Create Play: pick a receiver, pick a route, press Use Play, then snap.
 Save/Load keeps your play. Drag from a receiver to draw. Xbox: X opens drawing; hold A while moving the left stick, X undoes, B finishes.
-Crowd ambience, touchdown cheers, big-hit reactions and whistles are included.
-Pause > Settings has separate volumes, including whistles. Click/drag a bar
+Crowd ambience, touchdown cheers and big-hit reactions are included. The piercing whistle is gone.
+Pause > Settings has separate volumes, including Play Ends. Click/drag a bar
 or use left/right. The field sound button also toggles mute.
 
 SIM OPTIONS
@@ -84,3 +84,12 @@ have operating costs. Keep fans and the board happy or risk being fired.
 Coaching Jobs lets a fired coach find work; your career record stays.
 Stat Leaders has MVP/OPOTY races and passing, rushing, receiving tables.
 Crowds use real CC0 recordings. Source credits are in the license.
+
+CPU TEAMS AND THE DRAFT
+The other clubs develop players, sign free agents and manage coaches and contracts.
+The salary cap is $190. Stars cost more, and renewing a player updates his salary.
+Old contracts keep their pay until renewal. Make room before adding new contracts.
+At the end of a season, older players can retire and a 3-round draft opens.
+Choose your rookies in DRAFT or let your scouts auto draft the remaining picks.
+The full roster is now a grid: select any player for stats and starting assignments.
+Want a tougher defense? Choose EXTREME in Options or the pause menu.

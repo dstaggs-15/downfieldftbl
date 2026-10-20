@@ -2,7 +2,7 @@ using System;
 using System.Drawing;
 namespace Downfield {
 public partial class GameForm {
- string audioBack="pause";static readonly string[] AudioLabels={"MASTER","CROWD","WHISTLES","HITS + MOVES","STADIUM HORNS","MENU SOUNDS","MUTE ALL","BACK"};
+ string audioBack="pause";static readonly string[] AudioLabels={"MASTER","CROWD","PLAY ENDS","HITS + MOVES","STADIUM HORNS","MENU SOUNDS","MUTE ALL","BACK"};
  void OpenAudioSettings(){audioBack="pause";Open("audio");}
  void AdjustAudio(int index,float delta){if(index>=0&&index<6){audio.Mix.SetGain(index,audio.Mix.GetGain(index)+delta);audio.SaveSettings();}}
  void ActivateAudio(){if(selection<6){float current=audio.Mix.GetGain(selection);audio.Mix.SetGain(selection,current>0?0:selection==2?.25f:.75f);audio.SaveSettings();}else if(selection==6)audio.Muted=!audio.Muted;else Open(audioBack);}

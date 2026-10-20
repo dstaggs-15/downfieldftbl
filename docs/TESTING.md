@@ -4,6 +4,8 @@
 
 Core and UI checks use isolated save directories. Output: test-output.txt and ui-test-output.txt. The installer checks fresh installation, byte-identical game and desktop copy, bundled guide/license, reinstall and preservation of saves and unrelated files. Packaging refreshes the ZIP and checksums afterward.
 
+Production and test binaries are now separate. `build.ps1` excludes `*Tests.cs` from the game and defines `DOWNFIELD_TESTS` only for the test runner. Screenshot methods and test save redirection are also conditional. Installer tests use `DOWNFIELD_INSTALLER_TESTS` in a separate build-only EXE. `verify-release.ps1` checks those boundaries, version metadata, normal-user manifests, allowed framework dependencies and the embedded payload. It inspects the assemblies without running them. The rebuilt distribution passed a local Defender custom scan; the reported Ulthar detection still needs Microsoft's review. See [SECURITY-REVIEW.md](SECURITY-REVIEW.md).
+
 The 24 defensive-balance checks cover safety depth, vertical route matching, grounded pursuit, upgraded rosters, useful short throws/custom routes, and 120 complete games with normal kickoffs or repeated onside attempts. See [DEFENSE-BALANCE.md](DEFENSE-BALANCE.md) for matched before/after measurements and the limits of those probes.
 
 The earlier checks play through drag-to-draw and controller route drawing, independent save/load, an actual RB pitch back and QB forward pass, reserve jersey identities, an empty RB spot, a wildcat QB without cloning a player, and unique persistent roster numbers. The 20-seed pitch-back probe returned 14 balls to the QB; drops and loose balls remain possible.

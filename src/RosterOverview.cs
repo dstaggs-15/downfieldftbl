@@ -1,0 +1,25 @@
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+namespace Downfield {
+public partial class GameForm {
+ bool PlayerGrid(){return screen=="roster"||screen=="trade"||screen=="freeagents"||screen=="offers"||screen=="teamroster"||screen=="draft"&&franchise.DraftActive;}
+ void DrawPlayerGrid(){bool draft=screen=="draft";List<ClubPlayer> people=draft?franchise.Prospects:FrontPlayers();int page=selection<people.Count?selection/30:0,start=page*30;
+  FrontHeader(draft?"DRAFT / ROUND "+franchise.DraftRound+" / PICK "+(franchise.DraftPick+1):screen=="freeagents"?"FREE AGENTS":screen=="trade"?"CHOOSE A PLAYER TO TRADE":screen=="offers"?"TRADE TARGETS":screen=="teamroster"?franchise.Teams[viewTeam].Mascot+" ROSTER":"YOUR TEAM");
+  for(int n=start;n<Math.Min(start+30,people.Count);n++){ClubPlayer p=people[n];int cell=n-start;float x=40+cell%6*202,y=170+cell/6*94;bool chosen=selection==n;Color grade=p.OVR>=90?Gold:p.OVR>=80?Mint:White;
+   Rect(x,y,190,86,chosen?Color.FromArgb(63,89,96):Color.FromArgb(36,44,58));if(chosen){Rect(x,y,190,3,Gold);Rect(x,y,3,86,Gold);}PlayerPortrait(p,x+5,y+10,51);TextAt(p.Role,x+52,y+10,14,White);TextAt(p.OVR.ToString(),x+141,y+8,23,grade);
+   TextAt(Clip(p.Name,15),x+52,y+36,12,White);string status=draft?"POT "+p.Potential:screen=="freeagents"?"SIGN $"+p.SigningCost:p.InjuryWeeks>0?"OUT "+p.InjuryWeeks+"W":p.Slot>=0?"STARTER":"BENCH";TextAt(status,x+10,y+67,10,p.InjuryWeeks>0?Red:Muted);TextAt("$"+p.Salary,x+142,y+67,10,Gold);HitArea(x,y,190,86,n);
+  }
+  TextAt(Clip(franchise.Notice,112),40,138,9,Mint);int back=people.Count+(draft?1:0);if(draft){Rect(40,654,590,42,selection==people.Count?TeamPrimary:Color.FromArgb(38,46,60));TextAt("AUTO DRAFT REMAINING PICKS",56,668,12,selection==people.Count?Gold:White);HitArea(40,654,590,42,people.Count);}
+  float bx=draft?648:1010;Rect(bx,654,draft?592:232,42,selection==back?TeamPrimary:Color.FromArgb(38,46,60));TextAt(draft?"BACK TO OFFICE":"BACK",bx+16,668,12,selection==back?Gold:White);HitArea(bx,654,draft?592:232,42,back);
+  if(!draft)TextAt("OFF "+franchise.Rating(screen=="teamroster"?viewTeam:franchise.UserTeam,false)+" / DEF "+franchise.Rating(screen=="teamroster"?viewTeam:franchise.UserTeam,true)+"     GOLD 90+ / GREEN 80+",40,670,12,Mint);
+  if(selection<people.Count){ClubPlayer p=people[selection];TextAt("#"+p.Number+" "+p.Name+"   SPD "+p.Speed+" / HANDS "+p.Hands+" / POWER "+p.Power+"   AGE "+p.Age+"   "+(draft?"POTENTIAL "+p.Potential:p.Years+" YEARS"),40,708,12,White);}else TextAt(Clip(franchise.Notice,98),40,708,11,Mint);
+  TextAt(Hint("D-PAD SELECT / A OPEN / LB-RB PAGE","ARROWS OR WASD SELECT / ENTER OPEN / Q-R PAGE")+(people.Count>30?" / PAGE "+(page+1)+" OF "+((people.Count+29)/30):""),40,740,10,Muted);
+ }
+ void DrawDraft(){if(franchise.DraftActive){DrawPlayerGrid();return;}FrontHeader("DRAFT ROOM");if(franchise.DraftResults.Count==0){TextAt("THREE ROUNDS. TWELVE TEAMS.",70,215,24,Gold);TextAt("The draft opens after the championship.",70,273,16,White);TextAt("Worst record picks first. Champion picks last.",70,315,14,Muted);}else{TextAt("YOUR DRAFT CLASS",40,184,20,Gold);int n=0;foreach(DraftSelection pick in franchise.DraftResults)if(pick.Team==franchise.UserTeam){ClubPlayer p=franchise.Players.Find(person=>person.Id==pick.PlayerId);float x=60+n++*400;if(p!=null)PlayerPortrait(p,x,240,120);TextAt("ROUND "+pick.Round+" / #"+pick.Pick,x,396,14,Mint);TextAt(pick.Name,x,434,20,White);TextAt(pick.Role+" / "+pick.OVR+" OVR",x,475,18,Gold);}}
+  if(franchise.Retired.Count>0){TextAt("RECENT RETIREMENTS",40,560,14,Muted);int n=0;for(int i=franchise.Retired.Count-1;i>=0&&n<4;i--,n++){RetiredPlayer p=franchise.Retired[i];TextAt(p.Name+" / "+p.Role+" / AGE "+p.Age,40+n%2*600,597+n/2*32,12,White);}}
+  Rect(40,700,1200,45,TeamPrimary);TextAt("BACK TO OFFICE",60,715,14,Gold);HitArea(40,700,1200,45,0);
+ }
+ void DrawStandingsTable(){FrontHeader("LEAGUE TABLE");TextAt("CLUB",100,172,12,Muted);TextAt("W - L - T",520,172,12,Muted);TextAt("OFF / DEF",750,172,12,Muted);TextAt("TEAM PLAN",1000,172,12,Muted);List<Standing> table=franchise.Table();for(int n=0;n<12;n++){Standing s=table[n];LeagueTeam t=franchise.Teams[s.Team];float y=199+n*38;Rect(40,y,1200,34,selection==n?Color.FromArgb(63,89,96):Color.FromArgb(36,44,58));Rect(40,y,5,34,n<6?Mint:Muted);TextAt((n+1).ToString("00"),54,y+10,12,n<2?Gold:Muted);TextAt(t.Mascot+(t.Id==franchise.UserTeam?" *":""),100,y+10,14,White);TextAt(s.W+" - "+s.L+" - "+s.T,520,y+10,14,White);TextAt(franchise.Rating(t.Id,false)+" / "+franchise.Rating(t.Id,true),750,y+10,14,Mint);TextAt(t.Id==franchise.UserTeam?"YOUR CLUB":t.BuildPlan,1000,y+10,12,Gold);HitArea(40,y,1200,34,n);}TextAt("TOP 6: PLAYOFFS / TOP 2: BYE     SELECT A CLUB TO SEE ITS PLAYERS",40,681,11,Muted);Rect(40,708,1200,38,selection==12?TeamPrimary:Color.FromArgb(38,46,60));TextAt("BACK",60,720,14,Gold);HitArea(40,708,1200,38,12);}
+}
+}

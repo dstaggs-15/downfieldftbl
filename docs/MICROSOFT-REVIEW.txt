@@ -1,0 +1,34 @@
+Suspected false-positive review of Downfield 2
+
+Product: Downfield 2, an open-source Windows arcade football game.
+Source: https://github.com/dstaggs-15/downfieldftbl
+Reported detection: Trojan:Win32/Ulthar.A!ml.
+
+Original game SHA-256:
+667c038a5346da0e6e8d0ce9d256b5bc46892e63459f339115af893f9f7c7e53
+Original installer SHA-256:
+de3dd2e8fe0e51f6f4d130cebbbe64492a00cae723b89fd8764a5b7f678a9908
+Original source commit: 70f224144223698305deea8bb01e011bf6b1baaa.
+
+Current game version: 2.1.2026.1020.
+Current game SHA-256:
+f1b088c1e57bbbb278fb89c15fc4eca247503ead099213e237689cb0ef90ed5e
+Current installer SHA-256:
+4ccc74b850c329310092a2e84c6b12fe577eb54adecc0efd67d7bfd2d85efe69
+
+Built from C# source using Microsoft's .NET Framework compiler. The game uses
+WinForms drawing, XInput controller input and winmm PCM audio. No remote command
+interface, networking, startup registration, credential access or antivirus
+settings code was found in source review. The installer writes its embedded game
+and instructions to the current user's app folder and desktop. Play Now launches
+that game after a user click. It does not download or execute shell scripts.
+
+The current release excludes development/test classes, screenshot tools and test
+save redirection. The public installer excludes its self-test helpers. Both EXEs
+request normal user privileges, have product/version metadata, and are unsigned.
+
+A local Microsoft Defender custom scan returned no threats (exit 0), including
+the current installer and ZIP. A source rebuild comparison of the original game
+found only compiler-generated timestamp/module-ID differences. Functional game,
+menu, installer and release-content checks pass. These checks are not malware
+clearance. Please investigate the reported detection and provide a determination.

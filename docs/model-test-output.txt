@@ -1,0 +1,95 @@
+PASS eleven vs eleven first and ten
+PASS analog backwards
+PASS analog input accelerates toward requested speed
+PASS animation stride tracks actual movement
+PASS release stick plants feet without gliding
+PASS RB icon throws lob checkdown
+PASS fifth icon hold release bullet
+PASS receiver 1 throws independently
+PASS receiver 2 throws independently
+PASS receiver 3 throws independently
+PASS receiver 4 throws independently
+PASS receiver 5 throws independently
+PASS five distinct eligible targets
+PASS run call starts visible mesh
+PASS automatic handoff completes to RB
+PASS manual handoff completes after snap
+PASS dive ends practice rep
+PASS first-down marker advances
+PASS no forward pass beyond scrimmage
+PASS touchdown six
+PASS PAT uses kick meter
+PASS well timed PAT scores one
+PASS two-point try cannot kick or punt
+PASS two point conversion
+PASS accurate in-range field goal
+PASS mistimed field goal misses
+PASS four failures turn over
+PASS expired quarter advances after play
+PASS final conversion no phantom opponent drive
+PASS eight defensive calls without consecutive repeats
+Pressure sample: 30 sacks / 30 stationary pockets; max 2.50
+PASS finite pocket and meaningful QB pressure
+Open pass sample: 200 completions / 50 drops / 0 misses
+PASS open receivers can drop passes
+Defended sample: 9 interceptions / 100 throws
+PASS defenders intercept real throws
+PASS badly led pass incomplete
+PASS LB lateral strictly backwards
+PASS lateral can be caught or loose
+PASS blind backward toss is live fumble
+PASS offense recovers loose ball
+PASS defense recovers lateral for turnover
+PASS practice clock stopped
+PASS timeout budget decrements
+PASS 24000 randomized frames finite
+Simulation: 42 checks, 0 failures
+Input: 5 checks, 0 failures (radial deadzone, backward, diagonal, analog magnitude)
+Profile: 11 checks, 0 failures; isolated temporary storage.
+Update: 19 checks, 0 failures
+Franchise: 96 checks, 0 failures
+Run balance: 0 TD / 60 stops in 60 repeated sideline sprint trials; avg 2.9 best 7.7
+Pass balance: 64 catches / 120; 60 open before throw; 39 gained >2 YAC; average separation 3.0
+Mechanics: 22 checks, 0 failures
+Rush mix: 637 straight / 163 stunts across 800 calls
+Line play: 12 checks, 0 failures
+Hands ratings: 70 = 147 / 200, 99 = 185 / 200 matched open throws
+Beta: 50 checks, 0 failures
+Audio: 42 checks, 0 failures
+Created-play passing: 12 catches / 12 open slants
+Designer: 16 checks, 0 failures
+Hurdle timing: 131/160 well timed; 0 early, 0 late; penalties good=20, mistimed=90
+Arcade: 33 checks, 0 failures
+Onside: 26 checks, 0 failures
+Economy: 18 checks, 0 failures
+Club update: 13 checks, 0 failures
+Flea-flicker return pitches: 14 / 20
+Personnel: 14 checks, 0 failures
+Rated offense 85 / 2: TD 4/80, catches 47, first downs 45, avg yards 15.1
+Rated offense 95 / 2: TD 9/80, catches 61, first downs 59, avg yards 25.2
+Rated offense 85 / drawn verticals: TD 6/80, catches 64, first downs 62, avg yards 25.7
+Rated offense 95 / drawn verticals: TD 12/80, catches 72, first downs 70, avg yards 33.4
+Rated offense 85 / 0: TD 0/80, catches 61, first downs 37, avg yards 8.3
+Rated offense 85 / 14: TD 0/80, catches 65, first downs 15, avg yards 6.9
+Rated offense 95 / 16: TD 7/80, catches 58, first downs 51, avg yards 19.3
+Rated offense 95 / 10: TD 0/80, catches 0, first downs 0, avg yards 5.8
+Full games 85 / normal kickoff: avg 10.5, peak 21 in 30 games
+Full games 85 / onside every TD: avg 13.5, peak 35 in 30 games
+Full games 95 / normal kickoff: avg 21.5, peak 35 in 30 games
+Full games 95 / onside every TD: avg 29.6, peak 70 in 30 games
+Defensive balance: 24 checks, 0 failures
+CPU league: 295 players improved across 11 clubs; 24 original free agents signed.
+League season 2: ratings 83,84,86,85,81,82 / retired 1
+League season 3: ratings 83,84,86,85,81,82,80 / retired 8
+League season 4: ratings 83,84,86,85,81,82,80,76,79 / retired 12
+League season 5: ratings 83,84,86,85,81,82,80,76,79,75 / retired 14
+League season 6: ratings 83,84,86,85,81,82,80,76,79,75,88,78 / retired 20
+League season 7: ratings 83,84,86,85,81,82,80,76,79,75,88,78,87 / retired 24
+League season 8: ratings 83,84,86,85,81,82,80,76,79,75,88,78,87 / retired 31
+League development: 26 checks, 0 failures
+Rated offense 95 / drawn verticals: TD 12/80, catches 72, first downs 70, avg yards 33.4
+Rated offense 95 / drawn verticals: TD 0/80, catches 43, first downs 43, avg yards 13.3
+Rated offense 95 / 0: TD 0/80, catches 49, first downs 28, avg yards 5.8
+Extreme elite full games: avg 3.3, peak 28; Normal avg 29.6
+Extreme: 8 checks, 0 failures
+Built C:\Users\Daniel\Downloads\Downfield-v2\build\Downfield.exe

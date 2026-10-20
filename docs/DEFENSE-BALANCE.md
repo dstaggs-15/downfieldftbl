@@ -31,3 +31,13 @@ Full-game probes repeat Four Verticals, choose the most open receiver after 2.25
 The updated game also passes checks for safety depth, carrying slot routes, grounded pursuit, meaningful ratings, useful custom routes and clearing learned tendencies for a new game. These scripts cover specific exploits; they do not replace human playtesting or guarantee a particular score.
 
 Run the checks with `build/Downfield.Tests.exe --balance-test`. The full build includes them in `--test` too. Their source and complete-game driver are in `src/DefenseBalanceTests.cs`.
+
+## Franchise and Extreme update (2.1.2026.1020)
+
+Normal results above remain unchanged. Extreme uses faster reads of visible routes, deeper help against speed and shorter block holds. Defender ratings and base speed still come from their actual roster. In the same 80 elite custom-vertical trials, Normal produced 12 touchdowns and 33.4 yards per play; Extreme produced zero touchdowns and 13.3 yards per play. Extreme completed 43 throws in this late-read sample. In 80 early slant-read trials it completed 49 passes, with 28 first downs.
+
+Thirty full games repeating verticals and onside attempts averaged 29.6 points on Normal and 3.3 on Extreme; Extreme's peak was 28. These scripted stationary-pocket probes do not predict every human's score. Normal still allows more room for arcade plays; Extreme requires earlier reads and movement.
+
+CPU franchise teams now develop and recruit. In the first scripted season, 295 CPU players improved across all eleven clubs and CPU teams signed 24 of the original free agents. Eight seasons completed with legal salary caps, roster sizes, positional assignments and 36 picks per draft. Thirty-one retirements had occurred by season eight. Team offensive ratings observed across the run ranged from 75 to 88; clubs did not all become identical super teams. League budgets, staff, contracts and player potential drive those changes independently of user ratings.
+
+The cap is now $190 and elite contract salaries are higher. Existing salaries stay intact until renewal. An isolated copy of the existing real save migrated with its user team, season/week, budget, 25 roster identities, ratings, salaries and contract years intact. The original save was unchanged by this migration probe. Model and native menu evidence are in model-test-output.txt and ui-test-output.txt.

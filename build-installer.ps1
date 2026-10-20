@@ -11,10 +11,16 @@ Copy-Item -LiteralPath (Join-Path $root 'play me\START HERE.txt') -Destination (
 Copy-Item -LiteralPath (Join-Path $root 'LICENSE.txt') -Destination (Join-Path $portable 'LICENSE.txt') -Force
 Copy-Item -LiteralPath (Join-Path $root 'docs\FRANCHISE-GUIDE.md') -Destination (Join-Path $portable 'FRANCHISE-GUIDE.md') -Force
 $output = Join-Path $play 'Install Downfield.exe'
-& $compiler /nologo /optimize+ /target:winexe /platform:x64 /r:System.Drawing.dll /r:System.Windows.Forms.dll "/resource:$game,Downfield.Game" "/resource:$root\play me\START HERE.txt,Downfield.Readme" "/resource:$root\docs\FRANCHISE-GUIDE.md,Downfield.Guide" "/resource:$root\LICENSE.txt,Downfield.License" "/out:$output" (Join-Path $root 'installer\Installer.cs')
+$manifest = Join-Path $root 'src\Application.manifest'
+$installerSources = Get-ChildItem -LiteralPath (Join-Path $root 'installer') -Filter '*.cs' | Select-Object -ExpandProperty FullName
+$installerResources = @("/resource:$game,Downfield.Game", "/resource:$root\play me\START HERE.txt,Downfield.Readme", "/resource:$root\docs\FRANCHISE-GUIDE.md,Downfield.Guide", "/resource:$root\LICENSE.txt,Downfield.License")
+& $compiler /nologo /optimize+ /target:winexe /platform:x64 /r:System.Drawing.dll /r:System.Windows.Forms.dll "/win32manifest:$manifest" "/out:$output" $installerResources $installerSources
 if ($LASTEXITCODE -ne 0) { throw 'Installer build failed' }
-$test = Start-Process -FilePath $output -ArgumentList '--self-test' -WindowStyle Hidden -Wait -PassThru
-if ($test.ExitCode -ne 0) { throw 'Installer self-test failed' }
+$testOutput = Join-Path $root 'build\Downfield.Installer.Tests.exe'
+& $compiler /nologo /optimize+ /define:DOWNFIELD_INSTALLER_TESTS /target:exe /platform:x64 /r:System.Drawing.dll /r:System.Windows.Forms.dll "/win32manifest:$manifest" "/out:$testOutput" $installerResources $installerSources
+if ($LASTEXITCODE -ne 0) { throw 'Installer test build failed' }
+& $testOutput --self-test
+if ($LASTEXITCODE -ne 0) { throw 'Installer self-test failed' }
 Write-Host 'Installer verified: embedded game, desktop copy, guide/license, repeat install and save preservation.'
 $archive = Join-Path $play 'Downfield-Windows.zip'
 Compress-Archive -LiteralPath @($portable, $output, (Join-Path $play 'START HERE.txt')) -DestinationPath $archive -Force

@@ -134,5 +134,17 @@ PASS UI exhausted RB depth shows ten actual players
 PASS UI short-handed run call keeps ball with real QB
 PASS UI RB pitch back gives QB passing controls and receiver routes
 PASS UI flea flicker forward pass works through keyboard input
+PASS UI all 25 players and back button visible on one roster screen
+PASS UI roster down moves one visual row
+PASS UI roster right moves one card
+PASS UI card opens full player controls
+PASS UI options selects and saves Extreme
+PASS UI franchise kickoff applies Extreme
+PASS UI pause difficulty cycles Extreme to Rookie
+PASS UI franchise play button opens pending draft
+PASS UI draft pick shows exact rookie portrait and contract
+PASS UI confirmed pick advances CPU until next human pick
+PASS UI auto draft menu completes all remaining league picks
+PASS UI all twelve standings rows and roster scouting links visible
 XInput native poll: connected=False. Physical controller unverified.
-UI: 136 checks, 0 failures
+UI: 148 checks, 0 failures

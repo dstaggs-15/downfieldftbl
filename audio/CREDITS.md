@@ -14,3 +14,5 @@ The retrieved projects document the CC0 origins in their [old-pueblo credits](ht
 Downfield edits: decoded with Windows Media Foundation, mixed to mono, high-pass filtered at 140 Hz, band-limited and resampled to 22,050 Hz / 16-bit PCM. Approximate RMS targets: 0.018 background, 0.16 cheer, 0.12 applause and 0.14 groan, with peak limiting. CrowdRecordings.cs trims reactions, adds fades and joins the ambient loop. WAV files are embedded in the EXE; playback needs no network or extra codecs.
 
 [CC0 1.0 dedication and terms](https://creativecommons.org/publicdomain/zero/1.0/). Credits do not imply endorsement by the recordists or retrieved projects.
+
+The stadium bed is low-pass filtered and blended into a quiet 35-second evolving loop to remove piercing whistle tones. Source licenses and attribution remain the same.

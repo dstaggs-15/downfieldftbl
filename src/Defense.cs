@@ -34,10 +34,10 @@ public partial class Simulation {
    if(deep){if(p.Role=="CB"){Player r=Players[p.Mark];if(r.Active){tx=r.X+r.VX*.2f;tz=Math.Min(105,r.Z+CoverageCushion(p,r));}}else DeepHelp(p,zx,p.Role=="LB",out tx,out tz);}
    else if(p.Mark>=0){Player seam=Players[p.Mark];if(seam.Active&&seam.Z>Spot+9&&seam.VZ>1&&Math.Abs(seam.X-p.StartX)<15){tx=seam.X+seam.VX*.15f;tz=seam.Z+1.5f;}}
   }
-  float familiarity=Math.Min(.12f,callsUsed[Math.Max(0,Math.Min(callsUsed.Length-1,Playbook))]*.015f);
-  if(State==Phase.Flight&&passTime>.38f-familiarity+(p.OVR<80?.06f:0)&&Distance(p.X,p.Z,toX,toZ)<13){tx=toX;tz=toZ;}
+  ExtremeCoverage(p,ref tx,ref tz);float familiarity=Math.Min(.12f,callsUsed[Math.Max(0,Math.Min(callsUsed.Length-1,Playbook))]*.015f);
+  if(State==Phase.Flight&&passTime>(Difficulty==3?.23f:.38f)-familiarity+(p.OVR<80?.06f:0)&&Distance(p.X,p.Z,toX,toZ)<13){tx=toX;tz=toZ;}
   if(p.Role!="DL"&&(State==Phase.Flight||tz>Spot+9))speed=p.Speed*(1.10f+Difficulty*.025f);
-  p.ThinkTime-=dt;if(p.ThinkTime<=0){p.AimX=tx;p.AimZ=tz;p.ThinkTime=Math.Max(.11f,.30f-(p.OVR-70)*.006f)+(p.Number%3)*.015f;}
+  p.ThinkTime-=dt;if(p.ThinkTime<=0){p.AimX=tx;p.AimZ=tz;p.ThinkTime=Difficulty==3?.07f:Math.Max(.11f,.30f-(p.OVR-70)*.006f)+(p.Number%3)*.015f;}
   Move(p,p.AimX,p.AimZ,speed,dt);
  }
  void Rush(Player p,float speed,float dt){float tx=Controlled.X,tz=Controlled.Z;int index=Players.IndexOf(p)-11;float side=stuntSide==0?-1:1;

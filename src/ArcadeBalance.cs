@@ -18,7 +18,7 @@ public partial class Simulation {
   if(ahead&&(p.Role=="S"||p.Role=="CB"||p.Role=="NB"||p.Role=="LB")){float side=Controlled.X>=0?1:-1;if(Math.Abs(Controlled.X)>12&&p.X*side>Controlled.X*side){tx+=side*.65f;tz=Math.Max(Controlled.Z+1,tz);}if(last&&distance>5){tz=Math.Max(Controlled.Z+3,tz);tx=Clamp(tx,Controlled.X-4,Controlled.X+4);}}
   // A real committed tackle can be dodged or hurdled; defenders cannot steer during it.
   bool closing=Controlled.VX*(p.X-Controlled.X)+Controlled.VZ*(p.Z-Controlled.Z)>1;
-  if(distance>1.35f&&distance<(last?1.9f:2.65f)&&p.TackleCooldown<=0&&p.PlantTime<=0&&closing){float aimX=Controlled.X+Controlled.VX*.12f-p.X,aimZ=Controlled.Z+Controlled.VZ*.12f-p.Z,length=Distance(0,0,aimX,aimZ);p.LungeX=aimX/Math.Max(.01f,length);p.LungeZ=aimZ/Math.Max(.01f,length);p.LungeTime=.16f;p.TackleCooldown=.75f;}
+  if(distance>1.35f&&distance<(last?1.9f:Difficulty==3?2.1f:2.65f)&&p.TackleCooldown<=0&&p.PlantTime<=0&&closing){float aimX=Controlled.X+Controlled.VX*.12f-p.X,aimZ=Controlled.Z+Controlled.VZ*.12f-p.Z,length=Distance(0,0,aimX,aimZ);p.LungeX=aimX/Math.Max(.01f,length);p.LungeZ=aimZ/Math.Max(.01f,length);p.LungeTime=.16f;p.TackleCooldown=.75f;}
   Move(p,Clamp(tx,-26,26),tz,speed,dt);
  }
  bool ClearHurdle(Player defender){if(Controlled.Pose!="hurdle"||skillTime<=.12f||skillTime>=.5f||defender.Z<Controlled.Z-.6f)return false;int support=0;foreach(Player d in Players)if(d!=defender&&d.Team==1&&d.Active&&d.KnockTime<=0&&Distance(d.X,d.Z,Controlled.X,Controlled.Z)<2.2f)support++;
