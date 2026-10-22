@@ -27,7 +27,7 @@ public class ControlBindings {
  public void Save(){try{Directory.CreateDirectory(Path.GetDirectoryName(PathName));using(FileStream f=File.Create(PathName+".tmp"))new XmlSerializer(typeof(ControlBindings)).Serialize(f,this);if(File.Exists(PathName))File.Replace(PathName+".tmp",PathName,null);else File.Move(PathName+".tmp",PathName);}catch{}}
 }
 public partial class Input {
- public ControlBindings Bindings=ControlBindings.Load();public int RawButtons;public bool CatchPressed;
+ public ControlBindings Bindings=ControlBindings.Load();public int RawButtons;public bool CatchPressed;int priorCatchPad;internal bool CatchPadPress(int mappedButtons){bool pressed=(mappedButtons&Y)!=0&&(priorCatchPad&Y)==0;priorCatchPad=mappedButtons;return pressed;}
  bool ActionKey(int n){Keys k=Bindings.Key(n);return KeysDown.Contains(k)||k==Keys.ShiftKey&&(KeysDown.Contains(Keys.LShiftKey)||KeysDown.Contains(Keys.RShiftKey));}
  bool FreshAction(int n){return ActionKey(n)&&!priorKeys.Contains(Bindings.Key(n));}
  public string ActionLabel(int n){return Bindings.KeyName(n);}public string ButtonLabel(int virtualButton){return ControlBindings.PadName(Bindings.PadButton(virtualButton));}

@@ -16,7 +16,7 @@ try {
         if ($reference.Name -notin @('mscorlib','System','System.Core','System.Drawing','System.Windows.Forms','System.Xml')) { throw ('Unexpected game dependency: '+$reference.Name) }
     }
     $version = [Diagnostics.FileVersionInfo]::GetVersionInfo($gamePath)
-    if ($version.ProductName -ne 'Downfield 2' -or $version.FileVersion -ne '2.3.2026.1022') { throw 'Missing game product/version metadata.' }
+    if ($version.ProductName -ne 'Downfield 2' -or $version.FileVersion -ne '2.3.2026.1023') { throw 'Missing game product/version metadata.' }
     if (![Text.Encoding]::UTF8.GetString([IO.File]::ReadAllBytes($gamePath)).Contains('level="asInvoker"')) { throw 'Game manifest must request normal user privileges.' }
     $installer = [Reflection.Assembly]::ReflectionOnlyLoad([IO.File]::ReadAllBytes($installerPath))
     if ($installer.GetType('DownfieldSetup.InstallEngine').GetMethod('SelfTest',$flags)) { throw 'Installation test helper leaked into the public installer.' }

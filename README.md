@@ -19,7 +19,7 @@ There is also a [portable game EXE](https://github.com/dstaggs-15/downfieldftbl/
 - **48 plays**, with 24 new arcade calls: flea flickers, reverses, Philly Special, HB/WR passes, fake gives, screens and wildcat.
 - Draw a play, name it, and **Save to Book**. Keep up to 40 custom calls, then select them from the playbook. Rename, edit or delete them under My Saved Plays. Route previews use the actual route logic.
 - All your QBs hurt? Pick any healthy roster player to take the snaps. He keeps his own name and number, and non-QBs are much worse at throwing.
-- **Aggressive catch meter:** press Y in the air, then Y again to stop it. Green catches every time, yellow is 75%, red is 4%. Leave it alone for a normal catch. Keyboard default is Y too.
+- **Aggressive catch meter:** press Y in the air, then Y again to stop it. The larger meter now makes one slow sweep and freezes on the second press, with a clear LOCKED result. Green catches every time, yellow is 75%, red is 4%. Leave it alone for a normal catch. Keyboard default is Y too.
 - Change keyboard and controller bindings in **Options > Controls**, or Pause > Controls. Conflicting controls swap. Movement and skill sticks can swap too.
 - Trade across positions. The other club now checks value, age, potential, contracts, injuries, roster needs and both salary caps. Cash won't make up for a bad player offer.
 - Catch reaches, aggressive catch leaps, fake throws, celebrations and sideline clapping. **Three timeouts per half** are shown on the scoreboard and called from Pause.

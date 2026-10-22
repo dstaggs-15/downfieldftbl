@@ -30,7 +30,7 @@ public partial class GameForm:Form {
    game.Sprint=input.Sprint>.2f;game.LeadX=input.Playmaker?0:input.AimX*6;game.LeadZ=input.Playmaker?0:input.AimZ*7;game.PlacementX=input.MoveX*1.75f;game.PlacementZ=input.MoveZ*2;
    if(game.AmbulanceActive){if(input.Pressed(Input.A))game.SkipAmbulance();}else if(game.State==Phase.PreSnap){if(input.Pressed(Input.Left))game.CyclePlay(-1);if(input.Pressed(Input.Right))game.CyclePlay(1);if(input.Pressed(Input.X)){game.CallPlay(game.RunPlay?0:6);}
     if(input.Pressed(Input.RB)&&game.RequestOnsideTry()){Invalidate();return;}if(input.Pressed(Input.Y)){Open("calls");Invalidate();return;}if(input.Pressed(Input.A))game.Snap();
-   }else if(game.State==Phase.Flight&&!BowlingCpuTurn){if(input.UsesController?input.Pressed(Input.Y):input.CatchPressed)game.AggressiveCatch();}else if(game.State==Phase.Live&&!BowlingCpuTurn){
+   }else if(game.State==Phase.Flight&&!BowlingCpuTurn){if(input.CatchPressed)game.AggressiveCatch();}else if(game.State==Phase.Live&&!BowlingCpuTurn){
     if(QBMode()){if(input.Pressed(Input.RClick)){game.ThrowAway();pendingThrow=0;}
      if(!PlaymakerInput()){for(int i=0;i<passButtons.Length;i++)if(game.CanThrow&&input.Pressed(passButtons[i])&&!game.Charging){game.BeginPass(i);pendingThrow=passButtons[i];break;}
      if(pendingThrow!=0&&input.Released(pendingThrow)){game.ReleasePass();pendingThrow=0;}

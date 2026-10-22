@@ -197,5 +197,12 @@ PASS UI both teams finish all frames before result
 PASS UI local two-player mode uses alternating shared controls
 PASS UI player two gets playable offense with his own team roster
 PASS UI Bowling leaves real franchise save unchanged
+PASS UI catch meter shows ready cue before moving
+PASS UI meter stays anchored when receiver and camera move
+PASS UI visible sweep progresses slowly through actual frame updates
+PASS UI pause freezes catch timing
+PASS UI second keyboard press locks through real game input
+PASS UI holding catch after lock cannot restart movement
+PASS UI locked result retains the same screen position
 XInput native poll: connected=False. Physical controller unverified.
-UI: 199 checks, 0 failures
+UI: 206 checks, 0 failures

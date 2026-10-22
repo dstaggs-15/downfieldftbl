@@ -10,11 +10,11 @@ Original installer SHA-256:
 de3dd2e8fe0e51f6f4d130cebbbe64492a00cae723b89fd8764a5b7f678a9908
 Original source commit: 70f224144223698305deea8bb01e011bf6b1baaa.
 
-Current game version: 2.3.2026.1022.
+Current game version: 2.3.2026.1023.
 Current game SHA-256:
-80feeb2d79195912731af8147a19e942371bfbf9335af5bc76f1cb81cd84dc9b
+510c6ce9a51f9b86cb68acc736f5d9782a512ccec14cfc7c41928949f9db6fbf
 Current installer SHA-256:
-579b81a6ad3abec08282bdb77daa11f6b383fee01bb7c55215d0bd338b79b4f7
+b7e460d60675a1899c8771d2f90f13eaf94980ede694c50c4d6afffacf266304
 
 Built from C# source using Microsoft's .NET Framework compiler. The game uses
 WinForms drawing, XInput controller input and winmm PCM audio. No remote command

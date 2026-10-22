@@ -21,7 +21,7 @@ public partial class Input {
  public void ObservePadActivity(int buttons,float x,float z,float ax,float az,float sprint){if(buttons!=lastPad||Math.Abs(x-oldX)>.12f||Math.Abs(z-oldZ)>.12f||Math.Abs(ax-oldAimX)>.12f||Math.Abs(az-oldAimZ)>.12f||Math.Abs(sprint-oldSprint)>.2f)UsesController=true;lastPad=buttons;oldX=x;oldZ=z;oldAimX=ax;oldAimZ=az;oldSprint=sprint;}
  public void Poll(){Previous=Buttons;Buttons=RawButtons=0;MoveX=MoveZ=AimX=AimZ=Sprint=0;PausePressed=CatchPressed=Playmaker=false;Connected=false;Controller=-1;
   State state;for(uint i=0;i<4&&!SuppressPad;i++)if(Read(i,out state)==0){Connected=true;Controller=(int)i;if(Focused){RawButtons=state.pad.buttons|(state.pad.lt>115?0x10000:0)|(state.pad.rt>115?0x20000:0);Buttons=Bindings.TranslatePad(RawButtons);Playmaker=(Buttons&0x10000)!=0;Analog(Bindings.SwapSticks?state.pad.rx:state.pad.lx,Bindings.SwapSticks?state.pad.ry:state.pad.ly,out MoveX,out MoveZ);Analog(Bindings.SwapSticks?state.pad.lx:state.pad.rx,Bindings.SwapSticks?state.pad.ly:state.pad.ry,out AimX,out AimZ);Sprint=(Buttons&0x20000)!=0?1:0;ObservePadActivity(RawButtons,MoveX,MoveZ,AimX,AimZ,Sprint);if(Playmaker)UsesController=true;}break;}
-  if(!Focused)return;foreach(Keys key in KeysDown)if(!priorKeys.Contains(key))NoteKeyboard();PausePressed=K(Keys.Escape)&&!priorKeys.Contains(Keys.Escape)||FreshAction(5);CatchPressed=FreshAction(22);
+  CatchPressed=CatchPadPress(Buttons);if(!Focused)return;foreach(Keys key in KeysDown)if(!priorKeys.Contains(key))NoteKeyboard();PausePressed=K(Keys.Escape)&&!priorKeys.Contains(Keys.Escape)||FreshAction(5);CatchPressed|=FreshAction(22);
   float x=(ActionKey(3)?1:0)-(ActionKey(2)?1:0),z=(ActionKey(0)?1:0)-(ActionKey(1)?1:0),l=(float)Math.Sqrt(x*x+z*z);if(l>0){MoveX=x/Math.Max(1,l);MoveZ=z/Math.Max(1,l);}if(ActionKey(4))Sprint=1;
   if(K(Keys.Enter)||ActionKey(7)&&Context!="qb")Buttons|=A;if(ActionKey(5))Buttons|=Start;if(ActionKey(6))Buttons|=View;
   if(Context=="qb"){Playmaker|=ActionKey(18);int[] pass={A,X,Y,B,RB};for(int n=0;n<5;n++)if(ActionKey(11+n))Buttons|=pass[n];if(ActionKey(16))Buttons|=LB;if(ActionKey(17))Buttons|=RClick;ApplyKeyboardAim();}
@@ -30,6 +30,6 @@ public partial class Input {
   priorKeys=new HashSet<Keys>(KeysDown);
  }
  public void ApplyKeyboardAim(){float x=(ActionKey(26)?1:0)-(ActionKey(25)?1:0),z=(ActionKey(23)?1:0)-(ActionKey(24)?1:0);if(x!=0||z!=0){AimX=x;AimZ=z;}}
- public void Clear(){KeysDown.Clear();priorKeys.Clear();Buttons=Previous=0;}
+ public void Clear(){KeysDown.Clear();priorKeys.Clear();Buttons=Previous=priorCatchPad=0;}
 }
 }

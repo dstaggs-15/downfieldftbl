@@ -111,4 +111,5 @@ Philly Special: WR passers 24 / QB catches 15 of 24
 Catch meter / 400 throws: green 400, yellow 298, red 20
 Playbook update: 96 checks, 0 failures
 Bowling: 25 checks, 0 failures
+Catch meter: 20 checks, 0 failures
 Built C:\Users\Daniel\Downloads\Downfield-v2\build\Downfield.exe
