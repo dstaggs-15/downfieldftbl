@@ -3,7 +3,7 @@ using System.Collections.Generic;
 namespace Downfield {
 public class RouteNode {public float X,Z;public RouteNode(){}public RouteNode(float x,float z){X=x;Z=z;}}
 public class DrawnRoute {public string Label="CUSTOM";public bool Hold;public int Receiver;public List<RouteNode> Points=new List<RouteNode>();}
-public partial class DrawnPlay {public string Name="CUSTOM PLAY";public List<DrawnRoute> Routes=new List<DrawnRoute>();public DrawnPlay Copy(){DrawnPlay p=new DrawnPlay();p.Name=Name;p.BasePlay=BasePlay;foreach(DrawnRoute r in Routes){DrawnRoute copy=new DrawnRoute();copy.Receiver=r.Receiver;copy.Label=r.Label;copy.Hold=r.Hold;foreach(RouteNode n in r.Points)copy.Points.Add(new RouteNode(n.X,n.Z));p.Routes.Add(copy);}return p;}}
+public partial class DrawnPlay {public string Name="CUSTOM PLAY";public List<DrawnRoute> Routes=new List<DrawnRoute>();public DrawnPlay Copy(){DrawnPlay p=new DrawnPlay();p.Name=Name;p.BasePlay=BasePlay;p.LibraryId=LibraryId;foreach(DrawnRoute r in Routes){DrawnRoute copy=new DrawnRoute();copy.Receiver=r.Receiver;copy.Label=r.Label;copy.Hold=r.Hold;foreach(RouteNode n in r.Points)copy.Points.Add(new RouteNode(n.X,n.Z));p.Routes.Add(copy);}return p;}}
 public partial class Franchise {public DrawnPlay SavedPlay=new DrawnPlay();}
 public partial class Simulation {
  public DrawnPlay CustomPlay;public bool UseCustom;

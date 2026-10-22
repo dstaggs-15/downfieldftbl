@@ -40,18 +40,18 @@ In-bounds plays use a 4-second runoff. Incompletions/out-of-bounds stop it.
 
 YOUR TEAM
 Choose EXHIBITION for a quick game. Choose FRANCHISE for your saved team.
-Inside Franchise, open CLUBHOUSE. JOBS picks a club, including New Orleans.
+Inside Franchise, open Team. Coach > Coaching Jobs picks a club, including New Orleans.
 MY COACH changes your name and pixel look. TROPHIES tracks your awards.
 Use ROSTER to manage starters and reserves. New signings start on the bench.
 The office also has trades, coaches, training, team colors, standings and playoffs.
 12 teams. 11 regular season games. The top 6 make the playoffs; top 2 get byes.
 
 NEW PLAY TOOLS
-24 plays, including Read Option: LB/Q gives to the back, or keep and run.
+48 plays, including Read Option: LB/Q gives to the back, or keep and run.
 Playbook > Create Play: pick a receiver, pick a route, press Use Play, then snap.
 Save/Load keeps your play. Drag from a receiver to draw. Xbox: X opens drawing; hold A while moving the left stick, X undoes, B finishes.
 Crowd ambience, touchdown cheers and big-hit reactions are included. The piercing whistle is gone.
-Pause > Settings has separate volumes, including Play Ends. Click/drag a bar
+Pause > Audio Mixer has separate volumes, including Play Ends. Click/drag a bar
 or use left/right. The field sound button also toggles mute.
 
 SIM OPTIONS
@@ -79,7 +79,7 @@ no forward pass has been thrown, the QB can pass. Receivers resume routes.
 Injured players use real reserves with their own jerseys. No backup
 means a missing player. If all QBs are hurt, an existing player runs wildcat.
 
-Clubhouse > Stadium + Money: set food and parking prices. Games and byes
+Team > Money + Stadium: set food and parking prices. Games and byes
 have operating costs. Keep fans and the board happy or risk being fired.
 Coaching Jobs lets a fired coach find work; your career record stays.
 Stat Leaders has MVP/OPOTY races and passing, rushing, receiving tables.
@@ -102,3 +102,16 @@ Exhibition has a weather card. Franchise rain/snow follows the home city and wee
 All teams have pixel logos in menus and on the field, plus six hit animations.
 History: pick a season, view champion/awards/standings, then pick a club.
 Move Team > Type a Custom City costs $45M: $15M move + $30M custom fee.
+NEW PLAYBOOK AND BOWLING UPDATE
+Main menu: Exhibition / Franchise / Bowling.
+Franchise > Team: roster, transfers, staff, money and team identity.
+League: schedule, standings, playoffs, stats and history. Coach: profile and trophies.
+48 stock calls including reverses, flea flickers, HB/WR passes and wildcat.
+Create a Play > Save to Book keeps up to 40 named custom plays in the playbook.
+During a pass: Y starts an aggressive catch meter; Y again locks it.
+Green = 100% catch, yellow = 75%, red = 4%. No press = normal catching.
+Options > Controls or Pause > Controls remaps keyboard/controller inputs.
+Three timeouts per half, shown on the scoreboard. Pause > Timeout calls one.
+When all QBs are hurt, choose any healthy roster player as emergency QB.
+Bowling: ten frames from the opponent ten, two plays per frame, strikes/spares.
+Play the CPU or share the controls with a friend. Perfect bowling score is 300.

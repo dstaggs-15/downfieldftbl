@@ -112,7 +112,7 @@ PASS UI stretcher pickup renders loaded patient
 PASS UI controller A skips ambulance timeout
 PASS UI continuing replaces injured starter
 PASS UI successful hurdle visibly clears a DB
-PASS UI office exposes clear stadium money department
+PASS UI team section exposes stadium money department
 PASS UI office opens stadium and money controls
 PASS UI food price increases through real menu input
 PASS UI food price decreases through real menu input
@@ -135,7 +135,7 @@ PASS UI exhausted RB depth shows ten actual players
 PASS UI short-handed run call keeps ball with real QB
 PASS UI RB pitch back gives QB passing controls and receiver routes
 PASS UI flea flicker forward pass works through keyboard input
-PASS UI all 25 players and back button visible on one roster screen
+PASS UI all 25 players, health report and back button visible on one roster screen
 PASS UI roster down moves one visual row
 PASS UI roster right moves one card
 PASS UI card opens full player controls
@@ -167,5 +167,35 @@ PASS UI team history returns to its season summary
 PASS UI season back returns to year browser
 PASS UI away game keeps home field identity and correct home/visitor labels
 PASS UI all six big-hit animations render in a real contact scene
+PASS UI franchise Team opens a focused management section
+PASS UI money lives under Team
+PASS UI money back returns to Team
+PASS UI signing trading and draft grouped together
+PASS UI nested back returns to franchise office
+PASS UI league records and competitions have one section
+PASS UI options opens remapping page
+PASS UI keyboard binding captures chosen key
+PASS UI controller has its own binding page
+PASS UI designer Save to Book adds a callable play
+PASS UI play can be named using saved-play editor
+PASS UI named custom route called through playbook
+PASS UI ordinary throw starts with normal catching
+PASS UI Y starts aggressive catch during flight
+PASS UI second Y locks green timing
+PASS UI green timing catches through actual gameplay input
+PASS UI injured quarterbacks open roster selection before snap
+PASS UI healthy defensive player can take emergency snaps
+PASS UI pause timeout uses one of three half timeouts
+PASS UI trade targets include every position
+PASS UI Bowling is selectable directly from main menu
+PASS UI Bowling team selection returns to Bowling setup
+PASS UI Bowling explains rules before first attempt
+PASS UI Bowling begins at opponent ten against real defense
+PASS UI first-play TD records strike and alternates teams
+PASS UI CPU completes real on-field offensive attempt
+PASS UI both teams finish all frames before result
+PASS UI local two-player mode uses alternating shared controls
+PASS UI player two gets playable offense with his own team roster
+PASS UI Bowling leaves real franchise save unchanged
 XInput native poll: connected=False. Physical controller unverified.
-UI: 169 checks, 0 failures
+UI: 199 checks, 0 failures

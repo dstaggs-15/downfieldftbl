@@ -9,7 +9,7 @@ public partial class GameForm {
  List<TeamSeason> SeasonHistory(){List<TeamSeason> rows=franchise.History.FindAll(h=>h.Season==historySeason);rows.Sort((a,b)=>{int n=(b.W*2+b.T).CompareTo(a.W*2+a.T);if(n==0)n=(b.PF-b.PA).CompareTo(a.PF-a.PA);return n==0?b.PF.CompareTo(a.PF):n;});return rows;}
  List<TeamSeason> ClubHistory(){List<TeamSeason> rows=franchise.History.FindAll(h=>h.Team==historyTeam);rows.Sort((a,b)=>b.Season.CompareTo(a.Season));return rows;}
  int HistoryCount(){return (screen=="history"?HistoryYears().Count:screen=="historyseason"?SeasonHistory().Count:ClubHistory().Count)+1;}
- void HistoryBack(){Open(screen=="historyteam"?"historyseason":screen=="historyseason"?"history":"franchisehub");}
+ void HistoryBack(){Open(screen=="historyteam"?"historyseason":screen=="historyseason"?"history":"leaguehub");}
  void ActivateHistory(){if(selection==HistoryCount()-1){HistoryBack();return;}if(screen=="history"){historySeason=HistoryYears()[selection];Open("historyseason");}else if(screen=="historyseason"){historyTeam=SeasonHistory()[selection].Team;Open("historyteam");}}
  LeagueTeam HistoricalClub(TeamSeason h){LeagueTeam current=franchise.Teams[h.Team];return new LeagueTeam{Id=h.Team,City=current.City,Mascot=h.LogoMascot.Length==0?current.Mascot:h.LogoMascot,Primary=h.LogoPrimary<0?current.Primary:h.LogoPrimary,Secondary=h.LogoSecondary<0?current.Secondary:h.LogoSecondary};}
  string SeasonFinish(TeamSeason h){return h.Champion?"CHAMPION":h.Seed>0?"PLAYOFF SEED #"+h.Seed:"MISSED PLAYOFFS";}

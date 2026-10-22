@@ -2,8 +2,8 @@ using System;
 namespace Downfield {
 public partial class Simulation {
  public bool OnsideAttempt,OnsideRulesShown,OnsideRulesPending;public int OnsideAttempts,OnsideConversions;public string LastOnsideResult="";
- public bool CanOnsideTry {get{return !Practice&&!conversion&&!OnsideAttempt&&!OnsideRulesPending&&!AmbulanceActive&&(State==Phase.PreSnap||State==Phase.Kickoff);}}
- public bool RequestOnsideTry(){if(!CanOnsideTry)return false;if(!OnsideRulesShown){OnsideRulesShown=true;OnsideRulesPending=true;return true;}StartOnsideTry();return true;}
+ public bool CanOnsideTry {get{return !Bowling&&!Practice&&!conversion&&!OnsideAttempt&&!OnsideRulesPending&&!AmbulanceActive&&(State==Phase.PreSnap||State==Phase.Kickoff);}}
+ public bool RequestOnsideTry(){if(Bowling||!CanOnsideTry)return false;if(!OnsideRulesShown){OnsideRulesShown=true;OnsideRulesPending=true;return true;}StartOnsideTry();return true;}
  public void ConfirmOnsideTry(){if(!OnsideRulesPending)return;OnsideRulesPending=false;StartOnsideTry();}
  public void CancelOnsideTry(){OnsideRulesPending=false;}
  void StartOnsideTry(){OnsideAttempt=true;OnsideAttempts++;Spot=30;Down=4;FirstDown=43;conversion=false;Setup();Message="ONSIDE TRY / 4TH & 13 / OWN 30";Log(Message);}

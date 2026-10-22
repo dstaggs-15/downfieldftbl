@@ -107,4 +107,8 @@ Adaptive attack / difficulty 4 / attack 3: TD 0/60, first 6, yards 2.7, sacks 0,
 SPRXTRM pocket: penetration 60/60, sacks 60/60
 Hard modes: 12 checks, 0 failures
 Presentation update: 24 checks, 0 failures
+Philly Special: WR passers 24 / QB catches 15 of 24
+Catch meter / 400 throws: green 400, yellow 298, red 20
+Playbook update: 96 checks, 0 failures
+Bowling: 25 checks, 0 failures
 Built C:\Users\Daniel\Downloads\Downfield-v2\build\Downfield.exe

@@ -6,15 +6,15 @@ public partial class Simulation {
  public float PlacementX,PlacementZ;public bool Championship,Exhibition;public string HomeName="",HomeCity="",BowlName="";
  public bool SecondHalfOpponent=true;public int HalftimeCount;public bool OptionGiven;
  public readonly Queue<string> Sounds=new Queue<string>();public readonly List<BoxLine> Box=new List<BoxLine>();Player caughtReceiver;
- public bool OptionLive {get{return Playbook==22&&RunPlay&&!OptionGiven;}}
- public bool DesignedQBRun {get{return RunPlay&&Playbook==23;}}
- public int HandoffReceiver {get{return Playbook==21?10:1;}}
- public static bool IsRunCall(int play){return play>=6&&play<=13||play>=20;}
+ public bool OptionLive {get{return (Playbook==22||Playbook==31||Playbook==38)&&RunPlay&&!OptionGiven;}}
+ public bool DesignedQBRun {get{return RunPlay&&(Playbook==23||WildcatCall(Playbook)||Playbook==39||Playbook==47);}}
+ public int HandoffReceiver {get{return Playbook==21||Playbook==26||Playbook==27||Playbook==35||Playbook==43||Playbook==46?10:1;}}
+ public static bool IsRunCall(int play){return play>=6&&play<=13||play>=20&&play<=23||TrickRun(play)&&play!=30;}
  public void Cue(string sound){if(Sounds.Count<12)Sounds.Enqueue(sound);}
  BoxLine Line(Player p){if(p==null||p.ClubId<0)return null;BoxLine b=Box.Find(x=>x.PlayerId==p.ClubId);if(b==null){b=new BoxLine();b.PlayerId=p.ClubId;Box.Add(b);}return b;}
- void RecordAttempt(){if(conversion||Practice)return;BoxLine b=Line(Players[0]);if(b!=null)b.Attempts++;}
- void RecordCatch(Player receiver){if(conversion||Practice){Cue("catch");return;}caughtReceiver=receiver;BoxLine qb=Line(Players[0]),r=Line(receiver);if(qb!=null)qb.Completions++;if(r!=null)r.Catches++;Cue("catch");}
- void RecordProduction(float finish,bool touchdown){if(conversion||Practice)return;int gain=(int)Math.Round(finish-Spot);if(caughtReceiver!=null){BoxLine q=Line(Players[0]),r=Line(caughtReceiver);if(q!=null){q.PassYards+=gain;if(touchdown)q.PassTD++;}if(r!=null){r.RecYards+=gain;if(touchdown)r.RecTD++;}}else if(Controlled!=null&&(Controlled.Role!="QB"||finish>Spot)){BoxLine r=Line(Controlled);if(r!=null){r.RushYards+=gain;if(touchdown)r.RushTD++;}}caughtReceiver=null;}
+ void RecordAttempt(){if(conversion||Practice)return;BoxLine b=Line(flightThrower??Players[0]);if(b!=null)b.Attempts++;}
+ void RecordCatch(Player receiver){if(conversion||Practice){Cue("catch");return;}caughtReceiver=receiver;BoxLine qb=Line(flightThrower??Players[0]),r=Line(receiver);if(qb!=null)qb.Completions++;if(r!=null)r.Catches++;Cue("catch");}
+ void RecordProduction(float finish,bool touchdown){if(conversion||Practice)return;int gain=(int)Math.Round(finish-Spot);if(caughtReceiver!=null){BoxLine q=Line(flightThrower??Players[0]),r=Line(caughtReceiver);if(q!=null){q.PassYards+=gain;if(touchdown)q.PassTD++;}if(r!=null){r.RecYards+=gain;if(touchdown)r.RecTD++;}}else if(Controlled!=null&&(Controlled.Role!="QB"||finish>Spot)){BoxLine r=Line(Controlled);if(r!=null){r.RushYards+=gain;if(touchdown)r.RushTD++;}}caughtReceiver=null;}
  public void GiveOption(){if(OptionLive&&State==Phase.Live&&Controlled.Role=="QB"&&Controlled.Z<=Spot){OptionGiven=true;Handoff();}}
  void StartHalftime(){OnsideAttempt=OnsideRulesPending=false;HalftimeCount++;Quarter=3;Clock=60;Timeouts=3;conversion=false;Charging=false;handoffTime=-1;KickAnimating=false;Spot=20;Down=1;FirstDown=30;State=Phase.Halftime;Message=SecondHalfOpponent?"HALFTIME / OPPONENT RECEIVES":"HALFTIME / YOU RECEIVE";Log(Message);Cue("halftime");}
  public void BeginSecondHalf(){if(State!=Phase.Halftime)return;Spot=20;Down=1;FirstDown=30;if(SecondHalfOpponent){opponentStart=20;State=Phase.Opponent;deadTime=2.8f;Message="SECOND HALF / OPPONENT AT 20";}else Setup();}

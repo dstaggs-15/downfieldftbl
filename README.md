@@ -14,49 +14,30 @@ There is also a [portable game EXE](https://github.com/dstaggs-15/downfieldftbl/
 
 ## New in this update
 
-- **SPRXTRM**: an intentionally unfair fifth difficulty. Maximum-rated defenders, a pace boost, relentless pressure and huge hits. Extreme also closes more escape lanes and passing windows now.
-- Direct a receiver while scrambling: hold **LT**, choose his receiver button, then flick the **right stick**. Keyboard: hold **C**, choose **1-5**, then use the arrows. Release the modifier to pass normally.
-- Six big-hit animations, including flips, clotheslines, corkscrews and turf slams.
-- Rain, snow and clearer broadcast presentation. Franchise weather follows the home city and season; Exhibition lets you pick the weather.
-- All 12 teams have their own pixel logo, used in the menus and on the field.
-- League History now starts with seasons. Pick one for its champion, awards and final standings, then select a club for its history.
-- Type your own relocation city. It costs **$45M total**: the usual $15M move plus the $30M custom-city fee.
+- **Bowling** is on the main menu. Start at the 10 with two plays to score. First-play TD is a strike, second-play TD is a spare. Ten frames, normal bowling bonuses, and a perfect 300. Play the CPU or take turns with a friend on the same controller.
+- The franchise office has **Team, League and Coach** sections now. Money and stadium prices are under Team. Signing, trading and the draft are together under Transfers.
+- **48 plays**, with 24 new arcade calls: flea flickers, reverses, Philly Special, HB/WR passes, fake gives, screens and wildcat.
+- Draw a play, name it, and **Save to Book**. Keep up to 40 custom calls, then select them from the playbook. Rename, edit or delete them under My Saved Plays. Route previews use the actual route logic.
+- All your QBs hurt? Pick any healthy roster player to take the snaps. He keeps his own name and number, and non-QBs are much worse at throwing.
+- **Aggressive catch meter:** press Y in the air, then Y again to stop it. Green catches every time, yellow is 75%, red is 4%. Leave it alone for a normal catch. Keyboard default is Y too.
+- Change keyboard and controller bindings in **Options > Controls**, or Pause > Controls. Conflicting controls swap. Movement and skill sticks can swap too.
+- Trade across positions. The other club now checks value, age, potential, contracts, injuries, roster needs and both salary caps. Cash won't make up for a bad player offer.
+- Catch reaches, aggressive catch leaps, fake throws, celebrations and sideline clapping. **Three timeouts per half** are shown on the scoreboard and called from Pause.
 
-![Every team's logo](docs/team-logos.png)
+![Football Bowling](docs/bowling-scorecard.png)
 
-![Snow football](docs/snow-game.png)
-
-- CPU teams now train players, sign free agents, renew contracts, change coaches and make rebuilding trades. Other clubs can get better or fall apart over time.
-- A three-round draft after each season. Pick your rookies or let your scouts finish it. Older players decline and retire.
-- A tighter **$190 salary cap**. Stars cost more, and renewals pay for the player they have become. Old contracts stay intact until renewal.
-- A full-team roster grid with pixel players and clear ratings. New cards for player actions, staff and training, plus the whole league table on one screen.
-- **Extreme** difficulty in Options or Pause. Faster defensive reads, better deep help and a tighter pocket. Normal keeps its earlier defensive tuning.
-- The piercing whistle is gone. The stadium background is softer and runs through a longer mix. Pause > Settings still has separate volumes.
-
-- The game and installer now leave development tests out of the files players download. Both have clear product/version details. The reported Defender warning is still being reviewed; a local scan found no threats.
-- Defense update: safeties stay deep, help against fast receivers and take better tackling angles. Zones carry vertical routes, linebackers watch repeated QB escapes, and the defense adjusts when you keep calling deep passes. Good signings still matter, but one go route should take more work.
-- Real crowd recordings, quieter ambience and bigger reactions. Volume controls are in **Pause > Settings**.
-- Draw routes by dragging from a receiver in **Create a Play**. On Xbox, press **X** to draw, then hold **A** while moving the left stick. Presets still work.
-- An onside alternative: **4th-and-13 from your own 30**. Gain 13 to keep it. Fall short and the opponent takes over. Any quarter, any score. The first attempt each game explains the rule.
-- Flea-flickers: the RB can pitch back to the QB, who can throw if the ball stayed behind the line and no forward pass has been used.
-- Bigger airborne hits, hard landings, turf bursts and more injuries. Real reserves come in wearing their own numbers. No healthy backup means an empty spot.
-- A pixel office, clearer menu pictures, player portraits and dollar prices.
-- **Stadium + Money** has food and parking prices. Games have running costs; byes still have bills. Expensive prices can hurt attendance and fan support. Bad results, unhappy fans or serious debt can get you fired. Your coach record follows you to your next job.
-- Clear MVP and Offensive Player of the Year races, plus passing, rushing and receiving tables. All 12 clubs compete using player stats and ratings.
-
-![The clubhouse](docs/office.png)
-
+![Your team office](docs/team-hub.png)
 ## Modes and team features
 
-The first screen now has **Exhibition** for a quick game and **Franchise** for your team. The clubhouse uses shorter labels, icons and little pixel players.
+The first screen has **Exhibition**, **Franchise** and **Bowling**. The clubhouse uses shorter labels, icons and little pixel players.
 
 - Name your coach and change his pixel appearance.
 - Keep your coach record when you change teams.
 - Follow past seasons and champions, and collect championship, MVP and OPOTY trophies.
-- Call from 24 plays, including read option, jet sweep, toss, mesh and wheel routes.
+- Call from 48 plays, including read option, jet sweep, toss, mesh and wheel routes.
 - Create a play: pick a receiver, choose a route, then press Use Play. Save it or draw your own routes if you want.
 - Nudge the left stick as you release a throw to lead your receiver a little.
-- Hear stadium crowds, touchdown cheers, first-down applause, big-hit reactions and tackle sounds. Pause > Settings has the sound mixer.
+- Hear stadium crowds, touchdown cheers, first-down applause, big-hit reactions and tackle sounds. Pause > Audio Mixer has the sound mixer.
 
 Halftime now resets the field and possession. You receive to start the game; the opponent receives at its own 20 after halftime. Playoff games have their own scoreboard label and bowl art. Speed, hands and OVR make more of a difference, and receivers block once your QB crosses the line.
 
@@ -91,7 +72,7 @@ The Clubhouse is your little pixel-art office. From there you can:
 - Change your mascot and colors, or move the team to a different city.
 - Check injuries, scout other rosters, follow the standings and see the playoff picture.
 
-New signings start on the bench. Go to **Franchise > Clubhouse > Roster**, select the player, and choose his starting spot.
+New signings start on the bench. Go to **Franchise > Team > Roster**, select the player, and choose his starting spot.
 
 The league has **12 teams**, including **New Orleans**. You play everyone once over 11 weeks. The top six make the playoffs, the top two get a bye, and the winners work their way to the championship. You can keep going into another season.
 
@@ -115,12 +96,13 @@ The league has **12 teams**, including **New Orleans**. You play everyone once o
 | Truck | Right stick up |
 | Spin | Right stick down or B |
 | Jump once you're past the line | Y |
+| Aggressive catch in the air | Y to start the meter, Y again to stop |
 | Dive | X |
 | Handoff / backward pitch | LB |
 | Playbook before the snap | Y |
 | Pause | Menu |
 
-Y changes with what you're doing: playbook before the snap, receiver button while passing, jump when you're carrying past the line. Right-stick up trucks. It doesn't jump anymore.
+Y changes with what you're doing: playbook before the snap, receiver button while passing, aggressive catch while the ball is in the air, and jump when you're carrying past the line. Right-stick up trucks. It doesn't jump anymore.
 
 On **Read Option**, snap and choose: LB gives to the back, or keep the ball and run. Once you cross the line, LB becomes a backward pitch.
 

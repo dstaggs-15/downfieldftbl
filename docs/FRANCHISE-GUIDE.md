@@ -1,10 +1,34 @@
-# Downfield 2 - Beta update
+# Downfield 2 - Player guide
+
+## Playbook, menus and Bowling update (2.3)
+
+Main menu: Exhibition, Franchise, Bowling, Options.
+
+Franchise starts in the pixel office. Team contains Roster, Transfers, Staff + Training, Money + Stadium and Team Identity. Transfers contains Sign Players, Trade Players and Draft. Staff contains Coaches, Training and Facilities. Team Identity contains Edit Team and Move Team. League contains Schedule, Standings, Playoffs, Stat Leaders, News and History. Coach contains My Coach, Trophies, Champions and Coaching Jobs. Back returns to the parent section. Roster has an Injury Report button below the cards.
+
+There are 48 stock calls. The original 24 keep their order. New calls include Flea Flicker, HB Pass, WR Reverse, Double Reverse, Statue Liberty, Wildcat Power/Pass/Option/Counter/Sweep/Flea, Philly Special, Hook + Lateral, Shovel Pass, Reverse Pass, Fake Jet Screen, Triple Option, QB Leak, TE Tunnel, Slot Screen, RB Toss Pass, Jet Pass, Slot Boomerang and Fake Double Give. Some calls run automatic backward exchanges; others let you choose give, keep, pitch or pass. On a backward give, the HB/WR can pass only on the designated trick calls while the ball has never crossed the line and no forward pass has been used. Non-QB passing has lower accuracy and arm strength. LB is still a manual backward lateral. Normal football's one-forward-pass limit remains.
+
+Gold play art shows the carry lane; colored lines show receiver routes, sampled from gameplay. Block bars mark run blocking. LB/RB changes playbook pages. In Create Play, drag from a receiver or pick a preset, then Save to Book. Name Play opens a keyboard or controller letter grid. Up to 40 named plays save with the franchise, appear after stock calls, and also work in Exhibition/Bowling. My Saved Plays lets you call, edit, rename or delete them. Edits overwrite that play's slot; a new draft gets a new slot. Old one-play saves migrate into the library.
+
+When no healthy QB remains, the game opens an emergency QB chooser before the next snap. Choose any healthy roster player, including reserves or defenders. He keeps his own identity and leaves his old offensive spot empty if needed. He can throw, with substantially lower accuracy and ball speed. The choice persists until unavailable. Pause > Emergency QB lets you change that choice during the shortage. Wildcat calls put the real RB under center and use a real backup for the give option.
+
+For an aggressive catch, press Y while a forward pass is in the air. A moving meter appears above the intended receiver. Press Y again to lock it: green 100%, yellow 75%, red 4%. An activated but unfinished meter counts as red. Without the first press, normal speed/hands/coverage catching remains. Keyboard default is Y. Receiver-button Y while preparing a throw remains a pass button; runner Y remains jump. A green release guarantees the intended aggressive catch, so timing is a strong arcade tool.
+
+Options > Controls and Pause > Controls offer separate keyboard/controller mappings. Select an action, then press the new key/button/trigger. Conflicts in the same context swap. Controller face buttons retain shared Madden-style contexts, and movement/skill sticks may swap. Enter/Escape remain menu recovery keys; F11 is reserved for fullscreen. Reset Defaults restores both devices. How to Play displays current bindings. A connected physical Xbox controller was not available for feel testing; translation is covered by model checks.
+
+Cross-position trade targets now include every role. Review compares the outgoing offer with what the CPU needs: OVR, age, potential, position value, injury, years, salary, replacements and contender/rebuild plan. The CPU refuses large player-value gaps even with abundant cash. Fees do not pay you money back. Both teams must stay under the cap. A cross-position move fills matching vacancies or promotes a real reserve; it never turns an RB into a starting QB by swapping slot numbers.
+
+Regulation games have three timeouts in each half, reset at halftime. Pause > Timeout or the playbook Timeout calls one between plays; the scoreboard shows how many remain. Bowling has no clock or timeouts.
+
+Bowling is a separate quick mode. Choose both teams, weather, and CPU or local two-player shared-controller play. Every frame starts ten yards out. Gain four yards and play two starts six yards out. A first-play touchdown is a strike; a second-play touchdown is a spare. Incomplete passes and turnovers use one attempt for zero pins. Whole positive yards count in open frames. Teams alternate after each frame. A strike adds the next two plays' pins, a spare the next play's pins; the tenth awards the required extra attempts. Twelve consecutive strikes score 300. The scorecard leaves a total pending until its bonus is known. No kicks, PATs, onside attempts or regulation sim drives. The CPU runs actual on-field offensive plays. Local play asks the other player to take the controls. Franchise records and money are untouched.
+
+The research references are in [MENU-AND-BOWLING-RESEARCH.md](MENU-AND-BOWLING-RESEARCH.md). The older sections below describe the features retained from earlier releases.
 
 Open **Downfield 2.exe** on the Desktop. **Downfield 2 Updated.exe** is also refreshed with the same build. The source and rebuild script remain in `Downloads/Downfield-v2`.
 
 ## Start here
 
-1. Select **Franchise**, then **Clubhouse**. Your team colors, pennant, play board, desk and GM appear in an original pixel-art office.
+1. Select **Franchise**, then **Team**. Your team colors, pennant, play board, desk and GM appear in an original pixel-art office.
 2. **Coaching Jobs** lets you take charge of one of 12 clubs before the season opener or between seasons. New Orleans Crescent is included. This selects an existing franchise; **Move Team** instead relocates your current club while keeping its roster, records and schedule.
 3. Open **Roster**. Select a player to set his starting slot, renew his contract, release him, or seek a trade. Newly signed players arrive as reserves; you choose where to start them.
 4. **Schedule** has Play Scheduled Game and Sim Next Game below your fixtures. Use LB/RB to jump a page, or Q/R on keyboard. Advance League handles byes and spectator playoff rounds.
@@ -21,7 +45,7 @@ Players have OVR, speed, hands, power, age, salary, contract length, morale, dev
 - **Salary cap:** A $190 payroll cap. Elite salaries rise sharply: 80 OVR costs $7, 90 costs $12, and 99 costs $20. Salary occupies cap space separately from the signing fee. Releasing a reserve frees cap space without refunding fees. A starter must be replaced before release. Existing contracts keep their salary until renewal; an over-cap save keeps its players but must make room before adding or renewing contracts.
 - **Depth chart:** choose an eligible starting slot for a player. The former starter moves into that player's previous slot or onto the bench. This allows different WR and OL assignments instead of replacing an entire position group.
 - **Contracts:** renewals add two seasons, capped at four, and update salary to the player's current rating. Contracts age at the start of each new season. Expiring players enter free agency. A healthy reserve fills a vacancy; otherwise the club gets a 70 OVR replacement before the draft.
-- **Trades:** select an outgoing player, another club, then a player at the same position. An upgrade of more than nine OVR is rejected; smaller upgrades may require cash. Both clubs must remain below the salary cap. The trade deadline begins in Week 9 and trading reopens next season.
+- **Trades:** Team > Transfers > Trade Players allows any outgoing/incoming positions. The review checks player value, role needs, age, potential, injuries, contracts and both salary caps. Large value gaps are rejected. Trading closes in Week 9.
 - **Coaches:** hire tiers 1–3 in offense, defense and conditioning. Offense improves the passing unit. Defense improves opponent-drive outcomes. Conditioning reduces stamina use and injury risk and adds training XP. Hiring replaces the tier in that staff role; it does not stack infinite coaches.
 - **Training:** one $3 session per league week, targeting passing, running or defense. Under-26 players need eight XP to develop; veterans need 12. Games also award XP. Ratings are capped at 99, and veterans over 30 lose a little speed and OVR each offseason.
 - **Facilities:** upgrade passing, running and defense facilities to level five. Costs rise with each level. Facility and staff changes apply to the next match.
@@ -82,7 +106,7 @@ Regular games have team field art. Postseason scoreboards say PLAYOFF GAME or CH
 
 **Franchise > My Coach** edits your name, skin tone, hair, hat and outfit. The letter picker works with Xbox buttons, mouse or typing. Names allow 16 characters. The same screen shows career wins, losses, ties, win percentage, playoff wins and titles.
 
-**Clubhouse > Jobs** changes clubs before the first game or after the championship. Your coach appearance, name and record follow you. Relocating with **Move** keeps your current team instead. Old saves recover results still present in their fixture list and retain known titles; missing past seasons are not invented.
+**Coach > Coaching Jobs** changes clubs before the first game or after the championship. Your coach appearance, name and record follow you. Relocating with **Move** keeps your current team instead. Old saves recover results still present in their fixture list and retain known titles; missing past seasons are not invented.
 
 **History** archives all 12 clubs after each championship: season, record, points and champion. Select an entry for that club's history. **Champions** lists each season's winner. These records survive new seasons and relocation.
 
@@ -100,7 +124,7 @@ Open **Playbook > Create Play** before the snap. It starts with five visible rou
 2. Choose a route on the right: go, slant, out, in, cross, curl, post, corner or flat. The preview changes immediately.
 3. Press **Use Play**, then snap on the field.
 
-**Stock** restores that receiver's original playbook route. **Save** stores one custom play; **Load** restores it. A short message confirms each action. Empty saves cannot overwrite your play. Calling a stock play exits the custom play.
+**Stock** restores that receiver's original playbook route. **Save to Book** stores a named call in the custom playbook. My Saved Plays opens the library; LB in the designer restores the last saved draft. A short message confirms each action. Empty saves cannot overwrite your play. Calling a stock play exits the custom play.
 
 With Xbox: D-pad/left stick navigates, A selects the receiver or route, Y changes receiver, RB saves, LB loads, and Menu uses the play. Move right from routes or down from the last row to reach the bottom buttons. B returns to player selection, then exits. With keyboard use arrows/WASD, Enter, Y, R, Q, P and Escape.
 
@@ -123,7 +147,7 @@ Four seconds are deducted once at the end of each timed in-bounds play, includin
 
 Bigger injuries remove a player immediately. Ordinary contact injuries last two to five weeks; hard landings can last three to six. A pixel ambulance arrives after the whistle, medics load the patient and the vehicle leaves. The camera follows the pickup, and the clock stops during it. Press A/Enter to skip the pickup, then continue to the next play. A real healthy reserve takes over with his own name and jersey. If nobody is available, the spot stays empty. The health page and player card show the recovery time and injury type.
 
-Open **Pause > Settings** for Master, Crowd, Whistles, Hits + Moves, Stadium Horns and Menu Sounds. Left/right changes a selected volume; A mutes that channel. Mouse clicks and dragging work on the bars. Mute All silences everything. The sound button in the field view and Xbox View / keyboard M are quick mute controls. Settings save separately from the franchise and survive reinstalling.
+Open **Pause > Audio Mixer** for Master, Crowd, Whistles, Hits + Moves, Stadium Horns and Menu Sounds. Left/right changes a selected volume; A mutes that channel. Mouse clicks and dragging work on the bars. Mute All silences everything. The sound button in the field view and Xbox View / keyboard M are quick mute controls. Settings save separately from the franchise and survive reinstalling.
 
 Right-stick click / T throws the ball out of bounds while the QB can still pass. It cancels a charged throw, shows the ball in flight, counts as an incomplete attempt and stops the clock without runoff. It is unavailable after crossing the line or after already throwing a forward pass.
 
@@ -157,7 +181,7 @@ Dimension reference: [NFL Football Operations — The Field](https://operations.
 
 ## Simulation
 
-- **Next game:** Clubhouse → Season Schedule → Sim Next Game. A review explains that your fixture and the other clubs' games count toward the season.
+- **Next game:** League > Schedule → Sim Next Game. A review explains that your fixture and the other clubs' games count toward the season.
 - **Current drive:** use Simulate Drive in the pre-snap playbook or pause menu. This resolves the whole offensive possession using ratings and field position, including a simulated conversion after a touchdown. It is unavailable in practice, during a live play or during a conversion.
 - **Rest of game:** pause → Sim Rest of Game. The current score is retained and remaining possessions are simulated. The result is committed once to the league. This also handles a pending kick as part of the simulated remainder.
 
@@ -167,7 +191,7 @@ Simulated drives are logged as simulated summaries; they are not reconstructed a
 
 New franchise state is saved beside the old club file at `%LOCALAPPDATA%/Downfield/club.txt.franchise.xml`, with an atomic previous-version `.bak`. Existing `club.txt` and `club.txt.roster` supply migration data and remain present. The original source/build before this update is backed up in `Downloads/Downfield-v2-backup-before-franchise`.
 
-**682 automated checks pass:** 513 model/audio/settings checks and 169 native menu/input checks. These include eight seasons of AI development, drafts, retirements, cap and lineup checks, plus Extreme and Normal gameplay comparisons. Tests use isolated save directories. Screenshots show the office, full roster, draft, market, management pages, bracket and gameplay.
+**833 automated checks pass:** 634 model/audio/settings checks and 199 native menu/input checks. These include eight seasons of AI development, drafts, retirements, cap and lineup checks, plus Extreme and Normal gameplay comparisons. Tests use isolated save directories. Screenshots show the office, full roster, draft, market, management pages, bracket and gameplay.
 
 Balance probes: 64 catches in 120 varied defended throw scenarios; 39 catches produced more than two yards after catch. A fixed sideline-sprint pattern was stopped in 60/60 trials, with about 2.9 yards average gain. Upgraded-roster and full-game comparisons are in [DEFENSE-BALANCE.md](DEFENSE-BALANCE.md). These are scripted scenarios, not a human playtest or a guarantee against all exploits. Physical Xbox controller feel and prolonged human balance testing remain unverified.
 
@@ -224,4 +248,4 @@ History opens a list of completed seasons, one card per year. Select a year for 
 
 Move Team includes Type a Custom City. Enter 2-24 letters/numbers/spaces/hyphens with the keyboard or controller letter grid and review before paying. Cost: $45M total, made from the existing $15M move plus $30M extra for a custom city. Players, standings and coach history stay with the club. Existing cities must be unoccupied. Front-office funds/payroll use league millions; food and parking prices are per-customer dollars.
 
-Validation: 682 automated checks pass (513 model/audio/settings and 169 native UI checks). The expanded hard-mode sample covers adaptive QB draws, evasive outside runs, rollout slants and rollout mesh throws with a 95-rated offense. In 240 trials, the previous Extreme allowed five touchdowns; this release allowed one, with average yards across the four attacks falling from about 6.1 to 3.2. SPRXTRM allowed zero in those trials and penetrated/sacked 60 of 60 stationary 99-rated pockets within three seconds. Early throws still work on Extreme. These are scripted probes; human play can find different results. Native Xbox hardware feel remains unverified in this session.
+Validation: 833 automated checks pass (634 model/audio/settings and 199 native UI checks). The expanded hard-mode sample covers adaptive QB draws, evasive outside runs, rollout slants and rollout mesh throws with a 95-rated offense. In 240 trials, the previous Extreme allowed five touchdowns; this release allowed one, with average yards across the four attacks falling from about 6.1 to 3.2. SPRXTRM allowed zero in those trials and penetrated/sacked 60 of 60 stationary 99-rated pockets within three seconds. Early throws still work on Extreme. These are scripted probes; human play can find different results. Native Xbox hardware feel remains unverified in this session.

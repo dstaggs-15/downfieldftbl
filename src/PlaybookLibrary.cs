@@ -1,0 +1,19 @@
+using System;
+using System.Collections.Generic;
+namespace Downfield {
+public partial class DrawnPlay {public int LibraryId;}
+public partial class Franchise {
+ public List<DrawnPlay> PlayLibrary=new List<DrawnPlay>();public int NextPlayId=1,PlayLibraryVersion;
+ public void EnsurePlayLibrary(){if(PlayLibrary==null)PlayLibrary=new List<DrawnPlay>();if(PlayLibraryVersion==0&&PlayLibrary.Count==0&&SavedPlay!=null&&SavedPlay.Routes.Exists(r=>r.Points.Count>0)){DrawnPlay p=SavedPlay.Copy();p.LibraryId=NextPlayId++;p.Name="CUSTOM 1";PlayLibrary.Add(p);}PlayLibraryVersion=1;foreach(DrawnPlay p in PlayLibrary)NextPlayId=Math.Max(NextPlayId,p.LibraryId+1);}
+ public bool SaveCustomPlay(DrawnPlay play,string name){EnsurePlayLibrary();if(play==null||!play.Routes.Exists(r=>r.Points.Count>0)){Notice="Draw a route first.";return false;}DrawnPlay copy=play.Copy();DrawnPlay old=PlayLibrary.Find(p=>p.LibraryId==copy.LibraryId&&p.LibraryId>0);if(old==null&&PlayLibrary.Count>=40){Notice="Playbook full: delete a saved play first.";return false;}copy.Name=(name??"").Trim().ToUpperInvariant();if(copy.Name.Length==0||copy.Name=="CUSTOM PLAY")copy.Name="CUSTOM "+NextPlayId;if(copy.Name.Length>18)copy.Name=copy.Name.Substring(0,18);if(old==null){copy.LibraryId=NextPlayId++;PlayLibrary.Add(copy);}else PlayLibrary[PlayLibrary.IndexOf(old)]=copy;play.LibraryId=copy.LibraryId;play.Name=copy.Name;SavedPlay=copy.Copy();return Save();}
+ public void DeleteCustomPlay(int id){PlayLibrary.RemoveAll(p=>p.LibraryId==id);if(SavedPlay!=null&&SavedPlay.LibraryId==id)SavedPlay=new DrawnPlay();Save();}
+}
+public partial class Simulation {
+ public int PlayCount {get{return PlayNames.Length+(Franchise==null?0:Franchise.PlayLibrary.Count);}}
+ public string CallName(int index){return index<PlayNames.Length?PlayNames[index]:Franchise.PlayLibrary[index-PlayNames.Length].Name;}
+ public List<RouteNode> PreviewCarry(int call){int prior=Playbook;Playbook=call;bool keeper=call==23||WildcatCall(call)||call==38||call==39||call==47;bool jet=call==21||call==26||call==27||call==35||call==43||call==46;Player runner=Players[keeper?0:jet?10:1];float x=runner.StartX,z=runner.StartZ;List<RouteNode> nodes=new List<RouteNode>();nodes.Add(new RouteNode(x,z-Spot));for(int n=1;n<=75;n++){float[] lane=RunPoint(n*.05f);float distance=Distance(x,z,lane[0],lane[1]),step=Math.Min(distance,runner.Speed*.05f);if(distance>.001f){x+=(lane[0]-x)/distance*step;z+=(lane[1]-z)/distance*step;}if(n%5==0)nodes.Add(new RouteNode(x,z-Spot));}Playbook=prior;return nodes;}
+ public void CallPlay(int index){if(State!=Phase.PreSnap||index<0||index>=PlayCount)return;if(index<PlayNames.Length){Playbook=index;UseCustom=false;CustomPlay=null;}else{CustomPlay=Franchise.PlayLibrary[index-PlayNames.Length].Copy();UseCustom=true;Playbook=CustomPlay.BasePlay;}RunPlay=!UseCustom&&IsRunCall(Playbook);PrepareCallPersonnel();}
+ // Preview and gameplay sample the very same route function, integrating the player's speed.
+ public List<RouteNode> PreviewRoute(int call,int receiver){int prior=Playbook;bool run=RunPlay,custom=UseCustom;DrawnPlay saved=CustomPlay;Phase phase=State;Playbook=call<PlayNames.Length?call:Franchise.PlayLibrary[call-PlayNames.Length].BasePlay;UseCustom=call>=PlayNames.Length;CustomPlay=UseCustom?Franchise.PlayLibrary[call-PlayNames.Length]:null;RunPlay=!UseCustom&&IsRunCall(Playbook);State=Phase.PreSnap;Player actor=Receiver(receiver);float x=actor.StartX,z=actor.StartZ;List<RouteNode> path=new List<RouteNode>();path.Add(new RouteNode(x,z-Spot));for(int i=1;i<=100;i++){float[] point=GetRoutePoint(actor,i*.05f);float distance=Distance(x,z,point[0],point[1]),step=Math.Min(distance,actor.Speed*.05f);if(distance>.001f){x+=(point[0]-x)/distance*step;z+=(point[1]-z)/distance*step;}if(i%4==0)path.Add(new RouteNode(x,z-Spot));}Playbook=prior;RunPlay=run;UseCustom=custom;CustomPlay=saved;State=phase;return path;}
+}
+}

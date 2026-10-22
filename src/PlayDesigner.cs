@@ -6,8 +6,8 @@ public partial class GameForm {
  DrawnPlay draftPlay;int routeReceiver,cursorX=12,cursorZ=5;bool drawing,freehand,drawStartsNew,routeDragArmed;PointF routeDragStart;float designRepeat;
  int designSection,routeChoice,designAction;string designNotice="";
  static readonly string[] RouteChoices={"GO","SLANT","OUT","IN","CROSS","CURL","POST","CORNER","FLAT","STOCK"};
- static readonly string[] DesignActions={"USE PLAY","SAVE","LOAD","DRAW","UNDO","BACK"};
- static readonly int[] DesignActionIds={5,8,9,11,6,10};
+ static readonly string[] DesignActions={"USE PLAY","SAVE TO BOOK","NAME PLAY","DRAW","UNDO","BACK"};
+ static readonly int[] DesignActionIds={5,8,12,11,6,10};
  void OpenDesigner(){if(game.State!=Phase.PreSnap)return;draftPlay=game.UseCustom&&game.CustomPlay!=null?game.CustomPlay.Copy():DrawnPlay.Default(game.Playbook,game);routeReceiver=routeChoice=designSection=designAction=0;screen="designer";menuTargets.Clear();selection=0;navTime=.2f;designRepeat=.2f;drawing=freehand=routeDragArmed=false;designNotice="DRAG FROM A PLAYER TO DRAW / OR PICK A ROUTE";CenterDesignCursor();}
  DrawnRoute EditRoute(){DrawnRoute r=draftPlay.Routes.Find(x=>x.Receiver==routeReceiver);if(r==null){r=new DrawnRoute();r.Receiver=routeReceiver;draftPlay.Routes.Add(r);}return r;}
  void CenterDesignCursor(){Player p=game.Receiver(routeReceiver);cursorX=Math.Max(0,Math.Min(25,(int)Math.Round((p.StartX+25)/2)));cursorZ=Math.Max(-4,Math.Min(20,(int)Math.Round((p.StartZ-game.Spot)/2)));}
@@ -26,15 +26,15 @@ public partial class GameForm {
   audio.Play("menu");
   if(action<5){routeReceiver=action;drawing=routeDragArmed=freehand=false;designSection=1;CenterDesignCursor();designNotice="DRAG FROM "+ReceiverIcon(routeReceiver)+" / OR PICK A ROUTE";return;}
   if(action>=20&&action<30){routeChoice=action-20;Player p=game.Receiver(routeReceiver);draftPlay.Routes.RemoveAll(r=>r.Receiver==routeReceiver);DrawnRoute route=DrawnPlay.Preset(routeReceiver,RouteChoices[routeChoice],p.StartX,p.StartZ-game.Spot);if(route.Points.Count>0)draftPlay.Routes.Add(route);freehand=false;designSection=1;designNotice="#"+p.Number+" / "+RouteChoices[routeChoice]+" / READY";return;}
-  if(action==5){ApplyDraft();return;}
+  if(action==12){playNameDraft=draftPlay.Name=="CUSTOM PLAY"?"":draftPlay.Name;renameBack="designer";Open("playname");selection=38;return;}if(action==5){ApplyDraft();return;}
   if(action==6){DrawnRoute r=EditRoute();if(r.Points.Count>0)r.Points.RemoveAt(r.Points.Count-1);r.Label="CUSTOM";designNotice="LAST POINT REMOVED";}
   else if(action==7){EditRoute().Points.Clear();designNotice="USING STOCK ROUTE";}
-  else if(action==8){if(!draftPlay.Routes.Exists(r=>r.Points.Count>0)){designNotice="ADD A ROUTE FIRST";return;}franchise.SavedPlay=draftPlay.Copy();franchise.Save();designNotice="PLAY SAVED";}
+  else if(action==8){if(!draftPlay.Routes.Exists(r=>r.Points.Count>0)){designNotice="ADD A ROUTE FIRST";return;}if(franchise.SaveCustomPlay(draftPlay,draftPlay.Name))designNotice="IN PLAYBOOK / "+draftPlay.Name;else designNotice=franchise.Notice;}
   else if(action==9){if(franchise.SavedPlay==null||!franchise.SavedPlay.Routes.Exists(r=>r.Points.Count>0)){designNotice="NO SAVED PLAY YET";return;}draftPlay=franchise.SavedPlay.Copy();freehand=false;designNotice="SAVED PLAY LOADED";}
   else if(action==10)Open("game");
   else if(action==11){freehand=!freehand;drawStartsNew=true;drawing=routeDragArmed=false;CenterDesignCursor();designNotice=freehand?"DRAG ON FIELD / HOLD A + MOVE TO DRAW / B DONE":"CHOOSE A ROUTE";}
  }
- void ApplyDraft(){if(!draftPlay.Routes.Exists(r=>r.Points.Count>0)){designNotice="CHOOSE A ROUTE FIRST";return;}game.CustomPlay=draftPlay.Copy();game.UseCustom=true;game.RunPlay=false;game.Playbook=Simulation.IsRunCall(draftPlay.BasePlay)?0:Math.Max(0,Math.Min(23,draftPlay.BasePlay));Open("game");game.Message="CUSTOM PLAY READY / SNAP";}
+ void ApplyDraft(){if(!draftPlay.Routes.Exists(r=>r.Points.Count>0)){designNotice="CHOOSE A ROUTE FIRST";return;}game.CustomPlay=draftPlay.Copy();game.UseCustom=true;game.RunPlay=false;game.Playbook=Simulation.IsRunCall(draftPlay.BasePlay)?0:Math.Max(0,Math.Min(game.PlayNames.Length-1,draftPlay.BasePlay));Open("game");game.Message="CUSTOM PLAY READY / SNAP";}
  void TickDesigner(float dt){
   designRepeat-=dt;int dx=input.MoveX>.5f||input.Held(Input.Right)?1:input.MoveX<-.5f||input.Held(Input.Left)?-1:0,dz=input.MoveZ>.5f||input.Held(Input.Up)?-1:input.MoveZ<-.5f||input.Held(Input.Down)?1:0;
   if(freehand){bool moved=false;if(designRepeat<=0&&(dx!=0||dz!=0)){cursorX=Math.Max(0,Math.Min(25,cursorX+dx));cursorZ=Math.Max(-4,Math.Min(20,cursorZ-dz));designRepeat=.065f;moved=true;}if(input.Pressed(Input.A)||input.Held(Input.A)&&moved)AddDesignPoint(-25+cursorX*2,cursorZ*2);}
