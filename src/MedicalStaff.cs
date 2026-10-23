@@ -1,0 +1,16 @@
+using System;
+using System.Drawing;
+namespace Downfield {
+public partial class Franchise {
+ public static int MedicalHireCost(int tier){return tier<=0?0:tier==1?8:tier==2?18:32;}
+ public static int MedicalWeeklyCost(int tier){return (Math.Max(0,Math.Min(3,tier))+1)/2;}
+ public static int MedicalBonusChance(int tier){return tier<=0?0:tier==1?25:tier==2?50:100;}
+ public bool HireMedical(int tier){if(!CanManageClub()||tier<0||tier>3||tier==Club.MedicalStaff)return false;int cost=tier>Club.MedicalStaff?MedicalHireCost(tier):0;if(Credits<cost){Notice="Medical hire needs $"+cost+"M.";return false;}Credits-=cost;Club.MedicalStaff=tier;Log("Medical care tier "+tier+" / hire $"+cost+"M / game cost $"+MedicalWeeklyCost(tier)+"M. Recovery improves at the next league week.");Save();return true;}
+ void RecoverInjuries(){foreach(ClubPlayer p in Players)if(p.InjuryWeeks>0){int tier=p.Team>=0&&p.Team<Teams.Count?Teams[p.Team].MedicalStaff:0;int roll=(int)((Season*1957L+Round*2371L+p.Id*139L)%100);int progress=1+(roll<MedicalBonusChance(tier)?1:0);p.InjuryWeeks=Math.Max(0,p.InjuryWeeks-progress);if(p.InjuryWeeks==0)p.InjuryType="";}}
+}
+public partial class GameForm {
+ string[] MedicalRows(){return new string[]{"BASIC CARE / NO HIRE FEE","CLUB MEDIC / $8M","SPORTS MEDICAL / $18M","ELITE MEDICAL / $32M","BACK"};}
+ void ActivateMedical(){if(selection==4){Open("staffhub");return;}int tier=selection;if(tier==franchise.Club.MedicalStaff){franchise.Notice="This medical team is already hired.";return;}int fee=tier>franchise.Club.MedicalStaff?Franchise.MedicalHireCost(tier):0;Confirm("HIRE MEDICAL STAFF","TIER "+tier+" / $"+fee+"M hire / $"+Franchise.MedicalWeeklyCost(tier)+"M per game / "+Franchise.MedicalBonusChance(tier)+"% extra recovery chance","medical",()=>franchise.HireMedical(tier));}
+ void DrawMedical(){FrontHeader("MEDICAL STAFF");TextAt("CURRENT: TIER "+franchise.Club.MedicalStaff+" / COSTS APPLY ONLY TO PLAYED GAMES",40,139,11,Mint);string[] names={"BASIC CARE","CLUB MEDIC","SPORTS MEDICAL","ELITE MEDICAL"};for(int tier=0;tier<4;tier++){float x=40+tier%2*610,y=178+tier/2*217;Rect(x,y,590,197,selection==tier?Color.FromArgb(64,91,96):Color.FromArgb(34,43,57));TextAt(names[tier]+(franchise.Club.MedicalStaff==tier?" / HIRED":""),x+20,y+22,18,selection==tier?Gold:White);int fee=tier>franchise.Club.MedicalStaff?Franchise.MedicalHireCost(tier):0;TextAt("HIRE $"+fee+"M / GAME COST $"+Franchise.MedicalWeeklyCost(tier)+"M",x+20,y+63,12,Gold);TextAt(tier==0?"RECOVERY: 1 WEEK PER LEAGUE WEEK":tier==3?"RECOVERY: 2 WEEKS PER LEAGUE WEEK":"RECOVERY: 1 + "+Franchise.MedicalBonusChance(tier)+"% CHANCE OF 1 EXTRA WEEK",x+20,y+102,11,Mint);TextAt("APPLIES TO EVERY INJURED PLAYER EACH WEEK",x+20,y+137,10,Muted);TextAt(tier<franchise.Club.MedicalStaff?"DOWNGRADE FREE / NO HIRING FEE REFUND":"NO INSTANT HEALING WHEN HIRED",x+20,y+165,10,Muted);HitArea(x,y,590,197,tier);}Rect(40,635,1200,45,selection==4?Color.FromArgb(64,91,96):Color.FromArgb(34,43,57));TextAt("BACK TO STAFF",60,650,14,selection==4?Gold:White);HitArea(40,635,1200,45,4);TextAt("RECOVERY ADVANCES ON BYES TOO. NEW INJURIES START THEIR RECOVERY NEXT WEEK.",40,700,11,Muted);TextAt(Clip(franchise.Notice,96),40,738,10,Mint);}
+}
+}

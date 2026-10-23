@@ -4,7 +4,7 @@ A little arcade football game I'm working on. I wanted quick games, Madden-style
 
 ## Just want to play?
 
-**[Download here - Windows installer](https://github.com/dstaggs-15/downfieldftbl/raw/refs/heads/main/play%20me/Install%20Downfield.exe)**
+**[Download v2.4 - updated Windows installer](https://github.com/dstaggs-15/downfieldftbl/raw/refs/heads/main/play%20me/Install%20Downfield.exe)**
 
 Open it and click **INSTALL GAME** to put Downfield 2 on your desktop. The installer includes the game and needs no extra downloads. You need **64-bit Windows 10/11** with Windows' .NET Framework. The installer is unsigned.
 
@@ -14,15 +14,24 @@ There is also a [portable game EXE](https://github.com/dstaggs-15/downfieldftbl/
 
 ## New in this update
 
+- **Depth chart:** Pause > Depth Chart during games, or Franchise > Team > Roster > Depth Chart. Compare starters, healthy backups, ratings and injuries. Select a position to change its starter; in-game substitutions take effect at the next snap.
+- **Money and salary cap fixes:** rebalanced annual salaries leave room for backups. Every club gets broadcast income at home and away, with the same operating-cost rules. Bye/eliminated weeks no longer charge phantom game bills. Existing saves get a one-time contract rebalance, at least $40M cash, and shorter lingering injuries while keeping your career and roster.
+- **Hire medical staff:** Team > Staff + Training > Medical Staff. Choose Basic, an $8M club medic, $18M sports medical, or $32M elite care. Better care heals players faster, with $0–$2M running costs per played game. You can downgrade for free.
+- **Hard-mode injuries:** each player gets one serious-injury roll per game, at most two serious injuries per match. Normal hits cause 1–2 week absences; dangerous landings 2–3. Fitness reduces the risk. Big-hit animations remain.
+
 - **Bowling** is on the main menu. Start at the 10 with two plays to score. First-play TD is a strike, second-play TD is a spare. Ten frames, normal bowling bonuses, and a perfect 300. Play the CPU or take turns with a friend on the same controller.
 - The franchise office has **Team, League and Coach** sections now. Money and stadium prices are under Team. Signing, trading and the draft are together under Transfers.
 - **48 plays**, with 24 new arcade calls: flea flickers, reverses, Philly Special, HB/WR passes, fake gives, screens and wildcat.
 - Draw a play, name it, and **Save to Book**. Keep up to 40 custom calls, then select them from the playbook. Rename, edit or delete them under My Saved Plays. Route previews use the actual route logic.
 - All your QBs hurt? Pick any healthy roster player to take the snaps. He keeps his own name and number, and non-QBs are much worse at throwing.
-- **Aggressive catch meter:** press Y in the air, then Y again to stop it. The larger meter now makes one slow sweep and freezes on the second press, with a clear LOCKED result. Green catches every time, yellow is 75%, red is 4%. Leave it alone for a normal catch. Keyboard default is Y too.
+- **Aggressive catch meter:** hold Y while a forward pass is in the air, then release in the desired color. One press and one release; pressing again cannot retry. The green zone is smaller and the sweep is faster. You get **five uses per game**, shared across halves and drives; normal catches still work afterward. Green is 100%, yellow 75%, red 4%. Keyboard default is also Y; remapping works.
 - Change keyboard and controller bindings in **Options > Controls**, or Pause > Controls. Conflicting controls swap. Movement and skill sticks can swap too.
 - Trade across positions. The other club now checks value, age, potential, contracts, injuries, roster needs and both salary caps. Cash won't make up for a bad player offer.
 - Catch reaches, aggressive catch leaps, fake throws, celebrations and sideline clapping. **Three timeouts per half** are shown on the scoreboard and called from Pause.
+
+![Depth chart](docs/depth-chart-roster.png)
+
+![Medical staff](docs/medical-staff.png)
 
 ![Football Bowling](docs/bowling-scorecard.png)
 
@@ -96,7 +105,7 @@ The league has **12 teams**, including **New Orleans**. You play everyone once o
 | Truck | Right stick up |
 | Spin | Right stick down or B |
 | Jump once you're past the line | Y |
-| Aggressive catch in the air | Y to start the meter, Y again to stop |
+| Aggressive catch in the air | Hold Y, release in the color / 5 uses per game |
 | Dive | X |
 | Handoff / backward pitch | LB |
 | Playbook before the snap | Y |
@@ -178,3 +187,4 @@ This is single-player and offense-only right now. There's no playable defense, o
 The automated tests cover the game rules, league, saves, menus and the installer. That doesn't mean every controller or every possible play has been tested by a person. If something feels off, [open an issue](https://github.com/dstaggs-15/downfieldftbl/issues) and tell me what happened.
 
 The source, original artwork and generated effects are under the [MIT license](LICENSE.txt). Recorded crowds are CC0; their [creators and sources are here](audio/CREDITS.md). Retro Bowl is a separate game; its code and assets aren't included here.
+

@@ -1,4 +1,4 @@
-# Verification
+﻿# Verification
 
 **576 automated checks pass:** 42 simulation, 5 input, 11 legacy profile, 19 earlier-update regression, 96 franchise, 22 mechanics, 12 line-play, 50 beta, 39 audio, 16 designer, 33 arcade, 26 onside, 18 economy, 13 club-update, 14 personnel, 24 defensive-balance and 136 native-window UI.
 
@@ -35,3 +35,13 @@ Native UI:
 Installer and ZIP:
 
     powershell -ExecutionPolicy Bypass -File .\build-installer.ps1
+
+
+## v2.4 roster, economy, medical and catch-release verification
+
+Native simulation suite: 1714 checks with zero failures. Native UI: 216 checks with zero failures. New regression coverage includes one-time legacy-save repair, cap headroom, healthy starter selection, queued live substitutions, remapped hold/release input, exactly five catch activations across plays, no sixth activation, and normal catching after exhaustion. Timing is compared at 20, 60 and 144 FPS.
+
+A six-season 12-club probe completed every draft with all clubs solvent, rosters at most 30 and annual payroll at most $190M. Lowest observed cash was $2M after CPU investments; highest payroll was $190M. A separate existing eight-season development probe also passed. One thousand seeded hard-mode contact probes verify repeated hits cannot repeatedly roll serious injury on the same player. Medical tests cover all costs, persistence, denial when unaffordable, free downgrades, accelerated recovery and no instant healing on hire.
+
+Installer self-test checks embedded game extraction, desktop installation, repeated installation and save preservation. verify-release.ps1 checks the embedded payload against the production EXE, product version, normal-user manifests, allowed assembly dependencies and exclusion of test helpers. Physical Xbox hardware and extended human balance testing remain unverified.
+

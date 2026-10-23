@@ -5,7 +5,7 @@ namespace Downfield {
 static class Program {
     [STAThread] static int Main(string[] args){
 #if DOWNFIELD_TESTS
-        if(args.Length>0&&args[0]=="--test")return SimulationTests.Run()+InputTests()+ProfileTests.Run()+UpdateTests.Run()+FranchiseTests.Run()+MechanicsTests.Run()+LinePlayTests.Run()+BetaTests.Run()+AudioTests.Run()+DesignerTests.Run()+ArcadeTests.Run()+OnsideTests.Run()+EconomyTests.Run()+ClubUpdateTests.Run()+PersonnelTests.Run()+DefenseBalanceTests.Run()+LeagueDevelopmentTests.Run()+ExtremeTests.Run()+HardModeTests.Run()+PresentationUpdateTests.Run()+PlaybookUpdateTests.Run()+BowlingTests.Run()+CatchMeterTests.Run();
+        if(args.Length>0&&args[0]=="--test")return SimulationTests.Run()+InputTests()+ProfileTests.Run()+UpdateTests.Run()+FranchiseTests.Run()+MechanicsTests.Run()+LinePlayTests.Run()+BetaTests.Run()+AudioTests.Run()+DesignerTests.Run()+ArcadeTests.Run()+OnsideTests.Run()+EconomyTests.Run()+ClubUpdateTests.Run()+PersonnelTests.Run()+DefenseBalanceTests.Run()+LeagueDevelopmentTests.Run()+ExtremeTests.Run()+HardModeTests.Run()+PresentationUpdateTests.Run()+PlaybookUpdateTests.Run()+BowlingTests.Run()+CatchMeterTests.Run()+RosterEconomyFixTests.Run()+MedicalStaffTests.Run();
         if(args.Length>0&&args[0]=="--catch-test")return CatchMeterTests.Run();if(args.Length>0&&args[0]=="--playbook-test")return PlaybookUpdateTests.Run();if(args.Length>0&&args[0]=="--hard-test")return HardModeTests.Run();if(args.Length>0&&args[0]=="--balance-test")return DefenseBalanceTests.Run();
         if(args.Length>0&&args[0]=="--audio-smoke")return AudioTests.Smoke();
         if(args.Length>1&&args[0]=="--audio-preview"){AudioTests.Preview(args[1]);return 0;}
@@ -26,3 +26,4 @@ static class Program {
 #endif
 }
 }
+

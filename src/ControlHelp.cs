@@ -10,6 +10,7 @@ public partial class GameForm {
  {"THROW AWAY / DIRECT RECEIVER",controller?button(Input.RClick)+" / HOLD "+button(0x10000):key(17)+" / HOLD "+key(18)},
  {"JUMP / DIVE / SPIN",controller?button(Input.Y)+" / "+button(Input.X)+" / "+button(Input.B):key(21)+" / "+key(19)+" / "+key(20)},
  {"SKILLS / TRUCK UP / JUKE L-R",controller?input.Bindings.SwapSticks?"LEFT STICK":"RIGHT STICK":key(23)+" "+key(24)+" "+key(25)+" "+key(26)},
- {"AGGRESSIVE CATCH / PRESS TWICE",controller?button(Input.Y):key(22)}};for(int n=0;n<8;n++){float y=151+n*59;TextAt(rows[n,0],50,y,12,Muted);TextAt(rows[n,1],590,y,12,White);Line(50,y+38,1230,y+38,Muted,1);}TextAt("CATCH METER: GREEN 100% / YELLOW 75% / RED 4%",50,642,12,Mint);TextAt("THREE TIMEOUTS EACH HALF / PAUSE > TIMEOUT",50,680,12,Gold);TextAt("ENTER OR A BACK / CHANGE BINDINGS IN OPTIONS > CONTROLS",50,728,11,White);}
+ {"AGGRESSIVE CATCH / HOLD-RELEASE",controller?button(Input.Y):key(22)}};for(int n=0;n<8;n++){float y=151+n*59;TextAt(rows[n,0],50,y,12,Muted);TextAt(rows[n,1],590,y,12,White);Line(50,y+38,1230,y+38,Muted,1);}TextAt("5 USES PER GAME / GREEN 100% / YELLOW 75% / RED 4%",50,642,12,Mint);TextAt("THREE TIMEOUTS EACH HALF / PAUSE > TIMEOUT",50,680,12,Gold);TextAt("ENTER OR A BACK / CHANGE BINDINGS IN OPTIONS > CONTROLS",50,728,11,White);}
 }
 }
+

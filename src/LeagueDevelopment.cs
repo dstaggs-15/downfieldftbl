@@ -5,7 +5,7 @@ public class RetiredPlayer {public int Id,Team,Age,Season,OVR;public string Name
 public class DraftSelection {public int Pick,Round,Team,PlayerId,OVR;public string Name="",Role="";}
 public partial class Franchise {
  public int LeagueDevelopmentVersion;public bool DraftActive;public int DraftPick;
- public static int ContractSalary(int ovr){return 2+(ovr-65)/3+Math.Max(0,ovr-85)/2;}
+ public static int ContractSalary(int ovr){return 2+Math.Max(0,ovr-70)/4+Math.Max(0,ovr-85)/5;}
  public List<int> DraftOrder=new List<int>();
  public List<ClubPlayer> Prospects=new List<ClubPlayer>();
  public List<DraftSelection> DraftResults=new List<DraftSelection>();
@@ -24,7 +24,7 @@ public partial class Franchise {
  void CpuRecruit(int team,Random r){
   ClubBusiness bank=BusinessFor(team);LeagueTeam club=Teams[team];ClubPlayer best=null;float score=0;
   foreach(ClubPlayer p in FreeAgents()){int slot=WeakestSlot(team,p.Role);ClubPlayer old=Starter(team,slot);int gain=p.OVR-(old==null?65:old.OVR);float value=gain+(club.BuildPlan=="REBUILD"?(27-p.Age)*.8f:0);
-   if(gain<2||value<=score||bank.Cash<p.SigningCost+8||Payroll(team)+p.Salary>Cap)continue;
+   if(p.InjuryWeeks>0||gain<2||value<=score||bank.Cash<p.SigningCost+8||Payroll(team)+p.Salary>Cap)continue;
    if(Squad(team).Count>=MaxRoster&&!Squad(team).Exists(x=>x.Slot<0&&x.OVR<p.OVR))continue;
    best=p;score=value;
   }
@@ -37,10 +37,11 @@ public partial class Franchise {
   // Each club has its own money, coaching and players. No scaling to the user's roster.
   List<int> order=new List<int>();for(int t=0;t<12;t++)if(t!=UserTeam)order.Add(t);for(int n=order.Count-1;n>0;n--){int j=r.Next(n+1),tmp=order[n];order[n]=order[j];order[j]=tmp;}
   foreach(int team in order){Fixture g=Games.Find(x=>x.Round==Round&&x.Involves(team));if(g==null)continue;LeagueTeam club=Teams[team];ClubBusiness b=BusinessFor(team);bool win=g.Winner==team;
-   b.Cash=Math.Max(-20,Math.Min(100,b.Cash+(g.Home==team?17:10)+(win?3:0)-7-Payroll(team)/26-(club.CoachOff+club.CoachDef+club.CoachFit)/2));
+   SettleClubAccount(g,team,g.Home==team?g.HomeScore:g.AwayScore,g.Home==team?g.AwayScore:g.HomeScore);
    b.Fans=Math.Max(20,Math.Min(95,b.Fans+(win?3:-3)));b.LossStreak=win?0:b.LossStreak+1;
    foreach(ClubPlayer p in Squad(team))if(p.InjuryWeeks==0){p.XP+=(p.Slot>=0?2:1)+(r.Next(4)<club.CoachFit?1:0);if(p.OVR<p.Potential)Develop(p);p.Morale=Math.Max(30,Math.Min(100,p.Morale+(win?2:-2)));}
    if(Round<9)CpuRecruit(team,r);BestLineup(team);
+   if(Round==4&&club.MedicalStaff<3&&b.Cash>=40){club.MedicalStaff++;b.Cash-=MedicalHireCost(club.MedicalStaff);}
    if(Round==4&&b.Cash>=22){int unit=r.Next(3);if(unit==0&&club.CoachOff<3){club.CoachOff++;b.Cash-=15;}else if(unit==1&&club.CoachDef<3){club.CoachDef++;b.Cash-=15;}else if(club.CoachFit<3){club.CoachFit++;b.Cash-=15;}}
   }
   if(Round==5)CpuTrade(r);
@@ -55,7 +56,7 @@ public partial class Franchise {
   }
  }}
  void PrepareLeagueOffseason(){EnsureLeagueDevelopment();Random r=new Random(Season*7927);List<Standing> table=Table();DraftOrder.Clear();for(int n=11;n>=0;n--)DraftOrder.Add(table[n].Team);Fixture final=Games.Find(g=>g.Round==13);if(final!=null){DraftOrder.Remove(final.Winner);DraftOrder.Add(final.Winner);}
-  foreach(LeagueTeam t in Teams)if(t.Id!=UserTeam){int rank=table.FindIndex(s=>s.Team==t.Id);t.BuildPlan=rank<4?"CONTEND":rank>=8?"REBUILD":"BALANCED";ClubBusiness b=BusinessFor(t.Id);b.Cash=Math.Min(95,b.Cash+32);
+  foreach(LeagueTeam t in Teams)if(t.Id!=UserTeam){int rank=table.FindIndex(s=>s.Team==t.Id);t.BuildPlan=rank<4?"CONTEND":rank>=8?"REBUILD":"BALANCED";ClubBusiness b=BusinessFor(t.Id);b.Cash+=24;
    if(rank>=8){t.CoachOff=r.Next(4);t.CoachDef=r.Next(4);t.CoachFit=r.Next(3);Log(t.Mascot+" reset their staff and are rebuilding.");}
    foreach(ClubPlayer p in Squad(t.Id))if(p.Years<=1&&p.OVR>=79&&p.Age<32&&b.Cash>=10&&Payroll(t.Id)-p.Salary+ContractSalary(p.OVR)<=Cap&&r.Next(100)<(t.BuildPlan=="CONTEND"?85:60)){b.Cash-=3+(p.OVR-70)/3;p.Salary=ContractSalary(p.OVR);p.Years+=2;}
   }
@@ -67,7 +68,7 @@ public partial class Franchise {
   }
  }
  void FillVacancies(){foreach(LeagueTeam team in Teams)for(int slot=0;slot<22;slot++)if(Starter(team.Id,slot)==null){List<ClubPlayer> reserves=Squad(team.Id).FindAll(reserve=>reserve.Role==Roles[slot]&&reserve.Slot<0);reserves.Sort((a,b)=>b.OVR.CompareTo(a.OVR));ClubPlayer p=reserves.Count>0?reserves[0]:Generate(new Random(Season*1171+team.Id*29+slot),Roles[slot],70,team.Id);if(reserves.Count==0)Players.Add(p);p.Slot=slot;}}
- void BeginDraft(){DraftActive=true;DraftPick=0;Prospects.Clear();DraftResults.Clear();Random r=new Random(Season*4613);string[] roles={"QB","RB","WR","TE","OL","DL","CB","LB","NB","S"};for(int n=0;n<60;n++){ClubPlayer p=Generate(r,roles[n%10],70+r.Next(19),-2);p.Age=20+r.Next(3);p.Years=3;p.Salary=3+(p.OVR-70)/4;p.Potential=Math.Min(99,p.OVR+7+r.Next(13));Prospects.Add(p);}Prospects.Sort((a,b)=>b.OVR.CompareTo(a.OVR));CpuDraftUntilUser();}
+ void BeginDraft(){DraftActive=true;DraftPick=0;Prospects.Clear();DraftResults.Clear();Random r=new Random(Season*4613);string[] roles={"QB","RB","WR","TE","OL","DL","CB","LB","NB","S"};for(int n=0;n<60;n++){ClubPlayer p=Generate(r,roles[n%10],70+r.Next(19),-2);p.Age=20+r.Next(3);p.Years=3;p.Salary=ContractSalary(p.OVR);p.Potential=Math.Min(99,p.OVR+7+r.Next(13));Prospects.Add(p);}Prospects.Sort((a,b)=>b.OVR.CompareTo(a.OVR));CpuDraftUntilUser();}
  public int DraftTeam {get{return DraftActive&&DraftPick<36?DraftOrder[DraftPick%12]:-1;}}
  public int DraftRound {get{return DraftPick/12+1;}}
  public bool CanDraft(ClubPlayer p,int team){if(p==null||!Prospects.Contains(p))return false;int pay=Payroll(team)+p.Salary;List<ClubPlayer> bench=Squad(team).FindAll(x=>x.Slot<0);foreach(ClubPlayer reserve in bench)pay-=reserve.Salary;return pay<=Cap&&(Squad(team).Count<MaxRoster||bench.Count>0);}
@@ -83,3 +84,4 @@ public partial class Franchise {
  public void AutoDraft(){int guard=0;while(DraftActive&&guard++<36){ClubPlayer p=BestProspect(DraftTeam);if(p==null)break;DraftOne(p);}Save();}
 }
 }
+

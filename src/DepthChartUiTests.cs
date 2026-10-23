@@ -1,0 +1,8 @@
+using System;
+using System.IO;
+using System.Windows.Forms;
+namespace Downfield {
+public static partial class UiTests {
+ static void DepthChartScreens(GameForm f,string evidence){Set(f,"matchFixture",-1);Franchise club=Franchise.Create(new Profile(),new Roster());Set(f,"franchise",club);Set(f,"screen","roster");Set(f,"selection",club.Squad(club.UserTeam).Count+1);Call(f,"ActivateSelection");Check((string)Get(f,"screen")=="depthchart","franchise roster opens depth chart");f.SavePreview(Path.Combine(evidence,"depth-chart-roster.png"));Set(f,"selection",1);Call(f,"ActivateSelection");Check((string)Get(f,"screen")=="depthpick","select role to compare starters and reserves");f.SavePreview(Path.Combine(evidence,"depth-chart-choose.png"));Tap(f,Keys.Escape);Tap(f,Keys.Escape);Check((string)Get(f,"screen")=="roster","depth back returns to franchise roster");Call(f,"StartPractice");Simulation game=(Simulation)Get(f,"game");Set(f,"screen","pause");Set(f,"selection",10);Call(f,"ActivateSelection");Check((string)Get(f,"screen")=="depthchart","pause opens live roster depth chart");f.SavePreview(Path.Combine(evidence,"depth-chart-pause.png"));Set(f,"selection",1);Call(f,"ActivateSelection");var candidates=club.Squad(club.UserTeam).FindAll(p=>p.Role=="RB");candidates.Sort((a,b)=>b.OVR.CompareTo(a.OVR));var reserve=candidates.Find(p=>p.Slot<0);Set(f,"selection",candidates.IndexOf(reserve));Call(f,"ActivateSelection");Check(club.Starter(club.UserTeam,1).Id==reserve.Id,"pause chart promotes reserve through menu");Tap(f,Keys.Escape);Check((string)Get(f,"screen")=="pause","depth back returns to pause");Tap(f,Keys.Escape);Check(game.Players[1].ClubId==reserve.Id,"resuming before snap applies substitution");Set(f,"matchFixture",-1);Set(f,"screen","home");}
+}
+}

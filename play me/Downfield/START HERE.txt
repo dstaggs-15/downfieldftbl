@@ -115,3 +115,9 @@ Three timeouts per half, shown on the scoreboard. Pause > Timeout calls one.
 When all QBs are hurt, choose any healthy roster player as emergency QB.
 Bowling: ten frames from the opponent ten, two plays per frame, strikes/spares.
 Play the CPU or share the controls with a friend. Perfect bowling score is 300.
+
+V2.4 UPDATE
+Depth chart: Pause > Depth Chart, or Franchise > Team > Roster > Depth Chart.
+Medical staff: Team > Staff + Training > Medical Staff.
+Catch meter: HOLD Y in flight, RELEASE in the color. Five uses per game.
+Annual salaries and game finances are rebalanced. Existing saves receive a one-time cash/cap repair; keep your career.
